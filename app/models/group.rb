@@ -1,6 +1,9 @@
 class Group < ApplicationRecord
-  belongs_to :user
+  has_many :group_members
   has_many :users, through: :group_members
+  has_many :events
+  has_many :proposals
+  belongs_to :user
 
   validates :name, presence: true
 end
