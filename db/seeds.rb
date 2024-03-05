@@ -69,3 +69,5 @@ Activity.destroy_all
 ])
 
 puts "generated activities"
+
+User.create(first_name: "Akash", last_name: "Zaveri", email: "akazaveri@gmail.com", password: "password")

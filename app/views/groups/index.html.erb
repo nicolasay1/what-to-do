@@ -1,29 +1,70 @@
-<div class="container">
+<div class="container p-5">
+
+
+ 
   <% if @groups.empty? %>
-    <h2> You're not part of any group 🥺 </h2>
-    <p>  Don't be alone.. Why not create your group and invite friends?! </p>
+<h2> You're not part of any group </h2>
+
+ 
   <% else %>
-    <h2> Here are your groups; </h2>
-    <ul>
-      <% @groups.each do |group| %>
-        <li><%= link_to group.name, group_path(group) %></li>
-        <p>
-        <ul>
-          <% group.group_members.each do |member| %>
-            <% if member.user != current_user %>
-              <li><%= member.user.email %></li>
-            <% end %>
-          <% end %>
-       </ul>
-        </p>
-      <% end %>
-    </ul>
+
+ 
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+ 
+      <h2>My groups</h2>
+
+ 
+      <%= link_to "New +", new_group_path,  class: "btn btn-sm btn-outline-secondary"  %>
+
+ 
+    </div>
+ 
+    <%= render 'shared/group_card', groups: @groups %>
+
+ 
   <% end %>
 
-
-
-
-  <h4> Create a new group </h4>
-
-  <%= link_to "Create a group", new_group_path, class:"btn btn-primary"%>
 </div>
+
+ 
+    <ul>
+
+ 
+      <% @groups.each do |group| %>
+
+ 
+        <li><%= link_to group.name, group_path(group) %></li>
+
+ 
+        <p>
+
+ 
+        <ul>
+
+ 
+          <% group.group_members.each do |member| %>
+
+ 
+            <% if member.user != current_user %>
+
+ 
+              <li><%= member.user.email %></li>
+
+ 
+            <% end %>
+
+ 
+          <% end %>
+
+ 
+       </ul>
+
+ 
+        </p>
+
+ 
+      <% end %>
+
+ 
+    </ul>
