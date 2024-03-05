@@ -26,5 +26,6 @@ Rails.application.routes.draw do
 
   resources :groups do
     resources :group_members, only: [:new, :create, :destroy]
+    resources :invite_links, only: [:show]
   end
 end
