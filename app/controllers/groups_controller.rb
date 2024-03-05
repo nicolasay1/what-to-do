@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
 
   def index
     #Index of groups that the current_user belongs to
-    @groups = Group.all
+    @groups = current_user.groups
   end
 
   def show
