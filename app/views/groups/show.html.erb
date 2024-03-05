@@ -1,0 +1,37 @@
+<div class="container">
+
+<h1> Name: <%= @group.name %>
+<h2> Description: <%= @group.description %> </h2>
+<h3> Created by: <%= @group.user.email %> </h3>
+<h3> Created on: <%= @group.created_at %> </h3>
+
+<h2> Group members </h2>
+<% @members.each do |member| %>
+<li> <%= member.user.email %> </li>
+<% end%>
+
+<h2> Add member to group </h2>
+<% User.all.each do |user| %>
+<li> <%= user.email %> </li>
+<% end %>
+
+
+
+SEARCH BY EMAIL
+
+<div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: group_path(@group), method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "type an email"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<button id="addButton">Add User</button>
+
+</div>
