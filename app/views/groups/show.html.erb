@@ -11,27 +11,13 @@
 <% end%>
 
 <h2> Add member to group </h2>
-<% User.all.each do |user| %>
-<li> <%= user.email %> </li>
+  <% User.all.each do |user| %>
+    <li>
+      <%= user.email %>
+      <button data-controller="add-member" data-action="click->add-member#add"> Add User </button>
+    </li>
 <% end %>
 
+<h2>Delete Group </h2>
 
-
-SEARCH BY EMAIL
-
-<div class="row justify-content-center">
-  <div class="col-sm-8 my-3">
-    <%= form_with url: group_path(@group), method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "type an email"
-        %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-</div>
-
-<button id="addButton">Add User</button>
-
-</div>
+<%= link_to "Delete Group", group_path, data: { "turbo-method": :delete } %>

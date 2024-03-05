@@ -2,13 +2,12 @@ class GroupsController < ApplicationController
 
   def index
     #Index of groups that the current_user belongs to
-    @groups = Group.where(user: current_user)
+    @groups = Group.all
   end
 
   def show
     @group = Group.find(params[:id])
     @members = GroupMember.where(group: Group.find(params[:id]))
-    # @user = User.where("email = ?", params[:query]).first
   end
 
   def new
@@ -41,11 +40,11 @@ class GroupsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    if @post.destroy
+    @group = Group.find(params[:id])
+    if @group.destroy
       redirect_to groups_path
     else
-      render :new, status: :unprocessable_entity
+      render :destroy, status: :unprocessable_entity
     end
   end
 
