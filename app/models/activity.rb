@@ -1,5 +1,5 @@
 class Activity < ApplicationRecord
-  has_many :users, through: :saves
-  has_many :groups, through: :events
-  has_many :groups, through: :proposals
+  has_many :events
+  has_many :proposals
+  has_many :saves
 end
