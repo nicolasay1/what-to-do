@@ -10,13 +10,21 @@
 <li> <%= member.user.email %> </li>
 <% end%>
 
-<h2> Add member to group </h2>
-  <% User.all.each do |user| %>
-    <li>
+<div>
+
+  <h2> Add member to group </h2>
+    <% User.all.each do |user| %>
+
+      <li>
       <%= user.email %>
-      <button data-controller="add-member" data-action="click->add-member#add"> Add User </button>
+      <button data-controller="add-member" data-action="click->add-member#add"
+              data-user-id="<%= user.id %>" data-group-id="<%= @group.id %>"> Add User </button>
     </li>
-<% end %>
+
+
+  <% end %>
+
+</div>
 
 <h2>Delete Group </h2>
 
