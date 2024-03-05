@@ -12,6 +12,10 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  devise_scope :user do
+    get 'profile', to: 'users/sessions#show'
+  end
+
   resources :activities, only: [:index, :show] do
     resources :saves
   end
