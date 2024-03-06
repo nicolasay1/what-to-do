@@ -1,12 +1,16 @@
 <div class="container" data-controller="activity" data-activity-token-value="<%= form_authenticity_token %>">
   <% @activities.each_with_index do |activity, index| %>
-    <div class="card" data-activity-target="card" data-index="<%= index %>" data-activity-id="<%= activity.id%>">
-      <div class="card-body">
-        <h5 class="card-title"><%= activity.title %></h5>
-        <p class="card-text"><%= activity.description %></p>
+    <div class="card browse mt-5" data-activity-target="card" data-index="<%= index %>" data-activity-id="<%= activity.id %>">
+      <%= link_to activity_path(activity), class: "card-link" do %>
+        <div class="card-body">
+          <h5 class="card-title"><%= activity.title %></h5>
+          <p class="card-text"><%= activity.description %></p>
+        </div>
+      <% end %>
+      <div class="card-footer">
         <div class="d-flex justify-content-between">
-          <button type="button" class="btn btn-danger" data-action="click->activity#discard">Discard</button>
-          <button type="button" class="btn btn-success" data-action="click->activity#save">Save</button>
+          <button type="button" class="button-discard" data-action="click->activity#discard">Discard</button>
+          <button type="button" class="button-save" data-action="click->activity#save">Save</button>
         </div>
       </div>
     </div>

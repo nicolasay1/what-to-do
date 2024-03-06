@@ -59,6 +59,10 @@ export default class extends Controller {
   discard(event) {
     const index = parseInt(event.currentTarget.closest(".card").dataset.index)
     console.log(`Discarded activity at index ${index}`)
-    this.showCard(index + 1)
+    if (index < this.cardTargets.length - 1) {
+      this.showCard(index + 1)
+    } else {
+      this.hideAllCards()
+    }
   }
 }
