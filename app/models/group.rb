@@ -9,7 +9,4 @@ class Group < ApplicationRecord
 
   has_secure_token :invite_token
 
-  def to_param
-    invite_token
-  end
 end

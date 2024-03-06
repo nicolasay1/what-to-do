@@ -7,18 +7,18 @@ class MembershipsController < ApplicationController
       @user = Membership.new
       if params[:query].present?
         users = User.all
-      else
+      elsif params[:invite_token].present?
         # MEMBERSHIP INVITE LINK
         create
       end
     else
-      redirect_to new_user_registration_path(invite_token: params[:group_invite_token])
+      redirect_to new_user_registration_path(invite_token: params[:invite_token]) if params[:invite_token].present?
     end
   end
 
   def create
-    if params[:group_invite_token].present?
-      @group = Group.find_by_invite_token(params[:group_invite_token])
+    if params[:invite_token].present?
+      @group = Group.find_by_invite_token(params[:invite_token])
       Membership.where(group: @group, user: current_user).first_or_create
       redirect_to group_path(@group)
     else
@@ -56,5 +56,4 @@ class MembershipsController < ApplicationController
   def membership_params
     params.require(:membership).permit(:group, :group_id, :user_id, :admin)
   end
-
 end
