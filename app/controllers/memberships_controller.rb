@@ -34,7 +34,12 @@ class MembershipsController < ApplicationController
 
   def destroy
     @member = Membership.find_by(membership_params)
-    if @member.destroy
+    if current_user == @member.user
+      if @member.destroy
+      redirect_to groups_path
+      flash[:notice] = "You've been removed from the group"
+      end
+    elsif @member.destroy
       redirect_to group_path(@group)
       flash[:notice] = "Member removed successfully"
     else
