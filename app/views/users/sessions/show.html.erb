@@ -7,16 +7,20 @@
     <%= link_to "", edit_user_registration_path, class: "fa-regular fa-pen-to-square btn btn-sm" %>
   </div>
   <div class="d-flex mb-4">
-    <h2>My bookings</h2>
+    <h2 class="m-0">My bookings</h2>
   </div>
   <div class="d-flex flex-column mb-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
-      <h2>My groups</h2>
+      <h2 class="m-0">My groups</h2>
       <%= link_to "See all", groups_path, class: "btn btn-sm btn-outline-secondary"  %>
     </div>
     <%= render 'shared/group_card', groups: @groups %>
   </div>
-  <div class="d-flex mb-4">
-    <h2>My saves</h2>
+  <div class="d-flex flex-column mb-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="m-0">My saves</h2>
+      <%= link_to "See all", saves_path, class: "btn btn-sm btn-outline-secondary"  %>
+    </div>
+    <%= render 'shared/saves', saves: @saves %>
   </div>
 </div>
