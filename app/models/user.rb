@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :saves, class_name: :Save
   has_many :activities, through: :saves
-  has_many :memberships
+  has_many :memberships, dependent: :destroy
   has_many :groups, through: :memberships
   has_many :created_groups, class_name: 'group'
   has_many :attendances
