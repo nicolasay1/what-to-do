@@ -9,13 +9,8 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
-<<<<<<< HEAD
     @members = @group.users
     @invite_link = "#{request.original_url}/memberships/new?invite_token=#{@group.invite_token}"
-=======
-    @members = Membership.where(group: Group.find(params[:id]))
-
->>>>>>> 28a4c6d7b3cb0f98cb10cac93eb8dca05ab446c0
   end
 
   def new
