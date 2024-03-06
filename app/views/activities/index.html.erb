@@ -1,21 +1,14 @@
-<%# <% @activities.each do |activity| %>
-  <%#= activity.title %>
-<%# end %>
-
-<%# <div data-controller="activity">
-  <%#= @random_activity.title %>
-<%# </div> %>
-
-<div class="container" data-controller="activity">
-  <div class="card">
-    <%= @random_activity.title %>
-    <div class="d-flex justify-content-between">
-      <div class="btn btn-danger" data-action="click->activity#discard">
-        Not interested
-      </div>
-      <div class="btn btn-success" data-action="click->activity#save">
-        Save
+<div class="container" data-controller="activity" data-activity-token-value="<%= form_authenticity_token %>">
+  <% @activities.each_with_index do |activity, index| %>
+    <div class="card" data-activity-target="card" data-index="<%= index %>" data-activity-id="<%= activity.id%>">
+      <div class="card-body">
+        <h5 class="card-title"><%= activity.title %></h5>
+        <p class="card-text"><%= activity.description %></p>
+        <div class="d-flex justify-content-between">
+          <button type="button" class="btn btn-danger" data-action="click->activity#discard">Discard</button>
+          <button type="button" class="btn btn-success" data-action="click->activity#save">Save</button>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 </div>
