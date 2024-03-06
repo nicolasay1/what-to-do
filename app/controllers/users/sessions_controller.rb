@@ -27,5 +27,6 @@ class Users::SessionsController < Devise::SessionsController
 
   def show
     @groups = Group.where(user: current_user).last(2)
+    @saves = Save.where(user: current_user).last(5)
   end
 end

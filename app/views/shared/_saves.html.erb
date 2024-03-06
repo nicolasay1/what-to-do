@@ -1,0 +1,11 @@
+<div class="row d-flex justify-content-right m-0 gap-4">
+  <% saves.each do |save| %>
+    <%= link_to activity_path(save.activity), class: "text-decoration-none text-dark save-card" do %>
+      <h4 class="p-0 m-0"><%= save.activity.title %></h4>
+      <div class="details d-flex gap-4 align-items-center mt-2">
+        <p class="m-0"><i class="fa-solid fa-location-dot me-1"></i><%= save.activity.address %></p>
+        <p class="m-0"><i class="fa-solid fa-person-running me-1"></i><%= save.activity.tags.split[1].gsub(",", "").capitalize %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
