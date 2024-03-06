@@ -14,49 +14,6 @@
 
     <%= render 'shared/group_card', groups: @groups %>
 
-
   <% end %>
 
 </div>
-
-
-    <ul>
-
-
-      <% @groups.each do |group| %>
-
-
-        <li><%= link_to group.name, group_path(group) %></li>
-
-
-        <p>
-
-
-        <ul>
-
-
-          <% group.memberships.each do |member| %>
-
-
-            <% if member.user != current_user %>
-
-
-              <li><%= member.user.email %></li>
-
-
-            <% end %>
-
-
-          <% end %>
-
-
-       </ul>
-
-
-        </p>
-
-
-      <% end %>
-
-
-    </ul>
