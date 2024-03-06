@@ -60,6 +60,7 @@ class GroupsController < ApplicationController
     @member = Membership.new
     @member.group = @group
     @member.user = current_user
+    @member.admin = true
     @member.save
   end
 
