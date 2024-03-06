@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_05_140305) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_06_103728) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,15 +48,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_05_140305) do
     t.index ["group_id"], name: "index_events_on_group_id"
   end
 
-  create_table "group_members", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "group_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["group_id"], name: "index_group_members_on_group_id"
-    t.index ["user_id"], name: "index_group_members_on_user_id"
-  end
-
   create_table "groups", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -74,6 +65,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_05_140305) do
     t.datetime "updated_at", null: false
     t.index ["proposal_id"], name: "index_likes_on_proposal_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "group_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_memberships_on_group_id"
+    t.index ["user_id"], name: "index_memberships_on_user_id"
   end
 
   create_table "proposals", force: :cascade do |t|
@@ -112,11 +112,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_05_140305) do
   add_foreign_key "attendances", "users"
   add_foreign_key "events", "activities"
   add_foreign_key "events", "groups"
-  add_foreign_key "group_members", "groups"
-  add_foreign_key "group_members", "users"
   add_foreign_key "groups", "users"
   add_foreign_key "likes", "proposals"
   add_foreign_key "likes", "users"
+  add_foreign_key "memberships", "groups"
+  add_foreign_key "memberships", "users"
   add_foreign_key "proposals", "activities"
   add_foreign_key "proposals", "groups"
   add_foreign_key "saves", "activities"

@@ -2,12 +2,12 @@ class GroupsController < ApplicationController
 
   def index
     #Index of groups that the current_user belongs to
-    @groups = current_user.groups
+    @groups = current_user.memberships
   end
 
   def show
     @group = Group.find(params[:id])
-    @members = GroupMember.where(group: Group.find(params[:id]))
+    @members = Membership.where(group: Group.find(params[:id]))
   end
 
   def new
@@ -55,7 +55,7 @@ class GroupsController < ApplicationController
   end
 
   def add_to_group_member
-    @member = GroupMember.new
+    @member = Membership.new
     @member.group = @group
     @member.user = current_user
     @member.save
