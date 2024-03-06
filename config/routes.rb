@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
-  devise_for :users
+  devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
 
   devise_scope :user do
     get 'profile', to: 'users/sessions#show'
@@ -28,7 +28,12 @@ Rails.application.routes.draw do
     resources :attendances, only: [:create]
   end
 
-  resources :groups do
-    resources :memberships, only: [:new, :create, :destroy]
+  resources :groups, except: :show do
+    # resources :memberships, only: [:new, :create, :destroy]
+  end
+
+  resources :groups, param: :invite_token, only: :show do
+    resources :memberships, only: [:new, :create]
+    resources :invite_link, only: [ :show ]
   end
 end

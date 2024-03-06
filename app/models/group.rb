@@ -6,4 +6,10 @@ class Group < ApplicationRecord
   belongs_to :user
 
   validates :name, presence: true
+
+  has_secure_token :invite_token
+
+  def to_param
+    invite_token
+  end
 end

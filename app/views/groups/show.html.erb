@@ -7,7 +7,7 @@
 
 <h2> Group members </h2>
 <% @members.each do |member| %>
-<li> <%= member.user.email %> </li>
+<li> <%= member.email %> </li>
 <% end%>
 
 <div>
@@ -31,4 +31,4 @@
 
 <h2>Delete Group </h2>
 
-<%= link_to "Delete Group", group_path, data: { "turbo-method": :delete } %>
+<%= link_to "Delete Group", group_path(@group), data: { "turbo-method": :delete } %>

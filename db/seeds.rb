@@ -9,6 +9,8 @@
 #   end
 
 Activity.destroy_all
+Group.destroy_all
+User.destroy_all
 
   activities = Activity.create!([
     {
@@ -70,4 +72,9 @@ Activity.destroy_all
 
 puts "generated activities"
 
-User.create(first_name: "Akash", last_name: "Zaveri", email: "akazaveri@gmail.com", password: "password")
+user1 = User.create(first_name: "Akash", last_name: "Zaveri", email: "akazaveri@gmail.com", password: "password")
+user2 = User.create(first_name: "Andy", last_name: "Tutton", email: "andytutton2@gmail.com", password: "password")
+
+Group.create(name: "Sports", description: "Lots of sports", user: user2)
+
+puts "g user and group"

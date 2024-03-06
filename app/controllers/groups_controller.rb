@@ -6,8 +6,8 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @group = Group.find(params[:id])
-    @members = Membership.where(group: Group.find(params[:id]))
+    @group = Group.find_by(invite_token: params[:invite_token])
+    @members = @group.users
   end
 
   def new
