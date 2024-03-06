@@ -7,28 +7,12 @@
 
 <h2> Group members </h2>
 <% @members.each do |member| %>
-<li> <%= member.user.email %> </li>
+  <li> <%= member.user.email %> </li>
 <% end%>
 
-<div>
-
-  <h2> Add member to group </h2>
-    <% User.all.each do |user| %>
-
-      <li>
-      <%= user.email %>
-      <button data-controller="add-member" data-action="click->add-member#add"
-              data-user-id="<%= user.id %>" data-group-id="<%= @group.id %>"> Add User </button>
-    </li>
-
-
-  <% end %>
-
-</div>
 
 <h2>Add Member to Group </h2>
-<%= link_to "ADD MEMBER", new_group_membership_path(@group) %>
+<%= link_to "Add member to group", new_group_membership_path(@group) %>
 
 <h2>Delete Group </h2>
-
 <%= link_to "Delete Group", group_path, data: { "turbo-method": :delete } %>

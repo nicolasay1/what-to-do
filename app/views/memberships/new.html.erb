@@ -16,12 +16,15 @@
 
 <div class="row justify-content-center">
 
+<% if params[:query] %>
   <% if @user_to_add %>
-    <%= @user_to_add.email %>
-    <button>Add Member</button>
+    We have found one user with that email: <%= @user_to_add.email %>
+  <%= link_to "Add Member", group_memberships_path(@group, membership: { user_id: @user_to_add, group_id: @group }), data: { turbo_method: "post" } %>
+
   <% else %>
     <%= "Send an email to #{params[:query]} "%>
   <% end %>
+<% end %>
 
 
 </div>
