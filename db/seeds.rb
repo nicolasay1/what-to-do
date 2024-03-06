@@ -71,3 +71,5 @@ Activity.destroy_all
 puts "generated activities"
 
 User.create(first_name: "Akash", last_name: "Zaveri", email: "akazaveri@gmail.com", password: "password")
+User.create(first_name: "Jacek", last_name: "Bastin", email: "jacek@gmail.com", password: "password")
+User.create(first_name: "Nicolas", last_name: "Ayoub", email: "nicolas@gmail.com", password: "password")
