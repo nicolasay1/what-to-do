@@ -10,6 +10,8 @@
                 required: false,
                 input_html: { autocomplete: "current-password" } %>
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    <%= f.hidden_field :invite_token, value: @group.invite_token if @group %>
+
   </div>
 
   <div class="form-actions">
