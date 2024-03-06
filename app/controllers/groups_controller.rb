@@ -2,7 +2,9 @@ class GroupsController < ApplicationController
 
   def index
     #Index of groups that the current_user belongs to
-    @groups = current_user.memberships
+    user_groups = current_user.memberships
+    @groups = user_groups.map(&:group)
+
   end
 
   def show
@@ -58,6 +60,7 @@ class GroupsController < ApplicationController
     @member = Membership.new
     @member.group = @group
     @member.user = current_user
+    @member.admin = true
     @member.save
   end
 
