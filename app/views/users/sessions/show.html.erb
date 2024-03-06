@@ -1,7 +1,10 @@
 <div class="container p-5">
-  <div class="d-flex align-items-center pb-4 border-bottom border-3 mb-4">
-    <%= image_tag('user.png', class: "avatar") %>
-    <h1 class="m-0 ms-3"><%= current_user.first_name %> <%= current_user.last_name %></h1>
+  <div class="d-flex align-items-center justify-content-between pb-4 border-bottom border-3 mb-4">
+    <div class="d-flex align-items-center">
+      <%= image_tag('user.png', class: "avatar") %>
+      <h1 class="m-0 ms-3"><%= current_user.first_name %> <%= current_user.last_name %></h1>
+    </div>
+    <%= link_to "", edit_user_registration_path, class: "fa-regular fa-pen-to-square btn btn-sm" %>
   </div>
   <div class="d-flex mb-4">
     <h2>My bookings</h2>
