@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     get 'profile', to: 'users/sessions#show'
   end
 
+  get 'activities/:id/share', to: 'activities#share', as: :share
+
   resources :activities, only: [:index, :show] do
     resources :saves
   end
