@@ -2,7 +2,10 @@
   <div class="pb-2 border-bottom border-2 mb-4">
     <h1>Select groups</h1>
   </div>
-  <div>
-    <%= render 'shared/group_share_card', groups: @groups %>
+  <div data-controller="share">
+    <div class="mb-4">
+      <%= render 'shared/group_share_card', groups: @groups %>
+    </div>
+    <%= link_to "Share", share_path(@activity), class: "btn btn-outline-secondary w-100"  %>
   </div>
 </div>
