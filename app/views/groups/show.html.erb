@@ -6,8 +6,13 @@
   <h4> Created on: <%= @group.created_at %> </h4>
 
   <h2> Group members </h2>
+
   <% @members.each do |member| %>
     <li> <%= member.user.email %> </li>
+    <%= link_to 'Remove Member', group_membership_path(@group, membership: {group: @group, user_id: member.user}),
+    data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}
+    %>
+
   <% end%>
 
 
