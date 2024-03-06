@@ -1,6 +1,7 @@
 class ActivitiesController < ApplicationController
   def index
     @activities = Activity.all
+    @random_activity = Activity.order("RANDOM()").first
   end
 
   def show
