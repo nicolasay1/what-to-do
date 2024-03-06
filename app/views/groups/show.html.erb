@@ -1,20 +1,39 @@
 <div class="container">
 
-  <h1> Name: <%= @group.name %>
-  <h4> Description: <%= @group.description %> </h4>
-  <h4> Created by: <%= @group.user.email %> </h4>
-  <h4> Created on: <%= @group.created_at %> </h4>
+  <div class="row">
+    <div class="col">
+
+      <h1> <%= @group.name %> </h1>
+      <p> Created on: <%= @group.created_at %> by: <%= @group.user.email %></p>
+
+      <h5> <%= @members.count %> members <h5>
+
+
+      <h5> <% @members.each do |member| %>
+          <%= member.user.email %> TO REPLACE WITH AVATARS
+          <% end %>
+      </h5>
+    </div>
+    <div class="col">
+        <% if current_user.memberships.find_by(group: @group, admin: true) %>
+          <%= link_to "Add to Group", new_group_membership_path(@group), class: "btn btn-primary" %>
+          <%= link_to "Delete Group", group_path, data: { "turbo-method": :delete }, class: "btn btn-danger text-white"%>
+        <% end %>
+
+    </div>
+  </div>
+
 
   <h2> Group members </h2>
+
   <% @members.each do |member| %>
-    <li> <%= member.user.email %> </li>
+    <li> <%= member.user.email %>
+    <% if current_user.memberships.find_by(group: @group, admin: true) %>
+      <%= link_to 'X', group_membership_path(@group, membership: {group: @group, user_id: member.user}),data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "btn btn-danger"%>
+    <% end %>
+    </li>
+
   <% end%>
 
-
-  <h2>Add Member to Group </h2>
-  <%= link_to "Add member to group", new_group_membership_path(@group) %>
-
-  <h2>Delete Group </h2>
-  <%= link_to "Delete Group", group_path, data: { "turbo-method": :delete } %>
 
 <div>

@@ -21,6 +21,13 @@ class MembershipsController < ApplicationController
   end
 
   def destroy
+    @member = Membership.find_by(membership_params)
+    if @member.destroy
+      redirect_to group_path(@group)
+      flash[:notice] = "Member removed successfully"
+    else
+      render :destroy, status: :unprocessable_entity
+    end
   end
 
   private
@@ -35,7 +42,7 @@ class MembershipsController < ApplicationController
   end
 
   def membership_params
-    params.require(:membership).permit(:group_id, :user_id)
+    params.require(:membership).permit(:group, :group_id, :user_id, :admin)
   end
 
 end

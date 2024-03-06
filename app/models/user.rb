@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :saves
+  has_many :saves, class_name: :Save
   has_many :activities, through: :saves
   has_many :memberships
   has_many :groups, through: :memberships
