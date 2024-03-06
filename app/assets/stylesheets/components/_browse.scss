@@ -1,0 +1,40 @@
+.browse {
+  border-radius: 10px;
+  border: 3px solid rgba(27, 31, 35, 0.15);
+
+  &:hover {
+    outline: 1px solid rgb(255, 0, 170);
+  }
+}
+
+.card-footer {
+  background-color: #e3e3e3;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.button-save {
+  border-radius: 5px;
+  background-color: #809612;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    outline: 1px solid rgb(255, 0, 170);
+  }
+}
+
+.button-discard {
+  border-radius: 5px;
+  background-color: #a8191c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    outline: 1px solid rgb(255, 0, 170);
+  }
+}
