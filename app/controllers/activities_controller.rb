@@ -1,7 +1,7 @@
 class ActivitiesController < ApplicationController
   def index
     @activities = Activity.all.filter do |activity|
-      current_user.saves.where(activity_id: activity.id).length == 0
+      current_user.saves.where(activity_id: activity.id).empty?
     end
   end
 
