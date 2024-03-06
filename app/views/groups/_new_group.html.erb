@@ -16,13 +16,12 @@
         <%= simple_form_for @group do |f| %>
         <%= f.input :name, label: "What's the name of your group?", error: 'A name is mandatory, please specify one' %>
         <%= f.input :description, label: "How would you describe your group?", hint: 'Be fun' %>
+
+      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
         <%= f.button :submit, class:"btn btn-secondary" %>
         <% end %>
-      </div>
-
-
       </div>
     </div>
   </div>

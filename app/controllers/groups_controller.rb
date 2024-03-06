@@ -24,6 +24,7 @@ class GroupsController < ApplicationController
 
     if @group.save
       add_to_group_member
+      flash[:notice] = "Group created successfully 🎉!"
       redirect_to group_path(@group)
     else
       render :new, status: :unprocessable_entity
