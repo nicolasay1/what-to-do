@@ -6,4 +6,7 @@ class Group < ApplicationRecord
   belongs_to :user
 
   validates :name, presence: true
+
+  has_secure_token :invite_token
+
 end
