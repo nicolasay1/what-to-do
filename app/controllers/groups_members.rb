@@ -1,3 +1,0 @@
-class GroupMembersController < ApplicationController
-
-end

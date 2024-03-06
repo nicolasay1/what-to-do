@@ -26,6 +26,9 @@
 
 </div>
 
+<h2>Add Member to Group </h2>
+<%= link_to "ADD MEMBER", new_group_membership_path(@group) %>
+
 <h2>Delete Group </h2>
 
 <%= link_to "Delete Group", group_path, data: { "turbo-method": :delete } %>

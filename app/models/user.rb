@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   has_many :saves
   has_many :activities, through: :saves
-  has_many :group_members
-  has_many :groups, through: :group_members
+  has_many :memberships
+  has_many :groups, through: :memberships
   has_many :created_groups, class_name: 'group'
   has_many :attendances
   has_many :likes
