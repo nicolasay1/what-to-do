@@ -19,6 +19,10 @@ class Users::SessionsController < Devise::SessionsController
     end
   end
 
+  def show
+    @groups = Group.where(user: current_user).last(2)
+    @saves = Save.where(user: current_user).last(5)
+  end
   # DELETE /resource/sign_out
   # def destroy
   #   super

@@ -19,6 +19,7 @@
       </h5>
     </div>
     <div class="col">
+        <%= link_to 'Leave Group', group_membership_path(@group, membership: {group: @group, user_id: current_user}),data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "btn btn-danger"%>
         <% if current_user.memberships.find_by(group: @group, admin: true) %>
           <%= link_to "Add to Group", new_group_membership_path(@group), class: "btn btn-primary" %>
           <%= link_to "Delete Group", group_path(@group), data: { "turbo-method": :delete }, class: "btn btn-danger text-white"%>
