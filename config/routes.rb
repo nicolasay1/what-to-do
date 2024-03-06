@@ -19,8 +19,9 @@ Rails.application.routes.draw do
   get 'activities/:id/share', to: 'activities#share', as: :share
 
   resources :activities, only: [:index, :show] do
-    resources :saves
   end
+
+  resources :saves, only: [:index, :create, :delete]
 
   resources :proposals, only: [:new, :create] do
     resources :likes, only: [:create]
