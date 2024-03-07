@@ -6,6 +6,9 @@ class ProposalsController < ApplicationController
 
   def show
     @proposal = Proposal.find(params[:id])
+    @like = Like.where(proposal_id: @proposal.id, user_id: current_user.id).first
+    @interested = Like.where(proposal_id: @proposal.id, liked: true)
+    @disinterested = Like.where(proposal_id: @proposal.id, liked: false)
   end
 
   def create
