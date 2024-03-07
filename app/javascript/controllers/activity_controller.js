@@ -22,6 +22,7 @@ export default class extends Controller {
       this.hideAllCards()
       this.showCard()
     }
+    this.threshold = window.screen.width * 0.35
   }
 
   hideAllCards() {
@@ -102,22 +103,22 @@ export default class extends Controller {
     card.style.transform = `translate(-${this.cardPressX}px, -${this.cardPressY}px) ${this.rotateValue} ${this.scaleValue}`;
     const xOffset = card.getBoundingClientRect().left + (this.cardWidth / 2) - this.startX;
     if (xOffset > 0) {
-      if (xOffset >= 200) {
+      if (xOffset >= (this.threshold)) {
         this.saveboxTarget.classList.add('ready-save');
       } else {
         this.saveboxTarget.classList.remove('ready-save');
       }
-      const opacity = xOffset / 200;
+      const opacity = xOffset / (this.threshold);
       this.rotateValue = `rotate(${30 * opacity}deg)`;
       this.scaleValue = `scale(${1-(opacity * 0.3)})`;
       this.saveboxTarget.style.opacity = opacity;
     } else if (xOffset < 0) {
-      if (xOffset <= -200) {
+      if (xOffset <= -(this.threshold)) {
         this.discardboxTarget.classList.add('ready-discard');
       } else {
         this.discardboxTarget.classList.remove('ready-discard');
       }
-      const opacity = Math.abs(xOffset) / 200;
+      const opacity = Math.abs(xOffset) / (this.threshold);
       this.rotateValue = `rotate(-${30 * opacity}deg)`;
       this.scaleValue = `scale(${1-(opacity * 0.5)})`;
       this.discardboxTarget.style.opacity = opacity;
@@ -138,5 +139,6 @@ export default class extends Controller {
     card.style.transform = 'translate(-50%, -50%)';
     this.saveboxTarget.style.opacity = 0;
     this.discardboxTarget.style.opacity = 0;
+gst
   }
 }
