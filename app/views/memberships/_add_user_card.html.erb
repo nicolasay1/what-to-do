@@ -1,0 +1,29 @@
+<% if params[:query] %>
+  <% if @suggested_users.present? %>
+  <h3>Suggested:</h3>
+
+    <% @suggested_users.each do |user| %>
+
+    <div class="card m-2 shadow rounded" style="width: 18rem;">
+      <ul class="list-group list-group-flush">
+        <div class="row">
+          <div class="col-10">
+            <li class="list-group-item">
+            <img src="https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg" class="avatar">
+            <%= user.email%>
+
+            </li>
+          </div>
+          <div class="col-2">
+            <%= link_to group_memberships_path(@group, membership: { user_id: user, group_id: @group, admin: false }), data: { turbo_method: "post" } do %>
+              <i class='fas fa-plus-square'></i>
+            <% end %>
+          </div>
+        </div>
+      </ul>
+    </div>
+    <% end %>
+  <% else %>
+    <%= "No user found, why not send them the link?"%>
+  <% end %>
+<% end %>

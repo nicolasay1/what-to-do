@@ -50,8 +50,13 @@ class MembershipsController < ApplicationController
   private
 
   def set_user_to_add
-    users = User.all
-    @user_to_add = users.find_by(email: params[:query])
+    query = params[:query]
+    puts params[:query]
+
+    if query.present?
+      @suggested_users = User.where("first_name ILIKE :query OR email ILIKE :query", query: "%#{params[:query]}%")
+    end
+
   end
 
   def set_group
