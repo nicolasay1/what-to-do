@@ -1,5 +1,9 @@
 <div class="container p-5" data-controller="likes" data-likes-token-value="<%= form_authenticity_token %>" data-likes-proposal-value="<%= @proposal.id %>">
   <%= render 'shared/activity', activity: @proposal.activity %>
+  <div class="d-flex gap-3 justify-content-center mt-3">
+    <div class="d-flex gap-1 align-items-center"><i class="fa-solid fa-arrow-up text-success"></i><%= @interested.count %> Interested</div>
+    <div class="d-flex gap-1 align-items-center"><i class="fa-solid fa-arrow-down text-danger"></i><%= @disinterested.count %> Not interested</div>
+  </div>
   <div class="my-4 d-flex gap-3 me-0">
     <% if @like != nil %>
       <% if @like.liked %>
@@ -8,7 +12,7 @@
         <div class="card card-body bg-body-secondary border-2 text-center rounded-3">You replied 'Not Interested'</div>
       <% end %>
     <% else %>
-      <div class="d-flex gap-3 m-0 flex-fill">
+      <div class="d-flex gap-4 m-0 flex-fill">
         <%= link_to "Interested", proposal_likes_path(@proposal, liked: "true"), class: "btn btn-outline-success flex-fill", data: { action: "click->likes#vote", target: 'likes.Button' }  %>
         <%= link_to "Not Interested", proposal_likes_path(@proposal, liked: "false"), class: "btn btn-outline-danger flex-fill", data: { action: "click->likes#vote", target: 'likes.Button' }  %>
       </div>
