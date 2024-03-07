@@ -1,7 +1,9 @@
 <div class="row d-flex justify-content-right m-0 gap-4">
   <% events.each do |event| %>
-    <%= link_to activity_path(event.activity), class: "text-decoration-none text-dark save-card" do %>
-      <h4 class="p-0 m-0"><%= event.activity.title %></h4>
+    <%= link_to event_path(event), class: "text-decoration-none text-dark save-card" do %>
+      <div class="d-flex">
+        <h4 class="p-0 m-0"><%= event.activity.title %></h4>
+      </div>
     <% end %>
   <% end %>
 </div>

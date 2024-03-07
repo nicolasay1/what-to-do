@@ -1,10 +1,68 @@
 .browse {
+  position: fixed;
+  width: 80vw;
+  max-width: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border-radius: 10px;
   border: 3px solid rgba(27, 31, 35, 0.15);
-
-  &:hover {
-    outline: 1px solid rgb(255, 0, 170);
+  &.moving {
+    transform: translate(0, 0);
   }
+}
+
+.scroll {
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+.savebox {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  top: 0;
+  right: 0;
+  width: 20vw;
+  height: 100vh;
+  background: #809612;
+  i {
+    font-size: 30px;
+    color: white;
+    opacity: 0;
+  }
+  &.ready-save {
+    i {
+      opacity: 1;
+    }
+  }
+  opacity: 0;
+}
+
+.discardbox {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  width: 20vw;
+  height: 100vh;
+  background: #a8191c;
+  i {
+    font-size: 30px;
+    color: white;
+    opacity: 0;
+  }
+  &.ready-discard {
+    i {
+      opacity: 1;
+    }
+  }
+  opacity: 0;
 }
 
 .card-footer {
