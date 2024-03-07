@@ -7,5 +7,6 @@ class SavesController < ApplicationController
     activity = Activity.find(params[:activity_id])
     Save.create(activity: activity, user: current_user)
     head 201
+    flash[:notice] = "Activity saved!"
   end
 end
