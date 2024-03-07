@@ -240,6 +240,23 @@ User.destroy_all
     updated_at: Time.now,
     lat: 50,
     lng: 1
+  },
+  {
+    title: "Enigma Quests - Escape Room",
+    description: "You may have already heard about live escape games, or escape-the-room games - the new entertainment activity that is taking the world by storm.
+    In most cases, small teams are locked in the room and have to escape within 60 minutes. While escaping the room sounds exciting, we decided to take it to the next level by creating games where you are completely immersed in surroundings and forget about the real world.
+    These games are called Quests.
+    In every Quest we design, your team will have a mission to achieve within one hour. To complete all tasks in time, you will have to be observant, use logic, be creative and participate actively.
+    The puzzles we design are aimed at exercising different parts of brain. However we also believe that there must be a story behind every game - this is why you are embarking on a Quest in the first place.",
+    frequency: "daily",
+    date: Date.new(2024, 3, 9),
+    time: '10:30',
+    address: "2-12 Wilson Street, London, EC2M 7LS",
+    tags: "Escape Room",
+    created_at: Time.now,
+    updated_at: Time.now,
+    lat: 51.518717,
+    lng: 0.085679
   }
 ])
 
