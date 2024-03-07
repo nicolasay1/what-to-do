@@ -1,0 +1,7 @@
+<div class="container p-5">
+  <%= render 'shared/activity', activity: @proposal.activity %>
+  <div class="my-4 d-flex gap-3">
+    <%= link_to "Interested", class: "btn btn-outline-secondary flex-grow-1"  %>
+    <%= link_to "Not Interested", class: "btn btn-outline-secondary flex-grow-1"  %>
+  </div>
+</div>
