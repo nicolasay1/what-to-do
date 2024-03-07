@@ -7,6 +7,7 @@ class ActivitiesController < ApplicationController
 
   def show
     @activity = Activity.find(params[:id])
+    @markers = [{lat: @activity.lat, lng: @activity.lng}]
   end
 
   def share
