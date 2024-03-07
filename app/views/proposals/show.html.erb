@@ -1,7 +1,7 @@
-<div class="container p-5">
+<div class="container p-5" data-controller="likes" data-likes-token-value="<%= form_authenticity_token %>" data-likes-proposal-value="<%= @proposal.id %>">
   <%= render 'shared/activity', activity: @proposal.activity %>
   <div class="my-4 d-flex gap-3">
-    <%= link_to "Interested", class: "btn btn-outline-secondary flex-grow-1"  %>
-    <%= link_to "Not Interested", class: "btn btn-outline-secondary flex-grow-1"  %>
+    <%= link_to "Interested", proposal_likes_url(@proposal, liked: "true"), class: "btn btn-outline-secondary flex-grow-1", data: { action: "click->likes#vote" }  %>
+    <%= link_to "Not Interested", proposal_likes_url(@proposal, liked: "false"), class: "btn btn-outline-secondary flex-grow-1", data: { action: "click->likes#vote" }  %>
   </div>
 </div>
