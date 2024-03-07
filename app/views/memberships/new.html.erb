@@ -1,31 +1,9 @@
-<h1>Look for someone to add to your group!</h1>
+<div class="container"
+>
+<h1>Add members to your group!</h1>
+
+<%= render 'search_user' %>
 
 
-<div class="row justify-content-center">
-  <div class="col-sm-8 my-3">
-    <%= form_with url: new_group_membership_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Type an email address"
-        %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-</div>
-
-<div class="row justify-content-center">
-
-<% if params[:query] %>
-  <% if @user_to_add %>
-    We have found one user with that email: <%= @user_to_add.email %>
-  <%= link_to "Add as member", group_memberships_path(@group, membership: { user_id: @user_to_add, group_id: @group, admin: false }), data: { turbo_method: "post" } %>
-  <%= link_to "Add as admin", group_memberships_path(@group, membership: { user_id: @user_to_add, group_id: @group, admin: true }), data: { turbo_method: "post" } %>
-
-  <% else %>
-    <%= "Send an email to #{params[:query]} "%>
-  <% end %>
-<% end %>
-
-
+<%= render 'add_user_card' %>
 </div>
