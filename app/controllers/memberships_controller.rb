@@ -14,6 +14,7 @@ class MembershipsController < ApplicationController
     else
       redirect_to new_user_registration_path(invite_token: params[:invite_token]) if params[:invite_token].present?
     end
+    @invite_link = "#{request.original_url}/memberships/new?invite_token=#{@group.invite_token}"
   end
 
   def create
@@ -50,8 +51,13 @@ class MembershipsController < ApplicationController
   private
 
   def set_user_to_add
-    users = User.all
-    @user_to_add = users.find_by(email: params[:query])
+    query = params[:query]
+    puts params[:query]
+
+    if query.present?
+      @suggested_users = User.where("first_name ILIKE :query OR email ILIKE :query", query: "%#{params[:query]}%")
+    end
+
   end
 
   def set_group

@@ -12,6 +12,7 @@ class GroupsController < ApplicationController
     @members = @group.users
     @invite_link = "#{request.original_url}/memberships/new?invite_token=#{@group.invite_token}"
     @proposals = Proposal.where(group_id: @group.id)
+    @events = Event.where(group_id: @group.id)
   end
 
   def new

@@ -17,19 +17,17 @@ Rails.application.routes.draw do
   end
 
   get 'activities/:id/share', to: 'activities#share', as: :share
-  get 'activities/:id/create_event', to: 'activities#create_event', as: :create_event
-
 
   resources :activities, only: [:index, :show] do
   end
 
   resources :saves, only: [:index, :create, :delete]
 
-  resources :proposals, only: [:index, :new, :create] do
+  resources :proposals, only: [:index, :show, :new, :create] do
     resources :likes, only: [:create]
   end
 
-  resources :events, only: [:new, :create, :show, :edit, :update, :destroy] do
+  resources :events do
     resources :attendances, only: [:create]
   end
 
