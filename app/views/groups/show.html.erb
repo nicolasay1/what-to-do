@@ -40,3 +40,21 @@
     </li>
   <% end%>
 <div>
+
+
+<div class="social-share-buttons">
+  <h6>Send this group to your socials</h6>
+
+  <div class="justify-content">
+    <div class="mb-5">
+      <a href="https://api.whatsapp.com/send?text=<%= CGI.escape(@invite_link) %>" target="_blank" title="Share on WhatsApp">
+        <i class="fa-brands fa-square-whatsapp fa-3x" style="color: #2e8fcc;"></i>   </a>
+
+
+      <% subject = "Invited!" %>
+      <% body = "I thought you might be interested in this event happening soon: #{@invite_link}" %>
+      <a href="mailto:?subject=<%= CGI.escape(subject) %>&body=<%= CGI.escape(body) %>" title="Share via Email">
+          <i class="fa-solid fa-envelope fa-3x" style="color: #2e8fcc;"></i> </a>
+      </div>
+    </div>
+  </div>
