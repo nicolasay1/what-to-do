@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="likes"
 export default class extends Controller {
-
+  static targets = ["Button"]
   static values = {
     proposal: String,
     token: String
@@ -29,7 +29,11 @@ export default class extends Controller {
         "X-CSRF-Token": this.tokenValue
       },
       body: JSON.stringify({proposal_id: this.proposalValue, liked: liked})
-    }).then(resp => console.log(resp))
+    })
+
+    this.ButtonTargets.forEach(button => {
+      button.classList.toggle("disabled")
+    });
 
   }
 }
