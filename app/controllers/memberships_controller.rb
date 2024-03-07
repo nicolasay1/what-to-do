@@ -14,6 +14,7 @@ class MembershipsController < ApplicationController
     else
       redirect_to new_user_registration_path(invite_token: params[:invite_token]) if params[:invite_token].present?
     end
+    @invite_link = "#{request.original_url}/memberships/new?invite_token=#{@group.invite_token}"
   end
 
   def create
