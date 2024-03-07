@@ -257,6 +257,26 @@ User.destroy_all
     updated_at: Time.now,
     lat: 51.518717,
     lng: 0.085679
+  },
+
+  # AZ Seeds
+
+  {
+    title: "Croydon Whisky Festival",
+    description: "South East England's most welcoming, inclusive and diverse whisky event. Sample spirits from craft distilleries and independent brands",
+    frequency: "Annual",
+    date: Date.new(2024, 3, 16),
+    start_time: '12:00',
+    end_time: '17:30',
+    area: 'Stanley Arts',
+    address: "12 South Norwood Hill London SE25 6AB",
+    tags: "Festival, Drinks, Whiskey",
+    lat: 51.403561,
+    lng: -0.080330,
+    price: "32",
+    people: "1+",
+    created_at: Time.now,
+    updated_at: Time.now,
   }
 ])
 
