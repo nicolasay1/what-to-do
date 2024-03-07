@@ -1,0 +1,11 @@
+<div class="container p-5">
+  <div class="pb-2 border-bottom border-2 mb-4">
+    <h1>Create an event</h1>
+  </div>
+  <div>
+    <%= simple_form_for @event do |f| %>
+
+    <%= f.button :submit, class:"btn btn-secondary" %>
+    <% end %>
+  </div>
+</div>
