@@ -4,8 +4,11 @@
   </div>
   <div>
     <%= simple_form_for @event do |f| %>
-
-    <%= f.button :submit, class:"btn btn-secondary" %>
+    <%= f.input :activity_id, :as => :hidden, :input_html => { :value => @activity.id } %>
+    <%= f.input :group_id, label: "Who will you go with?", :collection => @groups, required: true %>
+    <%= f.input :date, as: :date, label: "When will you go?" %>
+    <%= f.input :time, as: :time, label: "What time will you go?" %>
+    <%= f.button :submit, label: "Create event", class:"btn btn-outline-secondary" %>
     <% end %>
   </div>
 </div>

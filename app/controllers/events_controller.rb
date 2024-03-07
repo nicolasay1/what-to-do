@@ -6,14 +6,23 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @activity = Activity.find(params[:activity_id])
+    @groups = Group.where(user: current_user)
   end
 
   def create
-    if Event.create(group_id: params[:group_id], activity_id: params[:activity_id])
-      head 201
+    @event = Event.new(event_params)
+    if @event.save!
+      redirect_to group_path(@event.group)
     else
-      head 500
+      render :new, status: :unprocessable_entity
     end
+  end
+
+  private
+
+  def event_params
+    params.require(:event).permit(:activity_id, :group_id, :date, :time)
   end
 
 end
