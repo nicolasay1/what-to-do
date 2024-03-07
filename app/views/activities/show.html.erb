@@ -1,36 +1,7 @@
 <div class="container p-5">
-  <div class="header pb-2 border-bottom border-2">
-    <h1><%= @activity.title %></h1>
-    <div class="my-3 subtext">
-      <p><i class="fa-solid fa-location-dot me-3"></i><%= @activity.address %></p>
-    </div>
-    <div class="my-3 row d-flex gap-2 m-0">
-      <% @activity.tags.split.each do |tag| %>
-        <div class="tag"><%= tag.gsub(",", "").capitalize %></div>
-      <% end %>
-    </div>
-  </div>
-  <div class="body">
-    <div class="box">
-    </div>
-    <div class="my-4 description">
-      <p><%= @activity.description %></p>
-    </div>
-    <div class="row m-0">
-      <h4 class="p-0">What you need to know</h4>
-      <div class="mt-3 p-0 border-start border-4">
-        <p class="subtext ms-3 mb-3"><i class="fa-solid fa-repeat me-2"></i><%= @activity.frequency != nil ? @activity.frequency.capitalize : "n/a" %></p>
-        <p class="subtext ms-3 mb-3"><i class="fa-solid fa-location-dot me-2"></i><%= @activity.address != nil ? @activity.address.capitalize : "n/a" %></p>
-        <p class="subtext ms-3 mb-3"><i class="fa-regular fa-clock me-2"></i>Start - End</p>
-        <p class="subtext ms-3 mb-3"><i class="fa-solid fa-sterling-sign me-2"></i>Price</p>
-        <p class="subtext ms-3 mb-3"><i class="fa-regular fa-user me-2"></i>People</p>
-      </div>
-    </div>
-    <div class="my-4 d-flex gap-3">
-      <%= link_to "Send to group", share_path(@activity), class: "btn btn-outline-secondary flex-grow-1"  %>
-      <%= link_to "Create event", new_event_path(:activity_id => @activity), class: "btn btn-outline-secondary flex-grow-1"  %>
-    </div>
-    <div class="my-4">
-    </div>
+  <%= render 'shared/activity', activity: @activity %>
+  <div class="my-4 d-flex gap-3">
+    <%= link_to "Send to group", share_path(@activity), class: "btn btn-outline-secondary flex-grow-1"  %>
+    <%= link_to "Create event", new_event_path(:activity_id => @activity), class: "btn btn-outline-secondary flex-grow-1"  %>
   </div>
 </div>
