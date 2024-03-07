@@ -1,0 +1,12 @@
+<div class="container p-5">
+  <div class="pb-2 border-bottom border-2 mb-4">
+    <h1>Resting</h1>
+  </div>
+  <div data-controller="share" data-share-activity-value="<%= @activity.id %>" data-share-token-value="<%= form_authenticity_token %>">
+    <div class="mb-4">
+      <%= render 'shared/group_share_card', groups: @groups %>
+    </div>
+    <%= link_to "Share", share_path(@activity), class: "btn btn-outline-secondary w-100", data: {
+      action: "click->share#send" }  %>
+  </div>
+</div>

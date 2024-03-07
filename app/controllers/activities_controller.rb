@@ -13,4 +13,9 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
     @groups = Group.where(user: current_user)
   end
+
+  def create_event
+    @activity = Activity.find(params[:id])
+    @groups = Group.where(user: current_user)
+  end
 end
