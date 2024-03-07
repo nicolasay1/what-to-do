@@ -24,7 +24,9 @@ User.destroy_all
     address: "Regent's Canal, London",
     tags: "health, running, morning, exercise, athletics, sports, social",
     created_at: Time.now,
-    updated_at: Time.now
+    updated_at: Time.now,
+    lat: 50,
+    lng: 1
   },
   {
     title: "Thursday 5km run followed by pub drinks",
@@ -38,7 +40,9 @@ User.destroy_all
     address: "Highbury Fields, Highbury Crescent · London",
     tags: "health, running, evening, exercise, athletics, sports, social",
     created_at: Time.now,
-    updated_at: Time.now
+    updated_at: Time.now,
+    lat: 50,
+    lng: 1
   },
   {
     title: "Nomadic Coffee - Cowork",
@@ -51,7 +55,9 @@ User.destroy_all
     address: "CoBalance, 130 Shoreditch High St ",
     tags: "community, coffee, social, evening, work, networking",
     created_at: Time.now,
-    updated_at: Time.now
+    updated_at: Time.now,
+    lat: 50,
+    lng: 1
   },
   {
     title: "Friday Climb and Cheeky Drink",
@@ -66,7 +72,9 @@ User.destroy_all
     address: "The Castle Climbing Centre, Green Lanes, Stoke Newington · London N4 2HA",
     tags: "health, climbing, evening, exercise, athletic, sports, social",
     created_at: Time.now,
-    updated_at: Time.now
+    updated_at: Time.now,
+    lat: 50,
+    lng: 1
   },
   {
     title: "Islington Farmers' Market",
@@ -77,7 +85,9 @@ User.destroy_all
     address: "Chapel Market, London N1 9PZ",
     tags: "food, community, shopping, social, farmers market, vegetables, meat, prepared foods",
     created_at: Time.now,
-    updated_at: Time.now
+    updated_at: Time.now,
+    lat: 50,
+    lng: 1
   },
   {
     title: "Surrealist Book Club: Hard-Boiled Wonderland & the End of the World, by Murakami",
@@ -96,7 +106,9 @@ User.destroy_all
     address: "Chapel Market, London N1 9PZ",
     tags: "reading, book club, literature, social, community, discussion, books, reading group",
     created_at: Time.now,
-    updated_at: Time.now
+    updated_at: Time.now,
+    lat: 50,
+    lng: 1
   },
   {
     title: "Parthian Wandsworth Social Climb",
@@ -109,7 +121,9 @@ User.destroy_all
     address: "Parthian Climbing, 52 - 58 Garratt Lane · LondonParthian Climbing",
     tags: "health, climbing, evening, exercise, athletic, sports, social",
     created_at: Time.now,
-    updated_at: Time.now
+    updated_at: Time.now,
+    lat: 50,
+    lng: 1
   },
   {
     title: "HIKE 21km Marlow - the Woods, Villages and Islands of the rural Thames",
@@ -133,7 +147,9 @@ User.destroy_all
     address: "Paddington Rail Station, Praed St, Paddington, London W2 1EE, UK",
     tags: "hiking, rural, countryside, social, community, day trip, Thames, morning, weekend",
     created_at: Time.now,
-    updated_at: Time.now
+    updated_at: Time.now,
+    lat: 50,
+    lng: 1
   },
   {
     title: "A day trip at the (ISLE OF WIGHT), Hiking and Picnic.",
@@ -152,7 +168,9 @@ User.destroy_all
     address: "Chapel Market, London N1 9PZ",
     tags: "hiking, picnic, beach, social, community, day trip, Isle of Wight, morning, weekend",
     created_at: Time.now,
-    updated_at: Time.now
+    updated_at: Time.now,
+    lat: 50,
+    lng: 1
   },
   {
     title: "Strengthening Yoga Flow",
@@ -164,7 +182,9 @@ User.destroy_all
     address: "25-31 Ironmonger Row, London EC1V 3QW",
     tags: "yoga, health, exercise, social, community, mindfulness, meditation, morning",
     created_at: Time.now,
-    updated_at: Time.now
+    updated_at: Time.now,
+    lat: 50,
+    lng: 1
   },
   {
     title: "Camberwell Nude Life Drawing and drinks",
@@ -183,7 +203,9 @@ User.destroy_all
     address: "The Sun, 61-63 Coldharbour Lane, SE5 9NS · London",
     tags: "life drawing, art, social, community, drawing, painting, nude, drinks, evening",
     created_at: Time.now,
-    updated_at: Time.now
+    updated_at: Time.now,
+    lat: 50,
+    lng: 1
   },
   {
     title: "Open Mic at the Old White Lion, East Finchley",
@@ -195,7 +217,9 @@ User.destroy_all
     address: "The Old White Lion, 121 Great North Road, Greater · London",
     tags: "open mic night, music, social, community, singing, performance, evening",
     created_at: Time.now,
-    updated_at: Time.now
+    updated_at: Time.now,
+    lat: 50,
+    lng: 1
   },
   {
     title: "Saturday French/English Language Exchange at the Cafe",
@@ -213,7 +237,9 @@ User.destroy_all
     address: "Green & Fortune cafe, Kings Place, 90 York Way, Kings Cross, London, N1 9AG",
     tags: "language exchange, social, community, french, english, conversation, afternoon",
     created_at: Time.now,
-    updated_at: Time.now
+    updated_at: Time.now,
+    lat: 50,
+    lng: 1
   }
 ])
 
