@@ -23,11 +23,11 @@ Rails.application.routes.draw do
 
   resources :saves, only: [:index, :create, :delete]
 
-  resources :proposals, only: [:index, :new, :create] do
+  resources :proposals, only: [:index, :show, :new, :create] do
     resources :likes, only: [:create]
   end
 
-  resources :events, only: [:new, :create, :show, :edit, :update, :destroy] do
+  resources :events do
     resources :attendances, only: [:create]
   end
 

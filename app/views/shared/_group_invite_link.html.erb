@@ -1,0 +1,6 @@
+<div class="w-100 input-group my-5" data-controller="clipboard">
+    <input class="form-control" data-clipboard-target="input" type="text" value="<%= @invite_link %>" readonly>
+    <div class="input-group-append">
+      <button id="copy-button" class="btn btn-outline-primary" data-action="click->clipboard#copy">Copy invite link</button>
+    </div>
+  </div>

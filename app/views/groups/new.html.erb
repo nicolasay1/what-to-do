@@ -1,29 +1,3 @@
 <h1> Create a new group </h1>
 
-
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Create a new group
-</button>
-
-<div class="modal fade modal-dialog modal-dialog-centered" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Create a new group! </h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <%= simple_form_for @group do |f| %>
-        <%= f.input :name, label: "What's the name of your group?", error: 'A name is mandatory, please specify one' %>
-        <%= f.input :description, label: "How would you describe your group?", hint: 'Be fun' %>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
-        <%= f.button :submit, class:"btn btn-secondary" %>
-        <% end %>
-      </div>
-
-
-      </div>
-    </div>
-  </div>
-</div>
+<%= render 'new_group_modal' %>
