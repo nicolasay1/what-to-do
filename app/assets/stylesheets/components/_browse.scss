@@ -10,9 +10,11 @@
   &.moving {
     transform: translate(0, 0);
   }
-  &:hover {
-    outline: 1px solid rgb(255, 0, 170);
-  }
+}
+
+.scroll {
+  max-height: 100px;
+  overflow-y: auto;
 }
 
 .savebox {

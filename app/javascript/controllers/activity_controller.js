@@ -139,6 +139,5 @@ export default class extends Controller {
     card.style.transform = 'translate(-50%, -50%)';
     this.saveboxTarget.style.opacity = 0;
     this.discardboxTarget.style.opacity = 0;
-gst
   }
 }
