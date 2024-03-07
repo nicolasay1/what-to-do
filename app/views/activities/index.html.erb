@@ -1,6 +1,13 @@
 <div class="container" data-controller="activity" data-activity-token-value="<%= form_authenticity_token %>">
+  <div class="savebox" data-activity-target='savebox'>
+    <i class="fa-solid fa-check"></i>
+  </div>
+  <div class="discardbox" data-activity-target='discardbox'>
+    <i class="fa-solid fa-xmark"></i>
+  </div>
   <% @activities.each_with_index do |activity, index| %>
-    <div class="card browse mt-5" data-activity-target="card" data-index="<%= index %>" data-activity-id="<%= activity.id %>">
+    <div class="card browse" data-activity-target="card" data-index="<%= index %>" data-activity-id="<%= activity.id %>"
+      data-action="touchstart->activity#handleTouchStart touchmove->activity#handleTouchMove touchend->activity#handleTouchEnd">
       <%= link_to activity_path(activity), class: "card-link" do %>
         <div class="card-body">
           <h5 class="card-title"><%= activity.title %></h5>
