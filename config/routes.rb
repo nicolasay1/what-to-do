@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   end
 
   get 'activities/:id/share', to: 'activities#share', as: :share
+  get 'activities/:id/create_event', to: 'activities#create_event', as: :create_event
+
 
   resources :activities, only: [:index, :show] do
   end

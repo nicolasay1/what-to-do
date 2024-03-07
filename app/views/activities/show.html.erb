@@ -26,8 +26,11 @@
         <p class="subtext ms-3 mb-3"><i class="fa-regular fa-user me-2"></i>People</p>
       </div>
     </div>
+    <div class="my-4 d-flex gap-3">
+      <%= link_to "Send to group", share_path(@activity), class: "btn btn-outline-secondary flex-grow-1"  %>
+      <%= link_to "Create event", create_event_path(@activity), class: "btn btn-outline-secondary flex-grow-1"  %>
+    </div>
     <div class="my-4">
-      <%= link_to "Share with my groups", share_path(@activity), class: "btn btn-outline-secondary w-100"  %>
     </div>
   </div>
 </div>
