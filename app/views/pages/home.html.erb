@@ -1,14 +1,6 @@
 <div class="container">
   <div class="row">
 
-  <%# <img src="" alt="What to do Logo" id="logo"> <!-- Replace with your actual logo --> %>
-  <div class="d-flex justify-content-end w-100">
-    <div class="">
-      <a href="#" id="login">Log in</a>
-      <a href="#" class="btn btn-primary">Sign up</a>
-    </div>
-  </div>
-
     <div class="col-12 my-3">
       <%= form_with url: activities_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query,
@@ -20,11 +12,12 @@
       <% end %>
     </div>
 
-<div class="my-4">
+<div class="text-center my-4">
   <h1 class="mb-4">Unlock your city's best kept secrets!</h1>
   <div id="my-2">
     <p class="mb-4">Discover the pulse of your city with just a tap! Our app is your ultimate companion for unearthing hidden gems, buzzing events, and exclusive happenings tailored just for you.</p>
-    <button class="button">Join us</button>
   </div>
 <%= image_tag 'landing-image2.jpg', alt: 'Landing page image', width: '300' %>
+    <button class="btn btn-primary my-5">Join us</button>
+
 </div>
