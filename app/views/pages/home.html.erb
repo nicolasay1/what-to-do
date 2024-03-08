@@ -1,2 +1,23 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+  <div class="row">
+
+    <div class="col-12 my-3">
+      <%= form_with url: activities_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Search events"
+          %>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+
+<div class="text-center my-4">
+  <h1 class="mb-4">Unlock your city's best kept secrets!</h1>
+  <div id="my-2">
+    <p class="mb-4">Discover the pulse of your city with just a tap! Our app is your ultimate companion for unearthing hidden gems, buzzing events, and exclusive happenings tailored just for you.</p>
+  </div>
+<%= image_tag 'landing-image2.png', alt: 'Landing page image', width: '300' %>
+    <button class="btn btn-primary my-5">Join us</button>
+
+</div>

@@ -12,7 +12,7 @@ Activity.destroy_all
 Group.destroy_all
 User.destroy_all
 
-  activities = Activity.create!([
+  Activity.create!([
     {
     title: "Canal Run Angel to Primrose Hill",
     description: "Join us Saturday at 10:30am for a casual run along the Regents Canal, approx 9km. We head to the top of Primrose Hill and back through Regents Park finishing at Granary Square, Kings Cross. Or if you’re looking for something shorter you can turn around at any point, Camden Market or the top of Primrose Hill are good options.
@@ -21,12 +21,17 @@ User.destroy_all
     frequency: "weekly",
     date: Date.new(2024, 3, 9),
     start_time: '10:30',
+    end_time: '13:30',
+    area: 'Angel',
     address: "Regent's Canal, London",
     tags: "health, running, morning, exercise, athletics, sports, social",
+    lat: 51.5323,
+    lng: -0.1064,
+    price: "Free",
+    people: "10+",
     created_at: Time.now,
     updated_at: Time.now,
-    lat: 50,
-    lng: 1
+    link: "https://www.meetup.com/angel-islington-running-group/events/299271105/"
   },
   {
     title: "Thursday 5km run followed by pub drinks",
@@ -35,14 +40,19 @@ User.destroy_all
     We run 5km at an easy pace (about 6 mins per km), often 3 loops around Highbury Fields but we do change up the route from time to time.
     After the run, we will head to the House of Hammerton pub for some drinks.",
     frequency: "weekly",
-    date: Date.new(2024, 3, 15),
+    date: Date.new(2024, 3, 14),
     start_time: '19:00',
+    end_time: '21:00',
+    area: 'Highbury',
     address: "Highbury Fields, Highbury Crescent · London",
     tags: "health, running, evening, exercise, athletics, sports, social",
+    lat: 51.5467,
+    lng: -0.1033,
+    price: "Free",
+    people: "10+",
     created_at: Time.now,
     updated_at: Time.now,
-    lat: 50,
-    lng: 1
+    link: "https://www.meetup.com/angel-islington-running-group/events/299271105/"
   },
   {
     title: "Nomadic Coffee - Cowork",
@@ -52,12 +62,17 @@ User.destroy_all
     frequency: "quarterly",
     date: Date.new(2024, 4, 16),
     start_time: '16:30',
+    end_time: '18:30',
+    area: 'Shoreditch',
     address: "CoBalance, 130 Shoreditch High St ",
     tags: "community, coffee, social, evening, work, networking",
+    lat: 51.5264,
+    lng: -0.0786,
+    price: "Free",
+    people: "10+",
     created_at: Time.now,
     updated_at: Time.now,
-    lat: 50,
-    lng: 1
+    link: "https://www.meetup.com/selina-secret-garden-community/events/299384962/"
   },
   {
     title: "Friday Climb and Cheeky Drink",
@@ -68,109 +83,110 @@ User.destroy_all
     We climb until the Castle closes at 10pm or we get tired (about 9pm or 7pm in extreme cases…) and are ready to celebrate the end of the week with a drink and/or dinner at the Brownswood pub (271 Green Lanes, N4 2EX)",
     frequency: "quarterly",
     date: Date.new(2024, 3, 20),
-    start_time: '14:00',
+    start_time: '19:00',
+    end_time: '23:00',
+    area: 'Stoke Newington',
     address: "The Castle Climbing Centre, Green Lanes, Stoke Newington · London N4 2HA",
     tags: "health, climbing, evening, exercise, athletic, sports, social",
+    lat: 51.5643,
+    lng: -0.0953,
+    price: "5",
+    people: "20+",
     created_at: Time.now,
     updated_at: Time.now,
-    lat: 50,
-    lng: 1
-  },
+    link: "https://www.meetup.com/thelrc/events/299261700/" },
   {
     title: "Islington Farmers' Market",
     description: "Sunday market with stands offering locally sourced vegetables & meats, plus some prepared foods.",
     frequency: "weekly",
     date: Date.new(2024, 3, 10),
     start_time: '10:00',
+    end_time: '14:00',
+    area: 'Islington',
     address: "Chapel Market, London N1 9PZ",
     tags: "food, community, shopping, social, farmers market, vegetables, meat, prepared foods",
+    lat: 51.5344,
+    lng: -0.1063,
+    price: "Free",
+    people: "20+",
     created_at: Time.now,
     updated_at: Time.now,
-    lat: 50,
-    lng: 1
+    link: "https://www.lfm.org.uk/markets/islington/"
   },
   {
     title: "Surrealist Book Club: Hard-Boiled Wonderland & the End of the World, by Murakami",
     description: "The March 2024 edition of Surrealist Book Club - with Hard-Boiled Wonderland & the End of the World, by Haruki Murakami.
     A narrative particle accelerator that zooms between Wild Turkey Whiskey and Bob Dylan, unicorn skulls and voracious librarians, John Coltrane and Lord Jim. Science fiction, detective story and post-modern manifesto all rolled into one rip-roaring novel, Hard-boiled Wonderland and the End of the World is the tour de force that expanded Haruki Murakami's international following.
-    Tracking one man's descent into the Kafkaesque underworld of contemporary Tokyo, Murakami unites East and West, tragedy and farce, compassion and detachment, slang and philosophy.
-    Free PDF copy
-    New on Hive.co.uk
-    Secondhand on AbeBooks
-    Search your local library catalogue (UK only)
-    Session Format
-    After a quick hello and sharing where we're dialling in from, we go round the room to highlight our favourite and least favourite parts (15mins), the most striking parts (15mins), and how this text might now inform our own work or thinking going forward (20mins). This is a book group predominantly for readers, not a writing or art group, so if you are also a writer or artist you are very welcome to talk around your work and reference it in the last section, but that is not the focus so we do not share from our work. Bring a cup of tea!",
+    Tracking one man's descent into the Kafkaesque underworld of contemporary Tokyo, Murakami unites East and West, tragedy and farce, compassion and detachment, slang and philosophy.",
     frequency: "weekly",
     date: Date.new(2024, 3, 14),
     start_time: '10:00',
+    end_time: '12:00',
+    area: 'Islington',
     address: "Chapel Market, London N1 9PZ",
     tags: "reading, book club, literature, social, community, discussion, books, reading group",
+    lat: 51.5344,
+    lng: -0.1063,
+    price: "2",
+    people: "8+",
     created_at: Time.now,
     updated_at: Time.now,
-    lat: 50,
-    lng: 1
+    link: "https://www.meetup.com/surrealist-book-club/events/298890983/"
   },
   {
     title: "Parthian Wandsworth Social Climb",
-    description: "Come and join us at South London's newest climbing gym every Thursday. Parthian Wandsworth has rope climbing (top rope and lead) and 300+ boulder problems spread across the second floor, which will also feature the 2024 Paris Olympic Boulder wall The Titan! Also, if you show you are signed up to the Meet Up the single price entry is £12, 10% off items in the shop, 10% off hot drinks and food, and the Friday promo will be applied on Thursday for LRC: Pizza and beer £12.
-    Please pre-register online the first time you come to save queueing. Once you have paid your entry fee look out for your hosts on the second-floor seating area from 18:45 getting ready to start climbing at 19:00. Bring your chalk, shoes, harness, and rope if you will be lead climbing.
-    If you want to rope climb you will need to know how to belay and climb safely. We don't teach or instruct, however, we are happy to give you some friendly pointers in a supportive social environment. See you on the wall!",
+    description: "Come and join us at South London's newest climbing gym every Thursday. Parthian Wandsworth has rope climbing (top rope and lead) and 300+ boulder problems spread across the second floor, which will also feature the 2024 Paris Olympic Boulder wall The Titan! Also, if you show you are signed up to the Meet Up the single price entry is £12, 10% off items in the shop, 10% off hot drinks and food, and the Friday promo will be applied on Thursday for LRC: Pizza and beer £12",
     frequency: "weekly",
     date: Date.new(2024, 3, 9),
     start_time: '19:00',
+    end_time: '22:00',
+    area: 'Wandsworth',
     address: "Parthian Climbing, 52 - 58 Garratt Lane · LondonParthian Climbing",
     tags: "health, climbing, evening, exercise, athletic, sports, social",
+    lat: 51.4563,
+    lng: -0.1913,
+    price: "12",
+    people: "10+",
     created_at: Time.now,
     updated_at: Time.now,
-    lat: 50,
-    lng: 1
+    link: "https://www.meetup.com/thelrc/events/299359092/"
   },
   {
     title: "HIKE 21km Marlow - the Woods, Villages and Islands of the rural Thames",
     description: "A great rural hiking escape and a chance to see the River Thames as most Londoners haven't - tranquil and meandering through lush countryside away from London. Home to ducks and swans, settled in a gorgeous woodland, meadow and countrified landscape with picturesque riverside cottages, ancient villages, overhanging Weeping Willow trees, locks and a dramatic 200m footbridge across the river Thames, let us show you the rural Thames.
-    This whole area of the Chiltern Hills was designated in 1965 as an official Area of Outstanding Natural Beauty to recognise and protect its picturesque beauty.
-    HIGHLIGHTS
-    • A high chance of seeing Red Kites - a beautiful and rare bird of prey
-    • Hike a stunning section of the rural River Thames
-    • Explore gorgeous woodland trails in the Chiltern Hills
-    • Visit the Georgian town of Marlow
-    • Explore an island in the River Thames
-    • Cross the exhilarating 61m Hambleden Weir foot bridge
-    • Visit the ancient village of Hambleden including its church which dates back over 1000 years
-    HIKE DESCRIPTION
-    We shall be exploring the River Thames away from London to the well preserved Georgian town of Marlow in Buckinghamshire. Buckinghamshire is a county well known for its rivers, canals and landscape and of course the Chiltern Hills further North.
-    Our hike covers a very scenic stretch of the River Thames taking us past the charming riverside villages of Aston and Hurley and also Marlow Lock, - built in 1773. Time seems to have stood still in this area and even the village of Hurley is little changed since the days when it was a Benedictine Monastery. We also get a glimpse of Bisham Abbey and Bisham Church across the River Thames before we cross over the weir footbridge at Hambleden Mill (61m wide and an experience in itself). After a short stop here, we follow an enchanting woodland trail passing meadows back to Marlow.
-    The beauty and tranquillity of the area has attracted numerous famous residents including Mary Shelley (the author of Frankenstein), T.S.Eliot, Heston Blumenthal, Andrew Strauss and even Robbie Williams and David Seaman own properties there.",
+    This whole area of the Chiltern Hills was designated in 1965 as an official Area of Outstanding Natural Beauty to recognise and protect its picturesque beauty.",
     frequency: "weekly",
     date: Date.new(2024, 3, 10),
     start_time: '08:00',
+    end_time: '18:00',
+    area: 'Paddington',
     address: "Paddington Rail Station, Praed St, Paddington, London W2 1EE, UK",
     tags: "hiking, rural, countryside, social, community, day trip, Thames, morning, weekend",
+    lat: 51.5154,
+    lng: -0.1754,
+    price: "30",
+    people: "20+",
     created_at: Time.now,
     updated_at: Time.now,
-    lat: 50,
-    lng: 1
+    link: "https://www.meetup.com/outdooraholics/events/297809362/"
   },
   {
     title: "A day trip at the (ISLE OF WIGHT), Hiking and Picnic.",
-    description: "he Isle of Wight is the home to the poets Swinburne and Tennyson and to Queen Victoria, who built her much-loved summer residence and final home Osborne House. Charles Dickens wrote much of David Copperfield whilst staying here. Historically the Island has also attracted many other famous visitors, including Charles Darwin, Lewis Carroll, Guglielmo Marconi, Turner and Alfred Lord Tennyson.
-    Guglielmo Marconi undertook his pioneering work at the isle of Wight at the end of the 19th Century which led to radio and all telecommunications and sent the very first wireless transmission.
-    Charles Darwin was one of the most famous guests to the Island, staying at the Kings Head Hotel, during the summer of 1867 and it is believed that this is where he began his ‘Origin of Species’ assessment.
-
-    A day walking and picnics on the beautiful beach of Alum Bay. Once we dock to the Island around 12.00pm(depend on the ferry but roughly around that time), we put on the way toward the Needles coast around 12.40pm, where we are going to have our picnic on the beach,( everyone can bring owns food and drink or taking it at the local area), we will spend time to visit the wonderful west coast of the Isle of Wight (so feel free to bring your beach towel , swimsuit and sun cream), you are also free to decide if you want to book a spectacular 20 minutes boat trip around the coast while we are on the picnic mark-point, later on of our picnic and relax time by 2/3pm we will start hiking to visit the (Top secret space rocket and missile centre built and the G. Marconi statue place), and both sides of the needles coast, where you can discover the fantastic magic of the isle. Around 5/5.30pm we will leaving the place to grab the ferry and put on the way back to (Paddington station) to get there approximately around 21.00pm.
-
-    The cost of the trip is £60 a person it Includes (Ferry, Minibus, Car Parking) with return to Paddington.
-
-    Note: (adult only 18+), If we not reach 8 people the £60 will be refunded at the closure of the trip at 6pm on the day before of the meetup, but once we get 8 people the amount is not more refundable as the spots are settled. Is your responsibility to check the email and important message for the event.",
+    description: "he Isle of Wight is the home to the poets Swinburne and Tennyson and to Queen Victoria, who built her much-loved summer residence and final home Osborne House. Charles Dickens wrote much of David Copperfield whilst staying here. Historically the Island has also attracted many other famous visitors, including Charles Darwin, Lewis Carroll, Guglielmo Marconi, Turner and Alfred Lord Tennyson.",
     frequency: "monthly",
     date: Date.new(2024, 3, 10),
     start_time: '08:00',
+    end_time: '18:00',
+    area: 'Paddington',
     address: "Chapel Market, London N1 9PZ",
     tags: "hiking, picnic, beach, social, community, day trip, Isle of Wight, morning, weekend",
+    lat: 51.5154,
+    lng: -0.1754,
+    price: "30",
+    people: "20+",
     created_at: Time.now,
     updated_at: Time.now,
-    lat: 50,
-    lng: 1
+    link: "https://www.meetup.com/london-outdoors-lover-hiking-and-picnic-meetup-group/events/299289999/"
   },
   {
     title: "Strengthening Yoga Flow",
@@ -179,12 +195,17 @@ User.destroy_all
     frequency: "weekly",
     date: Date.new(2024, 3, 16),
     start_time: '10:00',
+    end_time: '12:00',
+    area: 'Islington',
     address: "25-31 Ironmonger Row, London EC1V 3QW",
     tags: "yoga, health, exercise, social, community, mindfulness, meditation, morning",
+    lat: 51.5273,
+    lng: -0.1016,
+    price: "10",
+    people: "10+",
     created_at: Time.now,
     updated_at: Time.now,
-    lat: 50,
-    lng: 1
+    link: "https://www.meetup.com/heart-twickenham/events/299308979/"
   },
   {
     title: "Camberwell Nude Life Drawing and drinks",
@@ -192,20 +213,21 @@ User.destroy_all
     🌟 We'll have another WONDERFUL model for you this evening!
     ALL LEVELS WELCOME!
     Let's get together for some drawing and a glass of wine!!
-    Camberwell Life Drawing is a group for anyone that want to spend a lovely and chilled evening creating some art in a relaxed, friendly and bohemian atmosphere.
-    Untutored life drawing classes, every Monday evening in Camberwell at The Sun of Camberwell (on Coldharbour Lane) from 7pm to 9pm.
-    £14 per session (Cash or Card)
-    Some materials will be provided but please feel free to bring your own too!
-    RSVP or drop-in on the night Latecomers are very welcome, too.",
+    Camberwell Life Drawing is a group for anyone that want to spend a lovely and chilled evening creating some art in a relaxed, friendly and bohemian atmosphere.",
     frequency: "weekly",
     date: Date.new(2024, 3, 10),
     start_time: '19:00',
+    end_time: '21:00',
+    area: 'Camberwell',
     address: "The Sun, 61-63 Coldharbour Lane, SE5 9NS · London",
     tags: "life drawing, art, social, community, drawing, painting, nude, drinks, evening",
+    lat: 51.4653,
+    lng: -0.0904,
+    price: "10",
+    people: "10+",
     created_at: Time.now,
     updated_at: Time.now,
-    lat: 50,
-    lng: 1
+    link: "https://www.meetup.com/camberwell-life-drawing/events/299319898/"
   },
   {
     title: "Open Mic at the Old White Lion, East Finchley",
@@ -214,32 +236,38 @@ User.destroy_all
     frequency: "weekly",
     date: Date.new(2024, 3, 17),
     start_time: '19:30',
+    end_time: '23:00',
+    area: 'East Finchley',
     address: "The Old White Lion, 121 Great North Road, Greater · London",
     tags: "open mic night, music, social, community, singing, performance, evening",
+    lat: 51.5873,
+    lng: -0.1654,
+    price: "5",
+    people: "40+",
     created_at: Time.now,
     updated_at: Time.now,
-    lat: 50,
-    lng: 1
+    link: "https://www.meetup.com/north-london-meet-your-neighbours/events/299159587/"
   },
   {
     title: "Saturday French/English Language Exchange at the Cafe",
     description: "Please join us for a coffee (or anything else you'd like) at the café whilst enjoying an afternoon of French/English language exchange. We will enjoy 30 minute blocks of English and French conversation between the hours of 2.00pm and 5.00pm.
     GOAL
     To provide a relaxed and friendly environment where you can develop your linguistic skills and abilities in the language that you are learning whilst helping others develop their abilities in the language of which you are already fluent or advanced.
-    Our goal is to have an even number of French and English speakers (so please sign up only if you are sure you can attend).
-    Chers membres,
-    Joignez-vous à nous pour prendre un café (ou ce qui vous fait envie), et profiter d'un après-midi d'échange linguistique anglais-français. Vous participerez à des modules de conversation d'une durée de 30 minutes tour à tour en français et en anglais de 14h00 à 17h00.
-    OBJECTIF
-    Fournir un lieu tranquille, décontracté, et amical où vous pouvez développer vos compétences et aptitudes dans la langue que vous désirez apprendre tout en aidant d'autres membres à apprendre la langue que vous maîtriser déjà.",
+    Our goal is to have an even number of French and English speakers (so please sign up only if you are sure you can attend).",
     frequency: "weekly",
     date: Date.new(2024, 3, 9),
     start_time: '10:00',
+    end_time: '23:00',
+    area: 'Kings Cross',
     address: "Green & Fortune cafe, Kings Place, 90 York Way, Kings Cross, London, N1 9AG",
     tags: "language exchange, social, community, french, english, conversation, afternoon",
+    lat: 51.5343,
+    lng: -0.1224,
+    price: "Free",
+    people: "10+",
     created_at: Time.now,
     updated_at: Time.now,
-    lat: 50,
-    lng: 1
+    link: "https://www.meetup.com/french-english-language-exchange/events/zjqfrpygcfbdb/"
   },
 
   #JB SEED
@@ -262,8 +290,8 @@ User.destroy_all
     lat: 51.518717,
     lng: 0.085679,
     price: "20",
-    people: "1+",
-
+    people: "5+",
+    link: "https://enigmaquests.london/?mh_matchtype=e&mh_keyword=enigma%20quests&mh_adgroupid=127208290065&mh_network=g&gad_source=1&gclid=CjwKCAiAi6uvBhADEiwAWiyRdlpqAr-PT_E3WD_87QHbGtOQHYQT2XG7ib2xJPstYZIzTlIO-fhBmxoCmPcQAvD_BwE"
   },
 
   {
@@ -281,6 +309,7 @@ User.destroy_all
     people: "1+",
     created_at: Time.now,
     updated_at: Time.now,
+    link: "https://f1arcade.com/uk/london/the-experience?tw_source=google&tw_adid=689010999033&tw_campaign=20613977197&gad_source=1&gclid=CjwKCAiAi6uvBhADEiwAWiyRdotcK8eHTCHNZJAQg5pgSUjteKQCuJjyGOWgS1Q3amRnJ7Uq7Tb3pRoCp5gQAvD_BwE"
   },
 
   {
@@ -298,6 +327,7 @@ User.destroy_all
     people: "1+",
     created_at: Time.now,
     updated_at: Time.now,
+    link: "https://www.alcotraz.co.uk/locations/london/"
   },
 
 
@@ -308,8 +338,8 @@ User.destroy_all
     description: "South East England's most welcoming, inclusive and diverse whisky event. Sample spirits from craft distilleries and independent brands",
     frequency: "Annual",
     date: Date.new(2024, 3, 16),
-    start_time: '12:00',
-    end_time: '17:30',
+    start_time: "12:00",
+    end_time: "17:30",
     area: 'Stanley Arts',
     address: "12 South Norwood Hill London SE25 6AB",
     tags: "Festival, Drinks, Whiskey",
