@@ -1,5 +1,10 @@
-<div class="group-profile-header">
-  <img class="img-fluid group-image-header image-responsive" src="https://cdn.pixabay.com/photo/2016/02/03/08/32/banner-1176676_640.jpg">
+<div class="group-profile-header w-100% h-200">
+   <% if @group.banner.attached? %>
+        <%= cl_image_tag @group.banner.key, crop: "fill" %>
+      <% else %>
+        <img class="img-fluid group-image-header image-responsive" src="https://cdn.pixabay.com/photo/2016/02/03/08/32/banner-1176676_640.jpg">
+      <% end %>
+
   <div class="centered text-header"><h1><%= @group.name.capitalize %></h1></div>
 </div>
 
