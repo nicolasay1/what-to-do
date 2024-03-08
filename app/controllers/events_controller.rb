@@ -26,10 +26,18 @@ class EventsController < ApplicationController
     end
   end
 
+  def booked
+    @event = Event.find(params[:id])
+    @event.booked = true
+    if @event.save
+      redirect_to event_path(@event)
+    end
+  end
+
   private
 
   def event_params
-    params.require(:event).permit(:activity_id, :group_id, :date, :time)
+    params.require(:event).permit(:activity_id, :group_id, :date, :time, :booked)
   end
 
 end
