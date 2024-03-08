@@ -36,5 +36,7 @@ export default class extends Controller {
         body: JSON.stringify({group_id: cardId, activity_id: this.activityValue})
       }).then(resp => console.log(resp))
     })
+
+    window.location = '/profile'
   }
 }
