@@ -292,7 +292,9 @@ User.destroy_all
     lng: 0.085679,
     price: "20",
     people: "5+",
-    link: "https://enigmaquests.london/?mh_matchtype=e&mh_keyword=enigma%20quests&mh_adgroupid=127208290065&mh_network=g&gad_source=1&gclid=CjwKCAiAi6uvBhADEiwAWiyRdlpqAr-PT_E3WD_87QHbGtOQHYQT2XG7ib2xJPstYZIzTlIO-fhBmxoCmPcQAvD_BwE"
+    link: "https://enigmaquests.london/?mh_matchtype=e&mh_keyword=enigma%20quests&mh_adgroupid=127208290065&mh_network=g&gad_source=1&gclid=CjwKCAiAi6uvBhADEiwAWiyRdlpqAr-PT_E3WD_87QHbGtOQHYQT2XG7ib2xJPstYZIzTlIO-fhBmxoCmPcQAvD_BwE",
+    image_url: "https://media.timeout.com/images/103935275/image.jpg"
+
   },
 
   {
@@ -329,8 +331,30 @@ User.destroy_all
     people: "1+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://www.alcotraz.co.uk/locations/london/"
+    link: "https://www.alcotraz.co.uk/locations/london/",
+    image_url: "https://applications-media.feverup.com/image/upload/f_auto,w_720,h_720/fever2/plan/photo/64151054-f335-11ed-bb6c-0ed7fc946300.jpg"
   },
+
+  {
+    title: "Kinoteka Polish Film Festival",
+    description: "The Opening Gala at the BFI Southbank will screen ‘Green Border’, a moving depiction of debates on migration in Europe and the Closing Gala at the BFI IMAX will show ‘The Peasants’, a Polish box office smash-hit, which’ll be accompanied by stunning live music. But there’s plenty more where that came from – for all the info on screenings throughout March, check the programme on the website below. Dzięki!",
+    frequency: "daily",
+    date: Date.new(2024, 3, 7),
+    start_time: '11:35',
+    end_time: '23:15',
+    address: "238-246 King St, London W6 0RF",
+    tags: "Cinema, Culture",
+    lat: 51.493448,
+    lng: -0.237151,
+    price: "35.99",
+    people: "1",
+    created_at: Time.now,
+    updated_at: Time.now,
+    link: "https://kinoteka.org.uk/",
+    image_url: "https://media.timeout.com/images/106093992/1372/1029/image.webp"
+  },
+
+
 
 
 
