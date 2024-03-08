@@ -12,7 +12,7 @@ Activity.destroy_all
 Group.destroy_all
 User.destroy_all
 
-  activities = Activity.create!([
+  Activity.create!([
     {
     title: "Canal Run Angel to Primrose Hill",
     description: "Join us Saturday at 10:30am for a casual run along the Regents Canal, approx 9km. We head to the top of Primrose Hill and back through Regents Park finishing at Granary Square, Kings Cross. Or if you’re looking for something shorter you can turn around at any point, Camden Market or the top of Primrose Hill are good options.
@@ -308,8 +308,8 @@ User.destroy_all
     description: "South East England's most welcoming, inclusive and diverse whisky event. Sample spirits from craft distilleries and independent brands",
     frequency: "Annual",
     date: Date.new(2024, 3, 16),
-    start_time: '12:00',
-    end_time: '17:30',
+    start_time: "12:00",
+    end_time: "17:30",
     area: 'Stanley Arts',
     address: "12 South Norwood Hill London SE25 6AB",
     tags: "Festival, Drinks, Whiskey",
