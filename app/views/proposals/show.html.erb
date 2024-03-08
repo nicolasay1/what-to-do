@@ -12,7 +12,10 @@
     <div class="mt-4 d-flex gap-3 me-0">
       <% if @like != nil %>
         <% if @like.liked %>
-          <div class="card card-body bg-body-secondary border-2 text-center rounded-3">You replied 'Interested'</div>
+          <div class="d-flex flex-column gap-3 flex-fill">
+            <div class="card card-body bg-body-secondary border-2 text-center rounded-3">You replied 'Interested'</div>
+            <%= link_to "Create event for this proposal", new_event_path(:activity_id => @proposal.activity, :group_id => @proposal.group_id), class: "btn btn-outline-secondary flex-grow-1"  %>
+          </div>
         <% else %>
           <div class="card card-body bg-body-secondary border-2 text-center rounded-3">You replied 'Not Interested'</div>
         <% end %>

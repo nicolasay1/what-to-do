@@ -18,18 +18,27 @@
     </div>
 
     <div class="mt-4 d-flex gap-3 me-0">
-        <% if @attendance != nil %>
-          <% if @attendance.attendance %>
+      <% if @attendance != nil %>
+        <% if @attendance.attendance %>
+          <div class="d-flex flex-column flex-fill gap-3">
             <div class="card card-body bg-body-secondary border-2 text-center rounded-3">You are attending</div>
-          <% else %>
-            <div class="card card-body bg-body-secondary border-2 text-center rounded-3">You are not attending</div>
-          <% end %>
-        <% else %>
-          <div class="d-flex gap-4 m-0 flex-fill">
-            <%= link_to "Attending", event_attendances_path(@event), class: "btn btn-outline-success flex-fill", data: { action: "click->attendances#in", target: 'attendances.response' }  %>
-            <%= link_to "Not attending", event_attendances_path(@event), class: "btn btn-outline-danger flex-fill", data: { action: "click->attendances#in", target: 'attendances.response' }  %>
+            <% if @event.booked %>
+              <div class="card card-body bg-body-secondary border-2 text-center rounded-3">Event has been booked</div>
+            <% else %>
+              <div class="d-flex gap-3 m-0 flex-fill">
+                <%= link_to "Book", booked_path(@event), data: { turbo_method: :get, turbo_confirm: "Are you sure?" }, class: "btn btn-outline-secondary flex-fill" %>
+              </div>
+            <% end %>
           </div>
+        <% else %>
+          <div class="card card-body bg-body-secondary border-2 text-center rounded-3">You are not attending</div>
         <% end %>
-      </div>
+      <% else %>
+        <div class="d-flex gap-4 m-0 flex-fill">
+          <%= link_to "Attending", event_attendances_path(@event), class: "btn btn-outline-success flex-fill", data: { action: "click->attendances#in", target: 'attendances.response' }  %>
+          <%= link_to "Not attending", event_attendances_path(@event), class: "btn btn-outline-danger flex-fill", data: { action: "click->attendances#in", target: 'attendances.response' }  %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

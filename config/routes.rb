@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     resources :likes, only: [:create]
   end
 
+  get 'events/:id/booked', to: 'events#booked', as: :booked
+
   resources :events do
     resources :attendances, only: [:create]
   end
