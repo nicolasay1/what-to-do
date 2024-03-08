@@ -104,6 +104,11 @@
 .btn-saves {
   position: fixed;
   left: 50%;
-  bottom: 70px;
+  bottom: 40px;
   transform: translateX(-50%);
+  background-color: #FF7F50;
+  color: white;
+  border-radius: 3px;
+  padding: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }

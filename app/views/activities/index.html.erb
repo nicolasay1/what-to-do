@@ -5,7 +5,7 @@
   <div class="discardbox" data-activity-target='discardbox'>
     <i class="fa-solid fa-xmark"></i>
   </div>
-  <% @activities.each_with_index do |activity, index| %>
+  <% @activities.shuffle.each_with_index do |activity, index| %>
     <div class="card browse" data-activity-target="card" data-index="<%= index %>" data-activity-id="<%= activity.id %>"
       data-action="touchstart->activity#handleTouchStart touchmove->activity#handleTouchMove touchend->activity#handleTouchEnd">
       <%= link_to activity_path(activity), class: "card-link" do %>
@@ -36,7 +36,7 @@
       </div>
     </div>
   <% end %>
-  <div class="btn btn-outline-success btn-saves">
+  <div class="btn-saves">
     <%= link_to "My Saves", saves_path %>
   </div>
 </div>
