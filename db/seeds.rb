@@ -361,25 +361,6 @@ User.destroy_all
   },
 
   {
-    title: "F1 Arcade",
-    description: "A thrilling F1® racing experience designed to make you feel like a champion. F1 Arcade brings all the excitement, glamour and thrills of Formula 1® with our bespoke full-motion racing simulators, incredible food & cocktail menus and an electric atmosphere creating the perfect social gaming experience.",
-    frequency: "Daily",
-    date: Date.new(2024, 3, 8),
-    start_time: '12:00',
-    end_time: '23:50',
-    area: 'St.Pauls',
-    address: "St.Pauls, London, EC4M",
-    tags: "Thrilling, Racing, Drinks",
-    lat: 51.513279,
-    lng: -0.098370,
-    price: "16+",
-    people: "2-5+",
-    created_at: Time.now,
-    updated_at: Time.now,
-    link: "https://f1arcade.com"
-  },
-
-  {
     title: "Arsenal Stadium Tour",
     description: "Journey into Emirates Stadium and go on an all access behind-the-scenes tour. You’ll have the opportunity to walk in the footsteps of your heroes, listen to their matchday experiences and explore never before seen footage.",
     frequency: "Daily",
@@ -396,6 +377,120 @@ User.destroy_all
     created_at: Time.now,
     updated_at: Time.now,
     link: "https://arsenaldirect.arsenal.com/tour/home"
+  },
+
+  {
+    title: "Swingers Mini Golf",
+    description: "Swingers takes crazy golf from the 1920’s British seaside, Tanqueray infused plus-fours, adds London’s best street food, banging beats and sticks it in central London. Twice. Game on...",
+    frequency: "Daily",
+    date: Date.new(2024, 3, 8),
+    start_time: '11:00',
+    end_time: '23:00',
+    area: 'West End',
+    address: "15 John Prince's St London W1G 0AB",
+    tags: "Mini Golf, Social, Games",
+    lat: 51.515959,
+    lng: -0.143476,
+    price: "12+",
+    people: "2-5+",
+    created_at: Time.now,
+    updated_at: Time.now,
+    link: "https://swingers.club/uk/venues/west-end"
+  },
+
+  {
+    title: "Kew Gardens",
+    description: "Discover the world of science behind our botanical collections, with over 50,000 living plants to be found across our UNESCO World Heritage site.",
+    frequency: "Daily",
+    date: Date.new(2024, 3, 8),
+    start_time: '10:00',
+    end_time: '18:00',
+    area: 'Richmond',
+    address: "Kew, Richmond, London, TW9 3AE",
+    tags: "Botanical Gardens, Nature",
+    lat: 51.485272,
+    lng: -0.291198,
+    price: "12+",
+    people: "1+",
+    created_at: Time.now,
+    updated_at: Time.now,
+    link: "https://www.kew.org/kew-gardens"
+  },
+
+  {
+    title: "The Art of Banksy",
+    description: "Following unprecedented public demand, The Art of Banksy - the major exhibition which has brought Banksy’s era defining works to over 1.5 million visitors in 15 cities across the globe - is extending its London run following hugely successful residencies in Covent Garden and Regent Street. Doors open 15 March in London’s iconic Soho.",
+    frequency: "Daily",
+    date: Date.new(2024, 3, 8),
+    start_time: '11:00',
+    end_time: '20:00',
+    area: 'Charing Cross',
+    address: "100 Charing Cross Road, London, WC2H 0JG",
+    tags: "Banksy, Art, Exhibit",
+    lat: 51.514231,
+    lng: -0.129192,
+    price: "21+",
+    people: "1+",
+    created_at: Time.now,
+    updated_at: Time.now,
+    link: "https://artofbanksy.co.uk"
+  },
+
+  {
+    title: "Van Gogh Immersive Experience",
+    description: "Have you ever dreamt of stepping into a painting? Now you can with this exhibition that has been touring since 2017 with +5,000,000 visitors! Get your tickets now! Crowned the GOLD MEDALIST for both Best Exhibition Experience and Best Immersive Experience at the prestigious Eventex 2023 Awards. Awarded best 2021 immersive experience by USA Today. Ranked among the 12 best immersive experiences in the world by CNN.",
+    frequency: "Daily",
+    date: Date.new(2024, 3, 8),
+    start_time: '11:00',
+    end_time: '20:00',
+    area: 'Spitalfields',
+    address: "106 Commercial Street, London. E1 6LZ",
+    tags: "Van Gogh, Art, Immersive",
+    lat: 51.5200208,
+    lng: -0.0741933,
+    price: "20+",
+    people: "1+",
+    created_at: Time.now,
+    updated_at: Time.now,
+    link: "https://vangoghexpo.com/london/"
+  },
+
+  {
+    title: "Sandbox VR London",
+    description: "Sandbox VR London is the ultimate destination for cutting-edge virtual reality experiences in the heart of the city. Grab your pals and immerse yourself in one of 8 worlds where the boundaries of reality are pushed to their limits. The adrenaline fuelled VR experiences, created by world-leading in-house games developers, make this the perfect location for groups of friends, work teams, stag and hen parties or competitive families to come together and experience the most advanced virtual reality on the planet. ",
+    frequency: "Daily",
+    date: Date.new(2024, 3, 8),
+    start_time: '10:30',
+    end_time: '23:30',
+    area: 'Holborn',
+    address: "Sandbox VR London, The Post Building, High Holborn, WC1A 1PB",
+    tags: "VR, Immersive, Futuristic",
+    lat: 51.516937,
+    lng: -0.124656,
+    price: "35+",
+    people: "2-5+",
+    created_at: Time.now,
+    updated_at: Time.now,
+    link: "https://sandboxvr.com/booking/experiences"
+  },
+
+  {
+    title: "Columbia Road Flower Market",
+    description: "One of London’s most well-known and nicest-looking markets, Columbia Road overflows with bucketfuls of beautiful flowers every Sunday. From 8am-3pm, market traders line the narrow street selling flowers, houseplants, herbs, bulbs and shrubs. It’s worth shopping around, don’t be afraid to barter and prepare for it to get very busy. The market is popular with locals and tourists and during the midday rush is rammed with people elbowing their way to that perfect pot plant. If you can’t bear crowds or just want to guarantee the pick of the crop, arrive when the market opens.",
+    frequency: "Weekly",
+    date: Date.new(2024, 3, 10),
+    start_time: '8:00',
+    end_time: '15:00',
+    area: 'Bethnal Green',
+    address: "Columbia Rd, London, E2 7RG",
+    tags: "Flower Market, Local favorite, Couple",
+    lat: 51.529337,
+    lng: -0.069187,
+    price: "Free entry",
+    people: "2+",
+    created_at: Time.now,
+    updated_at: Time.now,
+    link: "https://columbiaroad.info"
   }
 ])
 
