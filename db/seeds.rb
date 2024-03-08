@@ -14,7 +14,7 @@ User.destroy_all
 
   Activity.create!([
     {
-    title: "Canal Run Angel to Primrose Hill",
+    title: "Primrose Hill Canal Run",
     description: "Join us Saturday at 10:30am for a casual run along the Regents Canal, approx 9km. We head to the top of Primrose Hill and back through Regents Park finishing at Granary Square, Kings Cross. Or if you’re looking for something shorter you can turn around at any point, Camden Market or the top of Primrose Hill are good options.
 
     We will start and meet in front of the entrance to the Regent's canal (entrance is on Muriel Street). Coffee afterwards for those interested.",
@@ -24,17 +24,18 @@ User.destroy_all
     end_time: '13:30',
     area: 'Angel',
     address: "Regent's Canal, London",
-    tags: "health, running, morning, exercise, athletics, sports, social",
+    tags: "health, running, exercise",
     lat: 51.5323,
     lng: -0.1064,
     price: "Free",
     people: "10+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://www.meetup.com/angel-islington-running-group/events/299271105/"
+    link: "https://www.meetup.com/angel-islington-running-group/events/299271105/",
+    image_url: "https://tmhmedia.themodernhouse.com/uploads/TMH_H.Goldsmith_MaidaVale-105.jpg"
   },
   {
-    title: "Thursday 5km run followed by pub drinks",
+    title: "5km + Drinks",
     description: "Please join us for our weekly run and social - a great (free!) way to meet new people!
     We meet at 7pm at the entrance to Highbury Fields outside Harvest N5.
     We run 5km at an easy pace (about 6 mins per km), often 3 loops around Highbury Fields but we do change up the route from time to time.
@@ -45,14 +46,15 @@ User.destroy_all
     end_time: '21:00',
     area: 'Highbury',
     address: "Highbury Fields, Highbury Crescent · London",
-    tags: "health, running, evening, exercise, athletics, sports, social",
+    tags: "health, running, evening",
     lat: 51.5492,
     lng: -0.1030,
     price: "Free",
     people: "10+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://www.meetup.com/angel-islington-running-group/events/299271105/"
+    link: "https://www.meetup.com/angel-islington-running-group/events/299271105/",
+    image_url: "https://secure.meetupstatic.com/photos/event/d/0/2/9/clean_514733289.webp"
   },
   {
     title: "Nomadic Coffee - Cowork",
@@ -65,14 +67,15 @@ User.destroy_all
     end_time: '18:30',
     area: 'Shoreditch',
     address: "CoBalance, 130 Shoreditch High St ",
-    tags: "community, coffee, social, evening, work, networking",
+    tags: "coffee, social, networking",
     lat: 51.5264,
     lng: -0.0786,
     price: "Free",
     people: "10+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://www.meetup.com/selina-secret-garden-community/events/299384962/"
+    link: "https://www.meetup.com/selina-secret-garden-community/events/299384962/",
+    image_url: "https://assets-pergikuliner.com/RGjHTQByH5uqYOquMdgMSQrrLW0=/385x290/smart/https://assets-pergikuliner.com/uploads/image/picture/2698411/picture-1667375852.jpg"
   },
   {
     title: "Friday Climb and Cheeky Drink",
@@ -87,14 +90,17 @@ User.destroy_all
     end_time: '23:00',
     area: 'Stoke Newington',
     address: "The Castle Climbing Centre, Green Lanes, Stoke Newington · London N4 2HA",
-    tags: "health, climbing, evening, exercise, athletic, sports, social",
+    tags: "health, climbing, evening",
     lat: 51.5643,
     lng: -0.0923,
     price: "5",
     people: "20+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://www.meetup.com/thelrc/events/299261700/" },
+    link: "https://www.meetup.com/thelrc/events/299261700/",
+    image_url: "data:image/jpeg;base64,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"
+  },
+
   {
     title: "Islington Farmers' Market",
     description: "Sunday market with stands offering locally sourced vegetables & meats, plus some prepared foods.",
@@ -104,17 +110,18 @@ User.destroy_all
     end_time: '14:00',
     area: 'Islington',
     address: "Chapel Market, London N1 9PZ",
-    tags: "food, community, shopping, social, farmers market, vegetables, meat, prepared foods",
+    tags: "food, community",
     lat: 51.5334,
     lng: -0.1113,
     price: "Free",
     people: "20+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://www.lfm.org.uk/markets/islington/"
+    link: "https://www.lfm.org.uk/markets/islington/",
+    image_url: "https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fa%2Fa9%2FIslington_Farmers%2527_Market_%25283624118865%2529.jpg%2F1200px-Islington_Farmers%2527_Market_%25283624118865%2529.jpg"
   },
   {
-    title: "Surrealist Book Club: Hard-Boiled Wonderland & the End of the World, by Murakami",
+    title: "Surrealist Book Club",
     description: "The March 2024 edition of Surrealist Book Club - with Hard-Boiled Wonderland & the End of the World, by Haruki Murakami.
     A narrative particle accelerator that zooms between Wild Turkey Whiskey and Bob Dylan, unicorn skulls and voracious librarians, John Coltrane and Lord Jim. Science fiction, detective story and post-modern manifesto all rolled into one rip-roaring novel, Hard-boiled Wonderland and the End of the World is the tour de force that expanded Haruki Murakami's international following.
     Tracking one man's descent into the Kafkaesque underworld of contemporary Tokyo, Murakami unites East and West, tragedy and farce, compassion and detachment, slang and philosophy.",
@@ -124,14 +131,15 @@ User.destroy_all
     end_time: '12:00',
     area: 'Islington',
     address: "Chapel Market, London N1 9PZ",
-    tags: "reading, book club, literature, social, community, discussion, books, reading group",
+    tags: "reading, book club, literature",
     lat: 51.5344,
     lng: -0.1063,
     price: "2",
     people: "8+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://www.meetup.com/surrealist-book-club/events/298890983/"
+    link: "https://www.meetup.com/surrealist-book-club/events/298890983/",
+    image_url: "https://designagame.eu/wp-content/uploads/2013/12/1_thumb.jpg"
   },
   {
     title: "Parthian Wandsworth Social Climb",
@@ -142,17 +150,18 @@ User.destroy_all
     end_time: '22:00',
     area: 'Wandsworth',
     address: "Parthian Climbing, 52 - 58 Garratt Lane · LondonParthian Climbing",
-    tags: "health, climbing, evening, exercise, athletic, sports, social",
+    tags: "health, climbing, evening",
     lat: 51.4549,
     lng: -0.1927,
     price: "12",
     people: "10+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://www.meetup.com/thelrc/events/299359092/"
+    link: "https://www.meetup.com/thelrc/events/299359092/",
+    image_url: "https://tedious-mongoose.transforms.svdcdn.com/production/content-images/press-releases/Article-Image-Size-2023-09-28T150502.624.png?w=1760&h=990&auto=compress%2Cformat&fit=crop&dm=1695915649&s=ca7a3ddd0ffd938ec4ee6f909df5adec"
   },
   {
-    title: "HIKE 21km Marlow - the Woods, Villages and Islands of the rural Thames",
+    title: "HIKE 21km Marlow",
     description: "A great rural hiking escape and a chance to see the River Thames as most Londoners haven't - tranquil and meandering through lush countryside away from London. Home to ducks and swans, settled in a gorgeous woodland, meadow and countrified landscape with picturesque riverside cottages, ancient villages, overhanging Weeping Willow trees, locks and a dramatic 200m footbridge across the river Thames, let us show you the rural Thames.
     This whole area of the Chiltern Hills was designated in 1965 as an official Area of Outstanding Natural Beauty to recognise and protect its picturesque beauty.",
     frequency: "weekly",
@@ -161,17 +170,18 @@ User.destroy_all
     end_time: '18:00',
     area: 'Paddington',
     address: "Paddington Rail Station, Praed St, Paddington, London W2 1EE, UK",
-    tags: "hiking, rural, countryside, social, community, day trip, Thames, morning, weekend",
+    tags: "hiking, rural, countryside",
     lat: 51.5191,
     lng: -0.1702,
     price: "30",
     people: "20+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://www.meetup.com/outdooraholics/events/297809362/"
+    link: "https://www.meetup.com/outdooraholics/events/297809362/",
+    image_url: "https://images.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjE3Mzg3MTUvZThmMWQ0YjZjZWRlZjU4MDJkZWIzNjEwMDczMjhjN2EuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJ3ZWJwIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
   },
   {
-    title: "A day trip at the (ISLE OF WIGHT), Hiking and Picnic.",
+    title: "Day trip to Isle of Wight",
     description: "he Isle of Wight is the home to the poets Swinburne and Tennyson and to Queen Victoria, who built her much-loved summer residence and final home Osborne House. Charles Dickens wrote much of David Copperfield whilst staying here. Historically the Island has also attracted many other famous visitors, including Charles Darwin, Lewis Carroll, Guglielmo Marconi, Turner and Alfred Lord Tennyson.",
     frequency: "monthly",
     date: Date.new(2024, 3, 10),
@@ -179,14 +189,15 @@ User.destroy_all
     end_time: '18:00',
     area: 'Paddington',
     address: "Paddington Rail Station, Praed St, Paddington, London W2 1EE, UK",
-    tags: "hiking, picnic, beach, social, community, day trip, Isle of Wight, morning, weekend",
+    tags: "hiking, picnic, day trip",
     lat: 51.5191,
     lng: -0.1702,
     price: "30",
     people: "20+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://www.meetup.com/london-outdoors-lover-hiking-and-picnic-meetup-group/events/299289999/"
+    link: "https://www.meetup.com/london-outdoors-lover-hiking-and-picnic-meetup-group/events/299289999/",
+    image_url: "https://eu-assets.simpleview-europe.com/isleofwight2015/imageresizer/?image=%2Fdbimgs%2FTours-sightseeing-Needles-rib-ride.png&action=PageHeaderSuper"
   },
   {
     title: "Strengthening Yoga Flow",
@@ -198,17 +209,18 @@ User.destroy_all
     end_time: '12:00',
     area: 'Islington',
     address: "25-31 Ironmonger Row, London EC1V 3QW",
-    tags: "yoga, health, exercise, social, community, mindfulness, meditation, morning",
+    tags: "yoga, health, exercise",
     lat: 51.5271,
     lng: -0.0947,
     price: "10",
     people: "10+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://www.meetup.com/heart-twickenham/events/299308979/"
+    link: "https://www.meetup.com/heart-twickenham/events/299308979/",
+    image_url: "https://www.davidlloyd.co.uk/cms/images/softwire-david-lloyd/image/upload/f_auto/v1/Yoga/lgovptmva6zfukncgcob.jpg"
   },
   {
-    title: "Camberwell Nude Life Drawing and drinks",
+    title: "Camberwell Drawing and drinks",
     description: "We'll be at the The Sun on * THIS MONDAY *! 🥳
     🌟 We'll have another WONDERFUL model for you this evening!
     ALL LEVELS WELCOME!
@@ -220,17 +232,18 @@ User.destroy_all
     end_time: '21:00',
     area: 'Camberwell',
     address: "The Sun, 61-63 Coldharbour Lane, SE5 9NS · London",
-    tags: "life drawing, art, social, community, drawing, painting, nude, drinks, evening",
+    tags: "life drawing, art, social",
     lat: 51.4619,
     lng: -0.1115,
     price: "10",
     people: "10+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://www.meetup.com/camberwell-life-drawing/events/299319898/"
+    link: "https://www.meetup.com/camberwell-life-drawing/events/299319898/",
+    image_url: "https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2014/12/16/1418734931077/Drink-and-Draw-012.jpg?width=465&dpr=1&s=none"
   },
   {
-    title: "Open Mic at the Old White Lion, East Finchley",
+    title: "Open Mic in East Finchley",
     description: "his is one of the best Open Mic clubs around at the moment and attracts a good crowd and plenty of entertainers. So this will be a regular monthly event. Open Mic means that the stage is open to anyone who wants to perform.
     It is easy to get to being very close to East Finchley tube station on the Northern Line. As you enter the pub go right to the room hosting the Open Mic. Look for North London Meet Your Neighbours IVC & Meetup signs on our tables. It gets busy so best to get there early. The entertainment starts around 8.30 and we will be there from 7.30pm. The bar serves a good selection of drinks and good food is available that will be brought to your table.",
     frequency: "weekly",
@@ -239,17 +252,18 @@ User.destroy_all
     end_time: '23:00',
     area: 'East Finchley',
     address: "The Old White Lion, 121 Great North Road, Greater · London",
-    tags: "open mic night, music, social, community, singing, performance, evening",
+    tags: "open mic night, music, social",
     lat: 51.5860,
     lng: -0.1638,
     price: "5",
     people: "40+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://www.meetup.com/north-london-meet-your-neighbours/events/299159587/"
+    link: "https://www.meetup.com/north-london-meet-your-neighbours/events/299159587/",
+    image_url: "https://www.jw3.org.uk/sites/default/files/styles/banner_image/public/images/open%20mic%20web.jpg?itok=4jEr4jGB"
   },
   {
-    title: "Saturday French/English Language Exchange at the Cafe",
+    title: "French/English Language Exchange",
     description: "Please join us for a coffee (or anything else you'd like) at the café whilst enjoying an afternoon of French/English language exchange. We will enjoy 30 minute blocks of English and French conversation between the hours of 2.00pm and 5.00pm.
     GOAL
     To provide a relaxed and friendly environment where you can develop your linguistic skills and abilities in the language that you are learning whilst helping others develop their abilities in the language of which you are already fluent or advanced.
@@ -260,14 +274,15 @@ User.destroy_all
     end_time: '23:00',
     area: 'Kings Cross',
     address: "Green & Fortune cafe, Kings Place, 90 York Way, Kings Cross, London, N1 9AG",
-    tags: "language exchange, social, community, french, english, conversation, afternoon",
+    tags: "language exchange, social, community",
     lat: 51.5392,
     lng: -0.1244,
     price: "Free",
     people: "10+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://www.meetup.com/french-english-language-exchange/events/zjqfrpygcfbdb/"
+    link: "https://www.meetup.com/french-english-language-exchange/events/zjqfrpygcfbdb/",
+    image_url: "https://secure.meetupstatic.com/photos/event/2/e/2/8/clean_467291816.webp"
 
   },
 
@@ -377,7 +392,8 @@ User.destroy_all
     people: "2+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://www.eventbrite.co.uk/e/croydon-whisky-festival-2024-tickets-698298538727?aff=ehometext"
+    link: "https://www.eventbrite.co.uk/e/croydon-whisky-festival-2024-tickets-698298538727?aff=ehometext",
+    image_url: "https://croydonwhiskyfestival.com/wp-content/uploads/2023/08/MG_0086-scaled.jpeg"
   },
 
   {
@@ -396,7 +412,8 @@ User.destroy_all
     people: "1+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://www.dcch.co.uk/london-design-week/"
+    link: "https://www.dcch.co.uk/london-design-week/",
+    image_url: "https://www.dcch.co.uk/london-design-week/wp-content/uploads/2023/11/0205-539x303.jpg"
   },
 
   {
@@ -415,7 +432,8 @@ User.destroy_all
     people: "2+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://www.thelionking.co.uk"
+    link: "https://www.thelionking.co.uk",
+    image_url: "https://lumiere-a.akamaihd.net/v1/images/tlk_characters_card_r_62bd14e2.jpeg?region=0,0,1460,824"
   },
 
   {
@@ -434,7 +452,8 @@ User.destroy_all
     people: "2-5+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://arsenaldirect.arsenal.com/tour/home"
+    link: "https://arsenaldirect.arsenal.com/tour/home",
+    image_url: "https://lh3.googleusercontent.com/p/AF1QipNBQS1ym3o-5wktmc6wtxWu8To23nLySY9nW_6N=s1360-w1360-h1020"
   },
 
   {
@@ -453,7 +472,8 @@ User.destroy_all
     people: "2-5+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://swingers.club/uk/venues/west-end"
+    link: "https://swingers.club/uk/venues/west-end",
+    image_url: "https://csswingerscmslivestorage.blob.core.windows.net/public-content/Dynamic%20Images/Original/Swingers%20West%20End%20-%20May2022-%20PWF%20-%200346-HDR.jpg"
   },
 
   {
@@ -472,7 +492,8 @@ User.destroy_all
     people: "1+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://www.kew.org/kew-gardens"
+    link: "https://www.kew.org/kew-gardens",
+    image_url: "https://cdn-imgix.headout.com/media/images/53a9edd14bbb7bff76cfe3ab511ec664-Kew%20Gardens%20Museum%201.jpg"
   },
 
   {
@@ -491,7 +512,8 @@ User.destroy_all
     people: "1+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://artofbanksy.co.uk"
+    link: "https://artofbanksy.co.uk",
+    image_url: "https://artofbanksy.co.uk/wp-content/uploads/2023/09/DSC03239_1920x1282.jpg"
   },
 
   {
@@ -510,7 +532,8 @@ User.destroy_all
     people: "1+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://vangoghexpo.com/london/"
+    link: "https://vangoghexpo.com/london/",
+    image_url: "https://assets.simpleviewinc.com/simpleview/image/upload/crm/longisland/VanGoghLowRes_MikeSudoma_August22-1275_DFC8DC4D-C93F-498C-A5B50935B3C4DDAB_d2db1e93-11f1-428c-911958821cd56c72.jpg"
   },
 
   {
@@ -529,7 +552,8 @@ User.destroy_all
     people: "2-5+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://sandboxvr.com/booking/experiences"
+    link: "https://sandboxvr.com/booking/experiences",
+    image_url: "https://d3hjf51r9j54j7.cloudfront.net/wp-content/uploads/sites/9/2023/02/Gameplay-group.jpg"
   },
 
   {
@@ -548,13 +572,14 @@ User.destroy_all
     people: "2+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://columbiaroad.info"
+    link: "https://columbiaroad.info",
+    image_url: "https://lh3.googleusercontent.com/p/AF1QipNtNs9Fngk_Cl3tWMQ_SHUbgSBCLbPAgZr0NcN_=s1360-w1360-h1020"
   },
 
   # NA Seed
 
   {
-    title: "The War of The Worlds: The Immersive Experience",
+    title: "The War of The Worlds",
     description: "Experience a real Martian invasion in London at Jeff Wayne's The War of The Worlds: The Immersive Experience. See it, hear it, live it, with 24 extraordinary scenes, multi-sensory effects and virtual reality – all set to Jeff Wayne’s iconic music. You’re not just watching, you’re right inside the action!",
     frequency: "Daily",
     date: Date.new(2024, 3, 17),
@@ -569,11 +594,12 @@ User.destroy_all
     people: "1+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://thewaroftheworldsimmersive.com/"
+    link: "https://thewaroftheworldsimmersive.com/",
+    image_url: "https://www.londonboxoffice.co.uk/news/public/reviews/the-war-of-the-worlds.jpg"
   },
 
   {
-    title: "The Jack the Ripper Walking Tour in London",
+    title: "The Jack the Ripper Walking Tour",
     description: "Set out on foot and find out stories about one of London's most notorious serial killers—Jack the Ripper. Going on a walking tour takes you down cobbled alleyways and secret spots that are inaccessible by car or bus. Listen to insights about the shocking unsolved crimes from 1888, who the main suspects were, and go to the spots where the crimes occurred in Spitalfields and Brick Lane.",
     frequency: "Daily",
     date: Date.new(2024, 3, 16),
@@ -588,11 +614,12 @@ User.destroy_all
     people: "1+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://www.jack-the-ripper-tour.com/"
+    link: "https://www.jack-the-ripper-tour.com/",
+    image_url: "https://res.klook.com/image/upload/c_fill,w_750,h_560/q_80/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/p3zdlnjplylepugiu7sm.jpg"
   },
 
   {
-    title: "The Ultimate Driving Tour, Karting around the Sights of London",
+    title: "The Ultimate Driving Tour",
     description: "Live on the edge and explore the iconic sights of London whilst driving in an eco-friendly, road-legal, automatic street Kart guided by a tour guide.",
     frequency: "Daily",
     date: Date.new(2024, 3, 15),
@@ -607,7 +634,8 @@ User.destroy_all
     people: "1+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://kartsoflondon.com/"
+    link: "https://kartsoflondon.com/",
+    image_url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/fd/60/4b/caption.jpg?w=1200&h=-1&s=1"
   },
 
   {
@@ -626,11 +654,12 @@ User.destroy_all
     people: "1+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://www.london-walking-tours.co.uk/the-haunted-london-pub-walk.htm"
+    link: "https://www.london-walking-tours.co.uk/the-haunted-london-pub-walk.html",
+    image_url: "https://cdn.getyourguide.com/img/tour/54641b17f87b9126.jpeg/145.jpg"
   },
 
   {
-    title: "London by Night Sightseeing Open Top Bus Tour with Audio Guide",
+    title: "London by Night Sightseeing",
     description: "Unravel London’s most chilling tales on this fun yet frightening haunted pub tour. Hear stories of notorious murderers, hauntings and debauchery from your local guide and visit eerie locations like Sweeney Todd’s barber shop and the macabre interior of a Victorian prison. Fear not! You’ll have a chance along the way to steel your nerves with some liquid courage. By the end of the 2-hour tour, you’ll see London in a profoundly spookier light.",
     frequency: "Daily",
     date: Date.new(2024, 3, 16),
@@ -645,7 +674,8 @@ User.destroy_all
     people: "1+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://www.visitlondon.com/things-to-do/place/48008644-london-by-night-open-top-bus-tour"
+    link: "https://www.visitlondon.com/things-to-do/place/48008644-london-by-night-open-top-bus-tour",
+    image_url: "https://veronikasadventure.com/wp-content/uploads/2024/01/london-by-night-sightseeing-open-top-bus-tour-with-audio-guide.jpg"
   }
 ])
 
