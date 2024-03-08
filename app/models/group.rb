@@ -9,4 +9,6 @@ class Group < ApplicationRecord
 
   has_secure_token :invite_token
 
+  has_one_attached :banner
+
 end
