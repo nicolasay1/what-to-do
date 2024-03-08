@@ -1,35 +1,31 @@
-<div class="container">
+<div class="container p-5">
 
-  <h1>Add members!</h1>
+  <div class="d-flex flex-column pb-4 border-bottom border-4 mb-4">
+    <h2 class="m-0">Add members</h2>
+  </div>
 
   <div class="my-2">
     <%= render 'search_user' %>
   </div>
 
-
-
   <div class="my-2">
     <%= render 'add_user_card' %>
   </div>
 
-
-
   <div class="my-4">
-    <h3>Send this link to your friends</h3>
+    <h5 class="fw-medium">Invite via link</h5>
     <%= render 'shared/group_invite_link'%>
-  <div>
+  </div>
 
-<div class="social-share-buttons">
-  <h6>Send this group to your socials</h6>
-
-  <div class="">
-    <a href="https://api.whatsapp.com/send?text=<%= CGI.escape(@invite_link) %>" target="_blank" title="Share on WhatsApp">
-      <i class="fa-brands fa-square-whatsapp fa-3x pe-1" style="color: #2e8fcc;"></i>   </a>
-
-
-    <% subject = "Invited!" %>
-    <% body = "#{@invite_link}" %>
-    <a href="mailto:?subject=<%= CGI.escape(subject) %>&body=<%= CGI.escape(body) %>" title="Share via Email">
-        <i class="fa-solid fa-envelope fa-3x pe-1" style="color: #2e8fcc;"></i> </a>
+  <div class="social-share-buttons my-5">
+    <h5 class="fw-medium mb-3">Invite via socials</h5>
+    <div class="d-flex gap-3">
+      <a href="https://api.whatsapp.com/send?text=<%= CGI.escape(@invite_link) %>" target="_blank" title="Share on WhatsApp">
+        <i class="fa-brands fa-square-whatsapp fa-3x pe-1" style="color: #2e8fcc;"></i>   </a>
+      <% subject = "Invited!" %>
+      <% body = "#{@invite_link}" %>
+      <a href="mailto:?subject=<%= CGI.escape(subject) %>&body=<%= CGI.escape(body) %>" title="Share via Email">
+          <i class="fa-solid fa-envelope fa-3x pe-1" style="color: #2e8fcc;"></i> </a>
+    </div>
   </div>
 </div>

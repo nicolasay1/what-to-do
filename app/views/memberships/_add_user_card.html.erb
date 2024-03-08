@@ -1,12 +1,12 @@
 <% if params[:query] %>
   <% if @suggested_users.present? %>
-  <h3>Suggested users</h3>
+  <h5 class="fw-medium">Suggested users</h5>
 
-    <% @suggested_users.each do |user| %>
+  <% @suggested_users.each do |user| %>
 
   <div class="row">
     <div class="col-12">
-      <div class="card m-2 shadow rounded">
+      <div class="card my-2 shadow rounded">
         <ul class="list-group list-group-flush">
               <li class="list-group-item position-relative">
                  <% if user.avatar.attached? %>

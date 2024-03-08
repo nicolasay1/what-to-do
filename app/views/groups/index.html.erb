@@ -1,19 +1,13 @@
 <div class="container p-5">
-  <%= render 'new_group_modal' %>
 
-
+  <div class="d-flex justify-content-between align-items-center pb-3 border-bottom border-2 mb-4">
+      <h2 class="m-0">My groups</h2>
+      <%= render 'new_group_modal' %>
+  </div>
   <% if @groups.empty? %>
-    <h2> You're not part of any group </h2>
-
+    <div class="card card-body bg-body-secondary border-2 text-center rounded-3">You don't have any groups</div>
   <% else %>
-    <div class="d-flex justify-content-between align-items-center mb-4">
-
-    <h2>My groups</h2>
-
-    </div>
-
     <%= render 'shared/group_card', groups: @groups %>
-
   <% end %>
 
 </div>
