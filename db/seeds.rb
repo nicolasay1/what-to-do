@@ -274,9 +274,86 @@ User.destroy_all
     lat: 51.403561,
     lng: -0.080330,
     price: "32",
+    people: "2+",
+    created_at: Time.now,
+    updated_at: Time.now,
+    link: "https://www.eventbrite.co.uk/e/croydon-whisky-festival-2024-tickets-698298538727?aff=ehometext"
+  },
+
+  {
+    title: "London Design Week 2024",
+    description: "For five days, spring’s interiors event offers the brightest and the best of world-class talent, making this celebration of the new season a remarkable source of inspiration, knowledge and creativity for both professionals and design-lovers alike.",
+    frequency: "Annual",
+    date: Date.new(2024, 3, 11),
+    start_time: '10:30',
+    end_time: '17:00',
+    area: 'Design Centre',
+    address: "Chelsea Harbour Lots Road London SW10 0XE",
+    tags: "Design, Lifestyle, Home",
+    lat: 51.476269,
+    lng: -0.179930,
+    price: "10",
     people: "1+",
     created_at: Time.now,
     updated_at: Time.now,
+    link: "https://www.dcch.co.uk/london-design-week/"
+  },
+
+  {
+    title: "The Lion King (Musical)",
+    description: "Disney’s award-winning musical The Lion King explodes with glorious colours, stunning effects and enchanting music. It follows the powerful story of Simba as he journeys from wide-eyed cub to his destined role as King of the Pridelands.",
+    frequency: "Daily",
+    date: Date.new(2024, 3, 8),
+    start_time: '19:30',
+    end_time: '21:30',
+    area: 'Lyceum Theatre',
+    address: "21 Wellington St, London WC2E 7RQ",
+    tags: "Musical, Thrilling, Fun",
+    lat: 51.511749,
+    lng: -0.119700,
+    price: "35+",
+    people: "2+",
+    created_at: Time.now,
+    updated_at: Time.now,
+    link: "https://www.thelionking.co.uk"
+  },
+
+  {
+    title: "F1 Arcade",
+    description: "A thrilling F1® racing experience designed to make you feel like a champion. F1 Arcade brings all the excitement, glamour and thrills of Formula 1® with our bespoke full-motion racing simulators, incredible food & cocktail menus and an electric atmosphere creating the perfect social gaming experience.",
+    frequency: "Daily",
+    date: Date.new(2024, 3, 8),
+    start_time: '12:00',
+    end_time: '23:50',
+    area: 'St.Pauls',
+    address: "St.Pauls, London, EC4M",
+    tags: "Thrilling, Racing, Drinks",
+    lat: 51.513279,
+    lng: -0.098370,
+    price: "16+",
+    people: "2-5+",
+    created_at: Time.now,
+    updated_at: Time.now,
+    link: "https://f1arcade.com"
+  },
+
+  {
+    title: "Arsenal Stadium Tour",
+    description: "Journey into Emirates Stadium and go on an all access behind-the-scenes tour. You’ll have the opportunity to walk in the footsteps of your heroes, listen to their matchday experiences and explore never before seen footage.",
+    frequency: "Daily",
+    date: Date.new(2024, 3, 8),
+    start_time: '09:30',
+    end_time: '18:00',
+    area: 'Emirates Stadium',
+    address: "Emirates Stadium, Hornsey Rd, London, N7 7AJ",
+    tags: "Thrilling, Racing, Drinks",
+    lat: 51.554291,
+    lng: -0.108475,
+    price: "30+",
+    people: "2-5+",
+    created_at: Time.now,
+    updated_at: Time.now,
+    link: "https://arsenaldirect.arsenal.com/tour/home"
   }
 ])
 
