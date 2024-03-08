@@ -268,6 +268,7 @@ User.destroy_all
     created_at: Time.now,
     updated_at: Time.now,
     link: "https://www.meetup.com/french-english-language-exchange/events/zjqfrpygcfbdb/"
+
   },
 
   #JB SEED
@@ -309,7 +310,8 @@ User.destroy_all
     people: "1+",
     created_at: Time.now,
     updated_at: Time.now,
-    link: "https://f1arcade.com/uk/london/the-experience?tw_source=google&tw_adid=689010999033&tw_campaign=20613977197&gad_source=1&gclid=CjwKCAiAi6uvBhADEiwAWiyRdotcK8eHTCHNZJAQg5pgSUjteKQCuJjyGOWgS1Q3amRnJ7Uq7Tb3pRoCp5gQAvD_BwE"
+    link: "https://f1arcade.com/uk/london/the-experience?tw_source=google&tw_adid=689010999033&tw_campaign=20613977197&gad_source=1&gclid=CjwKCAiAi6uvBhADEiwAWiyRdotcK8eHTCHNZJAQg5pgSUjteKQCuJjyGOWgS1Q3amRnJ7Uq7Tb3pRoCp5gQAvD_BwE",
+    image_url: "https://www.graffitidesign.co.uk/wp-content/uploads/2023/01/IMG-4230-1024x768.jpg"
   },
 
   {
@@ -329,6 +331,8 @@ User.destroy_all
     updated_at: Time.now,
     link: "https://www.alcotraz.co.uk/locations/london/"
   },
+
+
 
 
   # AZ Seeds
