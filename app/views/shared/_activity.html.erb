@@ -9,20 +9,25 @@
       <% end %>
     </div>
   </div>
-  <div class="body">
-    <div class="box">
-    </div>
-    <div class="my-4 description">
-      <p><%= activity.description %></p>
-    </div>
-    <div class="row m-0">
-      <h4 class="p-0">What you need to know</h4>
-      <div class="mt-3 p-0 border-start border-4">
-        <p class="subtext ms-3 mb-3"><i class="fa-solid fa-repeat me-2"></i><%= activity.frequency != nil ? activity.frequency.capitalize : "n/a" %></p>
-        <p class="subtext ms-3 mb-3"><i class="fa-solid fa-location-dot me-2"></i><%= activity.address != nil ? activity.address.capitalize : "n/a" %></p>
-        <p class="subtext ms-3 mb-3"><i class="fa-regular fa-clock me-2"></i>Start - End</p>
-        <p class="subtext ms-3 mb-3"><i class="fa-solid fa-sterling-sign me-2"></i>Price</p>
-        <p class="subtext ms-3 mb-3"><i class="fa-regular fa-user me-2"></i>People</p>
+
+  <div data-controller="distance" data-distance-lat-value="<%= activity.lat %>", data-distance-lng-value="<%= activity.lng %> ">
+    <div class="body">
+      <div class="box">
+      </div>
+      <div class="my-4 description">
+        <p><%= activity.description %></p>
+      </div>
+      <div class="row m-0">
+        <h4 class="p-0">What you need to know</h4>
+        <div class="mt-3 p-0 border-start border-4">
+          <p class="subtext ms-3 mb-3"><i class="fa-solid fa-repeat me-2"></i><%= activity.frequency != nil ? activity.frequency.capitalize : "n/a" %></p>
+          <p class="subtext ms-3 mb-3"><i class="fa-solid fa-location-dot me-2"></i><%= activity.address != nil ? activity.address.capitalize : "n/a" %></p>
+          <p class="subtext ms-3 mb-3"><i class="fa-regular fa-clock me-2"></i>Start - End</p>
+          <p class="subtext ms-3 mb-3"><i class="fa-solid fa-sterling-sign me-2"></i>Price</p>
+          <p class="subtext ms-3 mb-3"><i class="fa-regular fa-user me-2"></i>People</p>
+          <p class="subtext ms-3 mb-3" ><i class="fa-solid fa-person-running"></i><span data-distance-target="km">...</span> - <span data-distance-target="time"></span></p>
+
+        </div>
       </div>
     </div>
   </div>

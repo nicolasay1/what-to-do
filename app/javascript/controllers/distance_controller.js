@@ -3,12 +3,18 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="distance"
 export default class extends Controller {
 
-  static targets = []
+  static targets = ["km","time"]
+  static values = {
+    lat: Number,
+    lng: Number
+  };
+
+
 
   connect() {
     console.log("I'm connected")
     this.get_user_location()
-    this.get_distance()
+    // this.get_distance()
   }
 
   get_user_location() {
@@ -20,10 +26,17 @@ export default class extends Controller {
           // Get the user's latitude and longitude coordinates
           const user_lat = position.coords.latitude;
           const user_lng = position.coords.longitude;
+          console.log(`User Coordinates: latitude: ${user_lat}, longitude: ${user_lng}`);
 
-          // Do something with the location data, e.g. display on a map
-          console.log(`Latitude: ${user_lat}, longitude: ${user_lng}`);
-          this.get_distance(user_lng, user_lat)
+          // Get Activity lat and long
+          const activity_lng = this.data.get("lngValue")
+          const activity_lat = this.data.get("latValue")
+          console.log(`Activity Coordinates: latitude: ${activity_lat}, longitude: ${activity_lng}`);
+
+
+
+          // Call function to get distance
+          this.get_distance(user_lng, user_lat, activity_lng, activity_lat)
         },
         // Error callback function
         (error) => {
@@ -37,18 +50,18 @@ export default class extends Controller {
     }
    }
 
-   get_distance(user_lng, user_lat) {
+   get_distance(user_lng, user_lat, activity_lng, activity_lat) {
     const url = "https://api.mapbox.com/directions/v5/mapbox/walking/"
     const apiKey= "pk.eyJ1IjoiamFjZWtiYXN0aW45MyIsImEiOiJjbHNpeG83YzQyOTBtMmpubzk4bGU0Y2I3In0.3LU7cAxgIwWOqfEeFV2nHA"
 
-    fetch(`${url}${user_lng},${user_lat};-0.098341,51.513245?geometries=geojson&overview=full&access_token=${apiKey}`)
+    fetch(`${url}${user_lng},${user_lat};${activity_lng},${activity_lat}?geometries=geojson&overview=full&access_token=${apiKey}`)
     .then(resp => resp.json())
     .then(data => {
       let distance = (data["routes"][0]["distance"])
       let duration = (data["routes"][0]["duration"])
+      this.convertSeconds(duration)
+      this.kmTarget.innerText = ` ${Math.round(distance/1000, 2)} KM`
 
-      console.log(distance/1000)
-      console.log(duration/60)
 
 // The distance traveled between waypoints, in meters -> We want KM or miles
 // The estimated travel time between waypoints, in seconds. -> We want minutes
@@ -56,5 +69,16 @@ export default class extends Controller {
 
     })
    }
+
+  convertSeconds(duration) {
+    const hours = Math.floor(duration / 3600)
+    const minutes = Math.floor((duration % 3600) / 60)
+
+    if (hours > 0) {
+      this.timeTarget.innerText = ` ${hours} hours : ${minutes} minutes away`
+    } else {
+      this.timeTarget.innerText = ` ${minutes} minutes (Walking Distance)`
+    }
+  }
 
 }
