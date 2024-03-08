@@ -1,7 +1,15 @@
 <div class="container p-5">
   <div class="d-flex align-items-center justify-content-between pb-4 border-bottom border-3 mb-4">
     <div class="d-flex align-items-center">
-      <%= image_tag('user.png', class: "avatar") %>
+      <% if current_user.avatar.attached? %>
+        <%= cl_image_tag current_user.avatar.key, :transformation=>[
+          {:gravity=>"face", :height=>40, :width=>40, :crop=>"thumb"},
+          {:radius=>"max"},
+          {:fetch_format=>:auto}
+        ] %>
+      <% else %>
+        <%= image_tag('user.png', class: "avatar") %>
+      <% end %>
       <h1 class="m-0 ms-3"><%= current_user.first_name %> <%= current_user.last_name %></h1>
     </div>
     <%= link_to "", edit_user_registration_path, class: "fa-regular fa-pen-to-square btn btn-sm" %>

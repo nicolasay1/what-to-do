@@ -7,7 +7,15 @@
   <div class="col-md-6">
     <%= @members.count %> members:
     <% @members.each do |member| %>
-      <%= member.first_name %>
+       <% if member.avatar.attached? %>
+        <%= cl_image_tag current_user.avatar.key, :transformation=>[
+          {:gravity=>"face", :height=>40, :width=>40, :crop=>"thumb"},
+          {:radius=>"max"},
+          {:fetch_format=>:auto}
+        ] %>
+      <% else %>
+        <%= image_tag('user.png', class: "avatar") %>
+      <% end %>
     <% end %>
   </div>
   <div class="col-md-6 text-md-end">
