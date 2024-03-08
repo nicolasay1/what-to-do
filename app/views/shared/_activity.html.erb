@@ -1,7 +1,7 @@
 <div class="header pb-2 border-bottom border-2">
     <h1><%= activity.title %></h1>
     <div class="my-3 subtext">
-      <p><i class="fa-solid fa-location-dot me-3"></i><%= activity.address %></p>
+      <p><i class="fa-solid fa-location-dot me-3"></i><%= activity.area %></p>
     </div>
     <div class="my-3 row d-flex gap-2 m-0">
       <% activity.tags.split.each do |tag| %>
@@ -12,7 +12,13 @@
 
   <div data-controller="distance" data-distance-lat-value="<%= activity.lat %>", data-distance-lng-value="<%= activity.lng %> ">
     <div class="body">
-      <div class="box">
+      <div>
+        <% if activity.tags %>
+          <div></div>
+        <% else %>
+          <div class="box">
+        </div>
+        <% end %>
       </div>
       <div class="my-4 description">
         <p><%= activity.description %></p>
@@ -22,9 +28,9 @@
         <div class="mt-3 p-0 border-start border-4">
           <p class="subtext ms-3 mb-3"><i class="fa-solid fa-repeat me-2"></i><%= activity.frequency != nil ? activity.frequency.capitalize : "n/a" %></p>
           <p class="subtext ms-3 mb-3"><i class="fa-solid fa-location-dot me-2"></i><%= activity.address != nil ? activity.address.capitalize : "n/a" %></p>
-          <p class="subtext ms-3 mb-3"><i class="fa-regular fa-clock me-2"></i>Start - End</p>
-          <p class="subtext ms-3 mb-3"><i class="fa-solid fa-sterling-sign me-2"></i>Price</p>
-          <p class="subtext ms-3 mb-3"><i class="fa-regular fa-user me-2"></i>People</p>
+          <p class="subtext ms-3 mb-3"><i class="fa-regular fa-clock me-2"></i><%= activity.start_time.strftime("%H:%M") %> - <%= activity.end_time.strftime("%H:%M") %></p>
+          <p class="subtext ms-3 mb-3"><i class="fa-solid fa-sterling-sign me-2"></i><%= activity.price %> per person</p>
+          <p class="subtext ms-3 mb-3"><i class="fa-regular fa-user me-2"></i>Good for <%= activity.people %></p>
           <p class="subtext ms-3 mb-3" ><i class="fa-solid fa-person-running"></i><span data-distance-target="km"></span><span data-distance-target="time"></span></p>
 
         </div>
