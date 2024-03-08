@@ -6,13 +6,6 @@
   overflow: hidden;
 }
 
-.group-image-header {
-  width: 100%;
-  max-height: 200px;
-  background-size: cover;
-
-}
-
   .centered {
     position: absolute;
     top: 50%;
@@ -23,4 +16,11 @@
   .text-header {
     font-size: large;
     text-shadow: 1px 4px 10px rgba(0, 0, 0, 0.8)
+  }
+
+  .group-image-cloudinary {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+
   }
