@@ -22,6 +22,8 @@ class Users::SessionsController < Devise::SessionsController
   def show
     @groups = Group.where(user: current_user).last(2)
     @saves = Save.where(user: current_user).last(5)
+    user_groups = current_user.groups
+    @bookings = user_groups.map { |group| group.events.where(booked: true) }.flatten
   end
   # DELETE /resource/sign_out
   # def destroy
