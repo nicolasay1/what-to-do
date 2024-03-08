@@ -100,3 +100,10 @@
     outline: 1px solid rgb(255, 0, 170);
   }
 }
+
+.btn-saves {
+  position: fixed;
+  left: 50%;
+  bottom: 70px;
+  transform: translateX(-50%);
+}
