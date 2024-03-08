@@ -9,7 +9,15 @@
       <div class="card m-2 shadow rounded">
         <ul class="list-group list-group-flush">
               <li class="list-group-item position-relative">
-                <img src="https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg" class="avatar">
+                 <% if user.avatar.attached? %>
+        <%= cl_image_tag current_user.avatar.key, :transformation=>[
+          {:gravity=>"face", :height=>40, :width=>40, :crop=>"thumb"},
+          {:radius=>"max"},
+          {:fetch_format=>:auto}
+        ] %>
+      <% else %>
+        <%= image_tag('user.png', class: "avatar") %>
+      <% end %>
                 <%= user.email%>
                 <%= link_to group_memberships_path(@group, membership: { user_id: user, group_id: @group, admin: false }), style: "position: absolute; right: 12px; top: calc(50% - 13px)", data: { turbo_method: "post" } do %>
                   <%# <i class="fa-sharp fa-solid fa-plus" style="font-size: 26px;"></i> %>

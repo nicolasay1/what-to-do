@@ -1,0 +1,9 @@
+ <% if user.avatar.attached? %>
+        <%= cl_image_tag current_user.avatar.key, :transformation=>[
+          {:gravity=>"face", :height=>40, :width=>40, :crop=>"thumb"},
+          {:radius=>"max"},
+          {:fetch_format=>:auto}
+        ] %>
+<% else %>
+        <%= image_tag('user.png', class: "avatar") %>
+<% end %>
