@@ -3,6 +3,11 @@
     <div class="my-3 subtext">
       <p><i class="fa-solid fa-location-dot me-3"></i><%= activity.area %></p>
     </div>
+    <div class="d-flex justify-content-center mb-2">
+              <% if activity.image_url %>
+                <img src=<%= activity.image_url %> width="250px" height="200px" alt=""/>
+              <% end %>
+    </div>
     <div class="my-3 row d-flex gap-2 m-0">
       <% activity.tags.split.each do |tag| %>
         <div class="tag"><%= tag.gsub(",", "").capitalize %></div>

@@ -14,8 +14,13 @@
           <div data-controller="distance" data-distance-lat-value="<%= activity.lat %>", data-distance-lng-value="<%= activity.lng %> ">
             <p class="subtext ms-3 mb-3" ><i class="fa-solid fa-person-running"></i><span data-distance-target="km">...</span> - <span data-distance-target="time"></span></p>
           </div>
-          <div class="border-top mt-3"></div>
-          <div class="my-3 subtext">
+          <%# <div class="border-top mt-3"></div> %>
+          <div class="my-2 subtext">
+            <div class="d-flex justify-content-center mb-2">
+              <% if activity.image_url %>
+                <img src=<%= activity.image_url %> width="250px" height="200px" alt=""/>
+              <% end %>
+            </div>
             <p><i class="fa-regular fa-calendar-days me-3"></i><%= activity.date %></p>
             <p><i class="fa-regular fa-clock me-3"></i><%= activity.start_time.strftime("%H:%M") %></p>
             <p><i class="fa-solid fa-repeat me-3"></i><%= activity.frequency.capitalize %></p>
