@@ -521,6 +521,103 @@ User.destroy_all
     created_at: Time.now,
     updated_at: Time.now,
     link: "https://columbiaroad.info"
+  },
+
+  # NA Seed
+
+  {
+    title: "The War of The Worlds: The Immersive Experience",
+    description: "Experience a real Martian invasion in London at Jeff Wayne's The War of The Worlds: The Immersive Experience. See it, hear it, live it, with 24 extraordinary scenes, multi-sensory effects and virtual reality – all set to Jeff Wayne’s iconic music. You’re not just watching, you’re right inside the action!",
+    frequency: "Daily",
+    date: Date.new(2024, 3, 17),
+    start_time: '9:00',
+    end_time: '11:00',
+    area: 'Bank',
+    address: "The Hallmark Building, 56 Leadenhall St, London EC3A 2BJ",
+    tags: "Immersive",
+    lat: 51.513141,
+    lng: -0.079076,
+    price: "45+",
+    people: "1+",
+    created_at: Time.now,
+    updated_at: Time.now,
+    link: "https://thewaroftheworldsimmersive.com/"
+  },
+
+  {
+    title: "The Jack the Ripper Walking Tour in London",
+    description: "Set out on foot and find out stories about one of London's most notorious serial killers—Jack the Ripper. Going on a walking tour takes you down cobbled alleyways and secret spots that are inaccessible by car or bus. Listen to insights about the shocking unsolved crimes from 1888, who the main suspects were, and go to the spots where the crimes occurred in Spitalfields and Brick Lane.",
+    frequency: "Daily",
+    date: Date.new(2024, 3, 16),
+    start_time: '10:00',
+    end_time: '12:00',
+    area: 'Brick Lane',
+    address: "Aldgate East, Underground Ltd, Whitechapel High St, London E1 7PT",
+    tags: "Immersive, Walk, History",
+    lat: 51.515490,
+    lng: -0.071774,
+    price: "16+",
+    people: "1+",
+    created_at: Time.now,
+    updated_at: Time.now,
+    link: "https://www.jack-the-ripper-tour.com/"
+  },
+
+  {
+    title: "The Ultimate Driving Tour, Karting around the Sights of London",
+    description: "Live on the edge and explore the iconic sights of London whilst driving in an eco-friendly, road-legal, automatic street Kart guided by a tour guide.",
+    frequency: "Daily",
+    date: Date.new(2024, 3, 15),
+    start_time: '10:30',
+    end_time: '11:30',
+    area: 'Paddington',
+    address: "Safestore Self Storage Paddington, Burwood Pl, Tyburnia, London W2 2HN",
+    tags: "Immersive, Go-Karting, Discovery",
+    lat: 51.517128,
+    lng: -0.166176,
+    price: "79+",
+    people: "1+",
+    created_at: Time.now,
+    updated_at: Time.now,
+    link: "https://kartsoflondon.com/"
+  },
+
+  {
+    title: "Haunted London Pub Walking Tour",
+    description: "Unravel London’s most chilling tales on this fun yet frightening haunted pub tour. Hear stories of notorious murderers, hauntings and debauchery from your local guide and visit eerie locations like Sweeney Todd’s barber shop and the macabre interior of a Victorian prison. Fear not! You’ll have a chance along the way to steel your nerves with some liquid courage. By the end of the 2-hour tour, you’ll see London in a profoundly spookier light.",
+    frequency: "Daily",
+    date: Date.new(2024, 3, 16),
+    start_time: '19:00',
+    end_time: '21:30',
+    area: 'Fleet Street',
+    address: "Mansion House Underground Ltd Station, 38 Cannon St, London EC4N 6JD",
+    tags: "Immersive, Walk, Discovery",
+    lat: 51.512430,
+    lng: -0.093590,
+    price: "10+",
+    people: "1+",
+    created_at: Time.now,
+    updated_at: Time.now,
+    link: "https://www.london-walking-tours.co.uk/the-haunted-london-pub-walk.htm"
+  },
+
+  {
+    title: "London by Night Sightseeing Open Top Bus Tour with Audio Guide",
+    description: "Unravel London’s most chilling tales on this fun yet frightening haunted pub tour. Hear stories of notorious murderers, hauntings and debauchery from your local guide and visit eerie locations like Sweeney Todd’s barber shop and the macabre interior of a Victorian prison. Fear not! You’ll have a chance along the way to steel your nerves with some liquid courage. By the end of the 2-hour tour, you’ll see London in a profoundly spookier light.",
+    frequency: "Daily",
+    date: Date.new(2024, 3, 16),
+    start_time: '19:00',
+    end_time: '20:45',
+    area: 'Belvedere Road',
+    address: "London Eye, Belvedere Road, Tourist bus stop number 77, London SE1 7NA",
+    tags: "Bus Tour, Discovery",
+    lat: 51.502969,
+    lng: -0.119290,
+    price: "24+",
+    people: "1+",
+    created_at: Time.now,
+    updated_at: Time.now,
+    link: "https://www.visitlondon.com/things-to-do/place/48008644-london-by-night-open-top-bus-tour"
   }
 ])
 

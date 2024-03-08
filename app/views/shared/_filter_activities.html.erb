@@ -1,0 +1,16 @@
+<div data-controller="filter">
+  <input type="date" data-action="input->filter#filterByDate">
+  <select data-action="change->filter#filterByTag">
+    <option value="">All tags</option>
+    <option value="">Sports</option>
+    <option value="">Health</option>
+    <option value="">Food</option>
+    <option value="">Workshop</option>
+  </select>
+
+  <ul data-filter-target="resultList">
+    <% @activities.each do |activity| %>
+      <li data-tag="<%= activity.tags %>"></li>
+    <% end %>
+  </ul>
+</div>
