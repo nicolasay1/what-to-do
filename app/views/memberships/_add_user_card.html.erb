@@ -10,7 +10,7 @@
         <ul class="list-group list-group-flush">
               <li class="list-group-item position-relative">
                  <% if user.avatar.attached? %>
-        <%= cl_image_tag current_user.avatar.key, :transformation=>[
+        <%= cl_image_tag user.avatar.key, :transformation=>[
           {:gravity=>"face", :height=>40, :width=>40, :crop=>"thumb"},
           {:radius=>"max"},
           {:fetch_format=>:auto}

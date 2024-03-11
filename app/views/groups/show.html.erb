@@ -1,9 +1,9 @@
 <div class="group-profile-header">
-   <% if @group.banner.attached? %>
+  <% if @group.banner.attached? %>
         <%= cl_image_tag @group.banner.key, class: "group-image-cloudinary", crop: "fill" %>
-      <% else %>
+  <% else %>
         <img class="img-fluid group-image-header image-responsive" src="https://cdn.pixabay.com/photo/2016/02/03/08/32/banner-1176676_640.jpg">
-      <% end %>
+  <% end %>
 
   <div class="centered text-header"><h1><%= @group.name.capitalize %></h1></div>
 </div>
@@ -15,16 +15,18 @@
       <h2 class="m-0">Members</h2>
       <div class="d-flex gap-2">
         <% if current_user.memberships.find_by(group: @group, admin: true) %>
-          <%= link_to "Add +", new_group_membership_path(@group), class: "btn btn-sm btn-outline-primary" %>
+          <%= link_to "Invite", new_group_membership_path(@group), class: "btn btn-sm btn-outline-primary" %>
           <%= link_to "Manage", edit_group_path(@group), class: "btn btn-sm btn-outline-secondary" %>
         <% end %>
       </div>
     </div>
+
+
     <div class="d-flex align-items-center gap-2">
       <%= @members.count %> members:
       <% @members.each do |member| %>
         <% if member.avatar.attached? %>
-          <%= cl_image_tag current_user.avatar.key, :transformation=>[
+          <%= cl_image_tag member.avatar.key, :transformation=>[
             {:gravity=>"face", :height=>40, :width=>40, :crop=>"thumb"},
             {:radius=>"max"},
             {:fetch_format=>:auto}
@@ -33,33 +35,29 @@
           <%= image_tag('user.png', class: "avatar") %>
         <% end %>
       <% end %>
+
+
     </div>
   </div>
 
   <div class="d-flex flex-column pb-4 border-bottom border-4 mb-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
-      <h2 class="m-0">Bookings</h2>
+      <h2 class="m-0">Confirmed Bookings ✅</h2>
     </div>
     <% if @bookings.empty? %>
       <div class="card card-body bg-body-secondary border-2 text-center rounded-3">No upcoming bookings</div>
     <% else %>
-      <%= render 'shared/events', events: @bookings %>
+      <%= render 'group_confirmed_events', bookings: @bookings %>
     <% end %>
   </div>
+
+
+
+
+
   <div class="d-flex flex-column pb-4 border-bottom border-4 mb-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
-      <h2 class="m-0">Proposals</h2>
-      <%= link_to "See all", proposals_path({group_id: @group.id}), class: "btn btn-sm btn-outline-secondary"  %>
-    </div>
-    <% if @proposals.empty? %>
-      <div class="card card-body bg-body-secondary border-2 text-center rounded-3">No proposals</div>
-    <% else %>
-      <%= render 'shared/proposals', proposals: @proposals.last(2) %>
-    <% end %>
-  </div>
-  <div class="d-flex flex-column pb-4 border-bottom border-4 mb-5">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-      <h2 class="m-0">Events</h2>
+      <h2 class="m-0">Proposed Events</h2>
       <%= link_to "See all", events_path({group_id: @group.id}), class: "btn btn-sm btn-outline-secondary"  %>
     </div>
     <% if @events.empty? %>
