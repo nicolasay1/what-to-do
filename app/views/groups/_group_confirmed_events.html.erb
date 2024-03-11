@@ -1,32 +1,37 @@
 <% bookings.each do |booking|%>
   <%= link_to activity_path(booking.activity) do %>
     <div class="border-top">
-      <div class="row py-3">
-                  <h3><%= booking.activity.title %></h3>
+      <div class="row py-3 w-100 m-0">
+      <h3><%= booking.activity.title %></h3>
 
-        <div class="col-3 w-100">
+        <div class="col-12 col-md-6 col-lg-3">
           <% if booking.activity.image_url %>
-            <img src=<%= booking.activity.image_url %> width="250px" height="200px" alt=""/>
+            <img src=<%= booking.activity.image_url %> width="100%" height=auto class="img-fluid" alt=""/>
           <% end %>
         </div>
-        <div class="col-8">
+        <div class="col-12 col-md-6 col-lg-8">
             <p><%= booking.date %></p>
             <p><%= booking.time %></p>
             <p><i class="fa-solid fa-location-dot"></i> <%= booking.activity.address %><p>
-            <p><i class="fa-solid fa-check"></i> Confirmed:</p>
-              <% booking.attendances.where(attendance: true).each do |user| %>
+            <div class="d-flex justify-content-left align-items-center mb-4">
+              <p class="p-0 m-0"><i class="fa-solid fa-check"></i> Confirmed: </p>
+
+            <% booking.attendances.where(attendance: true).each do |user| %>
+              <div>
                 <% if user.user.avatar.attached? %>
-            <%= cl_image_tag user.user.avatar.key, :transformation=>[
-              {:gravity=>"face", :height=>40, :width=>40, :crop=>"thumb"},
-              {:radius=>"max"},
-              {:fetch_format=>:auto}
-            ] %>
-          <% else %>
-            <%= image_tag('user.png', class: "avatar") %>
-          <% end %>
-              <% end %>
+                  <%= cl_image_tag user.user.avatar.key, :transformation=>[
+                    {:gravity=>"face", :height=>40, :width=>40, :crop=>"thumb"},
+                    {:radius=>"max"},
+                    {:fetch_format=>:auto}
+                  ], class: "me-2" %>
+                <% else %>
+                  <%= image_tag('user.png', class: "avatar me-2") %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
         </div>
-        <div class="col-1 w-100">
+        <div class="col-1 mt-2">
           <% if booking.attendances.find_by(user: current_user).present? %>
             <% if booking.attendances.find_by(user: current_user).attendance %>
               <button type="button" class="btn btn-primary">Attending</button>
