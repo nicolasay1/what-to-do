@@ -5,7 +5,6 @@ class User < ApplicationRecord
   has_many :groups, through: :memberships
   has_many :created_groups, class_name: 'group'
   has_many :attendances
-  has_many :likes
   has_one_attached :avatar
   has_many :chatrooms, through: :groups
 

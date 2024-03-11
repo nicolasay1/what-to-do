@@ -34,17 +34,3 @@ export default class extends Controller {
     window.history.back();
   }
 }
-
-// console.log("test")
-// this.groupCards.forEach((cardId) => {
-//   fetch("/proposals", {
-//     method: 'POST',
-//     headers: {
-//       "Content-Type": "application/json",
-//       "X-CSRF-Token": this.tokenValue
-//     },
-//     body: JSON.stringify({group_id: cardId, activity_id: this.activityValue})
-//   }).then(resp => console.log(resp))
-// })
-
-// window.location = '/profile'

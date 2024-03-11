@@ -1,9 +1,0 @@
-<div class="row d-flex justify-content-right m-0 gap-4">
-  <% proposals.each do |proposal| %>
-    <%= link_to proposal_path(proposal), class: "text-decoration-none text-dark save-card" do %>
-      <div class="d-flex">
-        <h4 class="p-0 m-0"><%= proposal.activity.title %></h4>
-      </div>
-    <% end %>
-  <% end %>
-</div>
