@@ -1,6 +1,6 @@
 <div class="row d-flex justify-content-right m-0 gap-4">
   <% groups.each do |group| %>
-    <div id="<%= group.id %>" class="text-decoration-none text-dark group-card" data-action="click->share#select" data-share-target="toggleSelect">
+    <div data-id="<%= group.id %>" data-chatroom-id="<%= group.chatroom.id %>" class="text-decoration-none text-dark group-card" data-action="click->share#select" data-share-target="toggleSelect">
         <h3><%= group.name.capitalize %></h3>
         <p class="p-0 m-0"><%= group.description %></p>
     </div>

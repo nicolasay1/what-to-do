@@ -7,7 +7,8 @@
     <div class="mb-4">
       <%= render 'shared/group_share_card', groups: @groups %>
     </div>
-    <%= link_to "Share", share_path(@activity), class: "btn btn-outline-secondary w-100", data: {
-      action: "click->share#send" }  %>
+    <button class="btn btn-outline-secondary w-100" data-action="click->share#send">
+      Share
+    </button>
   </div>
 </div>
