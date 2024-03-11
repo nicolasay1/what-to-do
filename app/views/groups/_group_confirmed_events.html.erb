@@ -1,0 +1,43 @@
+<% bookings.each do |booking|%>
+  <div class="border-top">
+
+    <div class="row py-3">
+                <h3><%= booking.activity.title %></h3>
+
+      <div class="col-3">
+        <% if booking.activity.image_url %>
+          <img src=<%= booking.activity.image_url %> width="250px" height="200px" alt=""/>
+        <% end %>
+      </div>
+      <div class="col-8">
+          <p><%= booking.date %></p>
+          <p><%= booking.time %></p>
+          <p><i class="fa-solid fa-location-dot"></i> <%= booking.activity.address %><p>
+          <p><i class="fa-solid fa-check"></i> Confirmed:</p>
+            <% booking.attendances.where(attendance: true).each do |user| %>
+              <% if user.user.avatar.attached? %>
+          <%= cl_image_tag user.user.avatar.key, :transformation=>[
+            {:gravity=>"face", :height=>40, :width=>40, :crop=>"thumb"},
+            {:radius=>"max"},
+            {:fetch_format=>:auto}
+          ] %>
+        <% else %>
+          <%= image_tag('user.png', class: "avatar") %>
+        <% end %>
+            <% end %>
+      </div>
+      <div class="col-1">
+        <% if booking.attendances.find_by(user: current_user).present? %>
+          <% if booking.attendances.find_by(user: current_user).attendance %>
+            <button type="button" class="btn btn-primary">Attending</button>
+          <% else %>
+            <button type="button" class="btn btn-danger">Not attending</button>
+          <% end %>
+        <% else %>
+            <button type="button" class="btn btn-warning">Pending</button>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+<% end %>
