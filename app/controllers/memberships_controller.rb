@@ -28,7 +28,8 @@ class MembershipsController < ApplicationController
         redirect_to group_path(@group)
         flash[:notice] = "Member added successfully"
       else
-        flash[:notice] = "There was an issue"
+        redirect_to group_path(@group)
+        flash[:alert] = "Member already in the group"
       end
     end
   end

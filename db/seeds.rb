@@ -114,7 +114,7 @@ User.destroy_all
     link: "https://www.lfm.org.uk/markets/islington/"
   },
   {
-    title: "Surrealist Book Club: Hard-Boiled Wonderland & the End of the World, by Murakami",
+    title: "Surrealist Book Club",
     description: "The March 2024 edition of Surrealist Book Club - with Hard-Boiled Wonderland & the End of the World, by Haruki Murakami.
     A narrative particle accelerator that zooms between Wild Turkey Whiskey and Bob Dylan, unicorn skulls and voracious librarians, John Coltrane and Lord Jim. Science fiction, detective story and post-modern manifesto all rolled into one rip-roaring novel, Hard-boiled Wonderland and the End of the World is the tour de force that expanded Haruki Murakami's international following.
     Tracking one man's descent into the Kafkaesque underworld of contemporary Tokyo, Murakami unites East and West, tragedy and farce, compassion and detachment, slang and philosophy.",
@@ -152,7 +152,7 @@ User.destroy_all
     link: "https://www.meetup.com/thelrc/events/299359092/"
   },
   {
-    title: "HIKE 21km Marlow - the Woods, Villages and Islands of the rural Thames",
+    title: "HIKE 21km Marlow",
     description: "A great rural hiking escape and a chance to see the River Thames as most Londoners haven't - tranquil and meandering through lush countryside away from London. Home to ducks and swans, settled in a gorgeous woodland, meadow and countrified landscape with picturesque riverside cottages, ancient villages, overhanging Weeping Willow trees, locks and a dramatic 200m footbridge across the river Thames, let us show you the rural Thames.
     This whole area of the Chiltern Hills was designated in 1965 as an official Area of Outstanding Natural Beauty to recognise and protect its picturesque beauty.",
     frequency: "weekly",
