@@ -1,0 +1,26 @@
+<div class="filters-container">
+  <button data-action="click->activity#toggleFilterForm">
+    <i class="fa-solid fa-filter"></i>
+  </button>
+
+  <form data-activity-target="form" style="display: none">
+    <label for="start-date">Start Date:</label>
+    <input type="date" id="start-date">
+    <label for="end-date">End Date:</label>
+    <input type="date" id="end-date">
+
+    <label>Tags:</label>
+    <div data-activity-target="tags">
+      <label><input type="checkbox" value="sports">Sports</label>
+      <label><input type="checkbox" value="workshops">Workshops</label>
+      <label><input type="checkbox" value="walks">Walks</label>
+      <label><input type="checkbox" value="immersive">Immersive</label>
+      <label><input type="checkbox" value="history">History</label>
+      <label><input type="checkbox" value="museums">Museums</label>
+      <label><input type="checkbox" value="food">Food</label>
+      <label><input type="checkbox" value="concerts">Concerts</label>
+    </div>
+
+    <button type="button" data-action="click->activity#applyFilters">Apply Filters</button>
+  </form>
+</div>

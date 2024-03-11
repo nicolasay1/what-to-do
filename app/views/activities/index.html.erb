@@ -1,47 +1,57 @@
-<div class="container" data-controller="activity" data-activity-token-value="<%= form_authenticity_token %>">
+<div class="container activities" data-controller="activity" data-activity-token-value="<%= form_authenticity_token %>">
+  <%= render 'filter_activities' %>
   <div class="savebox" data-activity-target='savebox'>
     <i class="fa-solid fa-check"></i>
   </div>
   <div class="discardbox" data-activity-target='discardbox'>
     <i class="fa-solid fa-xmark"></i>
   </div>
-  <% @activities.shuffle.each_with_index do |activity, index| %>
-    <div class="card browse" data-activity-target="card" data-index="<%= index %>" data-activity-id="<%= activity.id %>"
-      data-action="touchstart->activity#handleTouchStart touchmove->activity#handleTouchMove touchend->activity#handleTouchEnd">
-      <%= link_to activity_path(activity), class: "card-link" do %>
-        <div class="card-body">
-          <h5 class="card-title"><%= activity.title %></h5>
-          <div data-controller="distance" data-distance-lat-value="<%= activity.lat %>", data-distance-lng-value="<%= activity.lng %> ">
-            <p class="subtext ms-3 mb-3" ><i class="fa-solid fa-person-running"></i><span data-distance-target="km">...</span> - <span data-distance-target="time"></span></p>
-          </div>
-          <%# <div class="border-top mt-3"></div> %>
-          <div class="my-2 subtext">
-            <div class="d-flex justify-content-center mb-2">
-              <% if activity.image_url %>
-                <img src=<%= activity.image_url %> width="250px" height="200px" alt=""/>
+  <div class="cards" data-activity-target='container'>
+    <% @activities.shuffle.each_with_index do |activity, index| %>
+      <div class="card browse" data-activity-target="card" data-activity-id="<%= activity.id %>"
+        data-tags="<%=activity.tags%>"
+        data-action="touchstart->activity#handleTouchStart touchmove->activity#handleTouchMove touchend->activity#handleTouchEnd">
+        <%= link_to activity_path(activity), class: "card-link" do %>
+          <div class="card-body">
+            <h5 class="card-title"><%= activity.title %></h5>
+            <div data-controller="distance" data-distance-lat-value="<%= activity.lat %>", data-distance-lng-value="<%= activity.lng %> ">
+              <p class="subtext ms-3 mb-3" ><i class="fa-solid fa-person-running"></i><span data-distance-target="km">...</span> - <span data-distance-target="time"></span></p>
+            </div>
+            <div class="my-2 subtext">
+              <div class="d-flex justify-content-center mb-2">
+                <% if activity.image_url %>
+                  <img src=<%= activity.image_url %> width="250px" height="200px" alt=""/>
+                <% end %>
+              </div>
+              <p><i class="fa-regular fa-calendar-days me-3"></i><%= activity.date %></p>
+              <p><i class="fa-regular fa-clock me-3"></i><%= activity.start_time.strftime("%H:%M") %></p>
+              <p><i class="fa-solid fa-repeat me-3"></i><%= activity.frequency.capitalize %></p>
+              <p><i class="fa-solid fa-location-dot me-3"></i><%= activity.address %></p>
+            </div>
+            <div class="my-3 row d-flex gap-2 m-0">
+              <% activity.tags.split.each do |tag| %>
+                <div class="tag"><%= tag.gsub(",", "").capitalize %></div>
               <% end %>
             </div>
-            <p><i class="fa-regular fa-calendar-days me-3"></i><%= activity.date %></p>
-            <p><i class="fa-regular fa-clock me-3"></i><%= activity.start_time.strftime("%H:%M") %></p>
-            <p><i class="fa-solid fa-repeat me-3"></i><%= activity.frequency.capitalize %></p>
-            <p><i class="fa-solid fa-location-dot me-3"></i><%= activity.address %></p>
           </div>
-          <div class="my-3 row d-flex gap-2 m-0">
-            <% activity.tags.split.each do |tag| %>
-              <div class="tag"><%= tag.gsub(",", "").capitalize %></div>
-            <% end %>
+        <% end %>
+
+        <div class="card-footer">
+          <div class="d-flex justify-content-between gap-3">
+            <button type="button" class="button-discard flex-fill" data-action="click->activity#discard"><i class="fa-solid fa-xmark"></i></button>
+            <button type="button" class="button-save flex-fill" data-action="click->activity#save"><i class="fa-solid fa-check"></i></button>
           </div>
         </div>
-      <% end %>
-      <div class="card-footer">
-        <div class="d-flex justify-content-between gap-3">
-          <button type="button" class="button-discard flex-fill" data-action="click->activity#discard"><i class="fa-solid fa-xmark"></i></button>
-          <button type="button" class="button-save flex-fill" data-action="click->activity#save"><i class="fa-solid fa-check"></i></button>
-        </div>
+
       </div>
+    <% end %>
+
+    <div class='empty-notice' data-activity-target='empty'>
+      <p>No more suggested activities</p>
     </div>
-  <% end %>
+  </div>
+
   <div class="btn-saves">
     <%= link_to "My Saves", saves_path %>
   </div>
-</div>
+  </div>

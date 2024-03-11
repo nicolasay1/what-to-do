@@ -8,37 +8,62 @@ export default class extends Controller {
 
   static targets = [
     "card",
+    "container",
     "savebox",
-    "discardbox"
+    "discardbox",
+    "form",
+    "tags",
+    "empty"
   ]
 
   connect() {
     this.activeCardIndex = 0;
+    this.allCards = this.cardTargets;
+    this.activeCards = this.cardTargets;
+    this.showCard(0);
+
     this.startX = null;
     this.rotateValue = '';
     this.scaleValue = '';
-
-    if (this.cardTargets.length > 0) {
-      this.hideAllCards()
-      this.showCard()
-    }
-    this.threshold = window.screen.width * 0.35
+    this.threshold = window.screen.width * 0.35;
   }
 
-  hideAllCards() {
-    this.cardTargets.forEach(card => {
+  toggleFilterForm() {
+    const startDate = this.formTarget.style.display = this.formTarget.style.display === "none" ? "block" : "none";
+  }
+
+  applyFilters() {
+    const startDate = this.formTarget.querySelector("#start-date").value;
+    const endDate = this.formTarget.querySelector("#end-date").value;
+    const selectedTags = Array.from(this.tagsTarget.querySelectorAll("input[type='checkbox']:checked")).map(checkbox => checkbox.value);
+    this.activeCards = this.allCards.filter((card) => {
+      const tags = card.dataset.tags.split(', ');
+      for (let i = 0; i < tags.length; i++) {
+        const tagsMatch = selectedTags.length === 0 || selectedTags.includes(tags[i]);
+        const datesMatch = true;
+        if (tagsMatch && datesMatch) {
+          return true;
+        }
+      }
+      return false;
+    });
+    this.showCard(0);
+  }
+
+  showCard(index) {
+    this.allCards.forEach(card => {
       card.style.display = "none"
     })
-  }
-
-  showCard() {
-    this.hideAllCards()
-    this.cardTargets[this.activeCardIndex].style.display = "block"
+    if (index < this.activeCards.length - 1) {
+      this.emptyTarget.classList.remove('visible');
+      this.activeCards[index].style.display = "block"
+    } else {
+      this.emptyTarget.classList.add('visible');
+    }
   }
 
   save(event) {
-    const index = parseInt(event.currentTarget.closest(".card").dataset.index)
-    const activityId = this.cardTargets[index].dataset.activityId;
+    const activityId = this.activeCards[this.activeCardIndex].dataset.activityId;
 
     fetch(`/saves`, {
       method: "POST",
@@ -51,13 +76,8 @@ export default class extends Controller {
     })
     .then(response => {
       if (response.status === 201) {
-        console.log(`Saved activity at index ${index}`)
-        if (index < this.cardTargets.length - 1) {
-          this.activeCardIndex += 1;
-          this.showCard()
-        } else {
-          this.hideAllCards()
-        }
+        this.activeCardIndex += 1;
+        this.showCard(this.activeCardIndex)
       } else {
         throw new Error('Failed to save activity')
       }
@@ -68,17 +88,13 @@ export default class extends Controller {
   discard(event) {
     const index = parseInt(event.currentTarget.closest(".card").dataset.index)
     console.log(`Discarded activity at index ${index}`)
-    if (index < this.cardTargets.length - 1) {
-      this.activeCardIndex += 1;
-      this.showCard()
-    } else {
-      this.hideAllCards()
-    }
+    this.activeCardIndex += 1;
+    this.showCard(this.activeCardIndex)
   }
 
   handleTouchStart(event) {
     // get the shown card element
-    const card = this.cardTargets[this.activeCardIndex];
+    const card = this.activeCards[this.activeCardIndex];
     this.cardWidth = card.clientWidth;
     // get the cards x and y position (relative to the screen borders)
     const cardX = card.getBoundingClientRect().left + (this.cardWidth / 2);
@@ -96,7 +112,7 @@ export default class extends Controller {
   }
 
   handleTouchMove(event) {
-    const card = this.cardTargets[this.activeCardIndex];
+    const card = this.activeCards[this.activeCardIndex];
     // set the cards left and right to match where the touch is
     card.style.left = `${event.targetTouches[0].clientX}px`;
     card.style.top = `${event.targetTouches[0].clientY}px`;
@@ -126,11 +142,12 @@ export default class extends Controller {
   }
 
   handleTouchEnd(event) {
-    const card = this.cardTargets[this.activeCardIndex];
+    const card = this.activeCards[this.activeCardIndex];
     // check if the cards current position is greater than initial offset (moved right)
-    if (card.getBoundingClientRect().left + (this.cardWidth / 2) - this.startX > 200) {
+    const xOffset = card.getBoundingClientRect().left + (this.cardWidth / 2) - this.startX;
+    if (xOffset >= (this.threshold)) {
       this.save(event)
-    } else if (card.getBoundingClientRect().left + (this.cardWidth / 2) - this.startX < -200) {
+    } else if (xOffset <= -(this.threshold)) {
       this.discard(event)
     }
     // back to original position

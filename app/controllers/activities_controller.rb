@@ -1,13 +1,14 @@
 class ActivitiesController < ApplicationController
   def index
-    @activities = Activity.all.filter do |activity|
-      current_user.saves.where(activity_id: activity.id).empty?
+    p params
+    @activities = Activity.all.filter do |a|
+      current_user.saves.where(activity_id: a.id).empty?
     end
   end
 
   def show
     @activity = Activity.find(params[:id])
-    @markers = [{lat: @activity.lat, lng: @activity.lng}]
+    @markers = [{ lat: @activity.lat, lng: @activity.lng }]
   end
 
   def share
