@@ -20,7 +20,7 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def show
-    @groups = Group.where(user: current_user).last(2)
+    @groups = Group.where(user: current_user)
     @saves = Save.where(user: current_user).last(5)
     user_groups = current_user.groups
     @bookings = user_groups.map { |group| group.events.where(booked: true) }.flatten
