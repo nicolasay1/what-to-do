@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   resources :saves, only: [:index, :create, :delete]
 
+
   resources :proposals, only: [:index, :show, :new, :create] do
     resources :likes, only: [:create]
   end
@@ -33,7 +34,16 @@ Rails.application.routes.draw do
     resources :attendances, only: [:create]
   end
 
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
+
   resources :groups do
+    # get "/chat", to: 'chatrooms#show', as: :group_chat
+    # post "/chat", to: 'messages#create'
+    # resources :chatrooms, only: :show do
+    #   resources :messages, only: :create
+    # end
     resources :memberships, only: [:new, :create, :destroy]
   end
 end

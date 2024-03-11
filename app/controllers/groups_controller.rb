@@ -19,7 +19,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     @group.user = current_user
-
+    @chatroom = Chatroom.create(group: @group, name: @group.name)
     if @group.save
       add_to_group_member
       flash[:notice] = "Group created successfully 🎉!"

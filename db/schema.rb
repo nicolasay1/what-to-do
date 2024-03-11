@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_08_151719) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_11_104643) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -72,6 +72,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_08_151719) do
     t.index ["user_id"], name: "index_attendances_on_user_id"
   end
 
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.bigint "group_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_chatrooms_on_group_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.boolean "booked"
     t.date "date"
@@ -114,6 +122,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_08_151719) do
     t.index ["user_id"], name: "index_memberships_on_user_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "chatroom_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "proposals", force: :cascade do |t|
     t.bigint "group_id", null: false
     t.bigint "activity_id", null: false
@@ -150,6 +168,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_08_151719) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "attendances", "events"
   add_foreign_key "attendances", "users"
+  add_foreign_key "chatrooms", "groups"
   add_foreign_key "events", "activities"
   add_foreign_key "events", "groups"
   add_foreign_key "groups", "users"
@@ -157,6 +176,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_08_151719) do
   add_foreign_key "likes", "users"
   add_foreign_key "memberships", "groups"
   add_foreign_key "memberships", "users"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "proposals", "activities"
   add_foreign_key "proposals", "groups"
   add_foreign_key "saves", "activities"
