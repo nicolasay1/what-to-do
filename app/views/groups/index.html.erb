@@ -6,8 +6,20 @@
   </div>
   <% if @groups.empty? %>
     <div class="card card-body bg-body-secondary border-2 text-center rounded-3">You don't have any groups</div>
+
   <% else %>
-    <%= render 'shared/group_card', groups: @groups %>
+
+    <div class="row m-0 gap-4">
+      <% @groups.each do |group| %>
+        <%= link_to group_path(group), class: "text-decoration-none text-dark" do %>
+          <div class="text-decoration-none text-dark group-card">
+            <h3><%= group.name.capitalize %></h3>
+            <p class="p-0 m-0"><%= group.description %></p>
+          </div>
+        <%end%>
+      <% end %>
+    </div>
+
   <% end %>
 
 </div>

@@ -1,4 +1,4 @@
-<div class="row d-flex justify-content-right m-0 gap-4">
+<%# <div class="row d-flex justify-content-right m-0 gap-4"> %>
   <% groups.each do |group| %>
     <%= link_to group_path(group), class: "text-decoration-none text-dark group-card" do %>
       <h3><%= group.name.capitalize %></h3>
@@ -7,4 +7,4 @@
       <% end %>
     <% end %>
   <% end %>
-</div>
+<%# </div> %>
