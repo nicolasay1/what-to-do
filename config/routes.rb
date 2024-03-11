@@ -24,10 +24,6 @@ Rails.application.routes.draw do
   resources :saves, only: [:index, :create, :delete]
 
 
-  resources :proposals, only: [:index, :show, :new, :create] do
-    resources :likes, only: [:create]
-  end
-
   get 'events/:id/booked', to: 'events#booked', as: :booked
 
   resources :events do

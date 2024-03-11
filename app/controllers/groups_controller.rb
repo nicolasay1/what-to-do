@@ -11,7 +11,6 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @members = @group.users
     @invite_link = "#{request.original_url}/memberships/new?invite_token=#{@group.invite_token}"
-    @proposals = Proposal.where(group_id: @group.id)
     @events = Event.where(group_id: @group.id, booked: nil)
     @bookings = Event.where(group_id: @group.id, booked: true).order(date: :asc)
     @chatroom = @group.chatroom
