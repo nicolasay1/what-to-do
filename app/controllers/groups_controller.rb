@@ -12,14 +12,15 @@ class GroupsController < ApplicationController
     @members = @group.users
     @invite_link = "#{request.original_url}/memberships/new?invite_token=#{@group.invite_token}"
     @proposals = Proposal.where(group_id: @group.id)
-    @events = Event.where(group_id: @group.id, booked: false)
+    @events = Event.where(group_id: @group.id, booked: nil)
     @bookings = Event.where(group_id: @group.id, booked: true).order(date: :asc)
+    @chatroom = @group.chatroom
   end
 
   def create
     @group = Group.new(group_params)
     @group.user = current_user
-
+    @chatroom = Chatroom.create(group: @group, name: @group.name)
     if @group.save
       add_to_group_member
       flash[:notice] = "Group created successfully 🎉!"
