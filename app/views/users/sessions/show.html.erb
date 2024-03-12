@@ -1,3 +1,4 @@
+<% if current_user %>
 <div class="container p-5">
   <div class="d-flex align-items-center justify-content-between pb-4 border-bottom border-3 mb-4">
     <div class="d-flex align-items-center">
@@ -49,3 +50,6 @@
     <%= render 'shared/saves', saves: @saves %>
   </div>
 </div>
+<% else %>
+<%= redirect_to root_path %>
+<% end %>
