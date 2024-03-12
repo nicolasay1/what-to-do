@@ -13,7 +13,7 @@ class ActivitiesController < ApplicationController
         tags.each do |tag|
           match += 1 if a.tags.split(', ').map(&:downcase).include?(tag)
         end
-        match > 0
+        match > 0 # matching
       end
     end
   end
