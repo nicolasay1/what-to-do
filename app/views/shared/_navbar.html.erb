@@ -9,6 +9,15 @@
       <% if user_signed_in? %>
 
         <div class="navbar-nav ms-2">
+
+        <form class="d-flex" role="search">
+          <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-location"></i></span>
+              <input id="locationInput" class="form-control me-2" type="search" value="<%= @location_cookie%>" aria-label="Search">
+              <button class="btn btn-primary" type="submit">Change Location</button>
+          </div>
+        </form>
+
           <%= link_to "Home", root_path, class: "nav-link" %>
           <%= link_to "Activities", activities_path, class: "nav-link" %>
           <%= link_to "Groups", groups_path, class: "nav-link" %>
