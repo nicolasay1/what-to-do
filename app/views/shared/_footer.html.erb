@@ -4,10 +4,10 @@
       <nav class="col-12 col-md-4">
         <b><%= "Your account" %></b>
         <div class="my-3">
-          <%= link_to "Sign up", activities_path, class: "link-footer" %>
+          <%= link_to "Sign up", activities_path, class: "link-footer" unless user_signed_in? %>
         </div>
         <div class="my-3">
-          <%= link_to "Log in", activities_path, class: "link-footer" %>
+          <%= link_to "Log in", activities_path, class: "link-footer" unless user_signed_in? %>
         </div>
         <div class="my-3">
           <%= link_to "Help", activities_path, class: "link-footer" %>
@@ -41,9 +41,6 @@
         <div class="my-3">
           <%= link_to "Careers", activities_path, class: "link-footer" %>
         </div>
-        <div class="my-3">
-          <%= link_to "Apps", activities_path, class: "link-footer" %>
-        </div>
       </nav>
     </div>
 
@@ -56,11 +53,13 @@
             <a href="#"><i class="fab fa-youtube fa-2x mx-2"></i></a>
             <a href="#"><i class="fab fa-instagram fa-2x mx-2"></i></a>
             <a href="#"><i class="fab fa-tiktok fa-2x mx-2"></i></a>
-          </div>
         </div>
-
+      </div>
+      <div class="mt-3">
+        <%= image_tag 'Google_Play_Store_badge_EN.png', style: "height: 30px; opacity: 0.5;" %>
+      </div>
     </div>
-    <div class="mt-4 py-3">
+    <div class="mt-4 py-3"style="font-size: 0.8em;">
         <a href="#"class="mx-3">Terms of Service</a>
         <a href="#"class="mx-3">Privacy Policy</a>
         <a href="#"class="mx-3">Cookie Settings</a>
