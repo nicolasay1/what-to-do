@@ -15,9 +15,7 @@ class ActivitiesController < ApplicationController
         end
         match > 0
       end
-      p @activities
     end
-
   end
 
   def show
