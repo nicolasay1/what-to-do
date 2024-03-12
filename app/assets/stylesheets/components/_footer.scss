@@ -1,0 +1,33 @@
+#footer {
+  text-align: center;
+  background-color: rgb(39, 39, 39);
+  color: rgb(255, 255, 255);
+}
+
+.ul-footer {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  padding-left: 0 !important
+}
+
+.link-footer {
+  padding: 0 10px;
+  text-decoration: none;
+  transition: color 0.5s ease;
+  color: rgb(208, 208, 208);
+
+
+  &:hover {
+    color: rgb(255, 255, 255);
+  }
+}
+
+.google-link {
+  background-image: url('Google_Play_Store_badge_EN.png')
+}
+
+.terms {
+  margin: 0, 10;
+  padding-right: 20px
+}
