@@ -18,6 +18,8 @@ export default class extends Controller {
   ]
 
   connect() {
+    this.loadFilters();
+
     this.activeCardIndex = 0;
     this.allCards = this.cardTargets;
     this.activeCards = this.cardTargets;
@@ -33,43 +35,90 @@ export default class extends Controller {
     const startDate = this.formTarget.style.display = this.formTarget.style.display === "none" ? "block" : "none";
   }
 
-  // applyFilters() {
-  //   let startDate = this.formTarget.querySelector("#start-date").value;
-  //   console.log(startDate)
-  //   if (startDate) {
-  //     startDate = Date(startDate)
-  //   }
-  //   console.log(startDate)
-  //   const endDate = Date(this.formTarget.querySelector("#end-date").value);
-  //   const selectedTags = Array.from(this.tagsTarget.querySelectorAll("input[type='checkbox']:checked")).map(checkbox => checkbox.value);
-  //   this.activeCards = this.allCards.filter((card) => {
-  //     const tags = card.dataset.tags.split(', ');
-  //     const eventDate = Date(document.querySelector(".fa-calendar-days").nextSibling.nodeValue);
-  //     // console.log(Date(this.activityDateTarget.nextSibling.nodeValue + "Z"))
-  //     // console.log(eventDate)
-  //     // console.log(startDate)
-  //     let datesMatch = true
-  //     if (startDate && endDate) {
-  //       datesMatch = eventDate >= startDate && eventDate <= endDate;
-  //       console.log("passed startend")
-  //     } else if (startDate) {
-  //       datesMatch = eventDate >= startDate;
-  //       console.log("passed start")
-  //     } else if (endDate) {
-  //       datesMatch = eventDate <= endDate;
-  //       console.log("passed end")
-  //     }
-  //     console.log(datesMatch)
-  //     for (let i = 0; i < tags.length; i++) {
-  //       const tagsMatch = selectedTags.length === 0 || selectedTags.includes(tags[i]);
-  //       if (tagsMatch && datesMatch) {
-  //         return true;
-  //       }
-  //     }
-  //     return false;
-  //   });
-  //   this.showCard(0);
-  // }
+  loadFilters() {
+    const url = window.location.search;
+    const startDateRegex = /startDate=([^&]*)/;
+    const endDateRegex = /endDate=([^&]*)/;
+    const selectedTagsRegex = /selectedTags=([^&]*)/;
+
+    const startDateMatch = url.match(startDateRegex);
+    const startDate = startDateMatch ? startDateMatch[1] : null;
+
+    const endDateMatch = url.match(endDateRegex);
+    const endDate = endDateMatch ? endDateMatch[1] : null;
+
+    const selectedTagsMatch = url.match(selectedTagsRegex);
+    const selectedTags = selectedTagsMatch ? selectedTagsMatch[1].split(',') : null;
+
+    console.log("Start Date: ", startDate);
+    console.log("End Date: ", endDate);
+    console.log("Selected Tags: ", selectedTags);
+
+    this.populateFilterForm(startDate, endDate, selectedTags);
+  }
+
+  populateFilterForm(startDate, endDate, selectedTags) {
+    document.getElementById('start-date').value = startDate || '';
+    document.getElementById('end-date').value = endDate || '';
+    const selectedTagsContainer = this.tagsTarget;
+    selectedTagsContainer.innerHTML = '';
+    const allSelectedTags = selectedTags || [];
+    const allTags = ["Sports", "Walk", "Immersive", "History", "Food", "Weekend"]
+    allTags.forEach(tag => {
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.name = 'selectedTag';
+      checkbox.value = tag;
+      checkbox.checked = this.isTagSelected(allSelectedTags, tag);
+
+      const label = document.createElement('label');
+      label.textContent = tag;
+
+      const div = document.createElement('div');
+      div.appendChild(checkbox);
+      div.appendChild(label);
+
+      selectedTagsContainer.appendChild(div);
+    });
+  }
+
+  isTagSelected(allSelectedTags, tag) {
+    return allSelectedTags.includes(tag);
+  }
+
+  applyFilters(e) {
+    e.preventDefault();
+    const startDate = this.formTarget.querySelector("#start-date").value;
+    const endDate = this.formTarget.querySelector("#end-date").value;
+    const selectedTags = Array.from(this.tagsTarget.querySelectorAll("input[type='checkbox']:checked")).map(checkbox => checkbox.value).join(',');
+    // this.activeCards = this.allCards.filter((card) => {
+    //   const tags = card.dataset.tags.split(', ');
+    //   const eventDate = Date(document.querySelector(".fa-calendar-days").nextSibling.nodeValue);
+    //   // console.log(Date(this.activityDateTarget.nextSibling.nodeValue + "Z"))
+    //   // console.log(eventDate)
+    //   // console.log(startDate)
+    //   let datesMatch = true
+    //   if (startDate && endDate) {
+    //     datesMatch = eventDate >= startDate && eventDate <= endDate;
+    //     console.log("passed startend")
+    //   } else if (startDate) {
+    //     datesMatch = eventDate >= startDate;
+    //     console.log("passed start")
+    //   } else if (endDate) {
+    //     datesMatch = eventDate <= endDate;
+    //     console.log("passed end")
+    //   }
+    //   console.log(datesMatch)
+    //   for (let i = 0; i < tags.length; i++) {
+    //     const tagsMatch = selectedTags.length === 0 || selectedTags.includes(tags[i]);
+    //     if (tagsMatch && datesMatch) {
+    //       return true;
+    //     }
+    //   }
+    //   return false;
+    // });
+    window.location = `/activities?startDate=${startDate}&endDate=${endDate}&selectedTags=${selectedTags}`
+  }
 
   showCard(index) {
     this.allCards.forEach(card => {

@@ -1,15 +1,23 @@
 class ActivitiesController < ApplicationController
   def index
-    @activities = Activity.all.where("date >= ?", params[:start_date]) if params[:start_date].present?
-    @activities = @activities.where("date <= ?", params[:end_date]) if params[:end_date].present?
-    @activities = @activities.filter do |activity|
+    @activities = Activity.all.filter do |activity|
       current_user.saves.where(activity_id: activity.id).empty?
     end
+    @activities = @activities.where("date >= ?", Date.new(params[:start_date])) if params[:start_date].present?
+    @activities = @activities.where("date <= ?", Date.new(params[:end_date])) if params[:end_date].present?
 
-    if params[:tags].present?
-      tags = params[:tags].split(', ')
-      @activities = @activities.joins(:tags).where(tags: { name: tags }).group('activities.id').having('COUNT(tags.id) > 0')
+    if params[:selectedTags].present?
+      tags = params[:selectedTags].split(',').map(&:downcase)
+      @activities = @activities.filter do |a|
+        match = 0
+        tags.each do |tag|
+          match += 1 if a.tags.split(', ').map(&:downcase).include?(tag)
+        end
+        match > 0
+      end
+      p @activities
     end
+
   end
 
   def show
