@@ -1,21 +1,30 @@
-<% bookings.each do |booking|%>
-  <%= link_to activity_path(booking.activity) do %>
-    <div class="border-top">
-      <div class="row py-3 w-100 m-0">
-      <h3><%= booking.activity.title %></h3>
-
-        <div class="col-12 col-md-6 col-lg-3">
+<div class="d-flex flex-column gap-4">
+  <% bookings.each do |booking| %>
+    <%= link_to event_path(booking) do %>
+      <div class="event-card">
+        <div class="d-flex justify-content-center">
           <% if booking.activity.image_url %>
-            <img src=<%= booking.activity.image_url %> width="100%" height=auto class="img-fluid" alt=""/>
+            <img src=<%= booking.activity.image_url %> class="card-img"/>
           <% end %>
         </div>
-        <div class="col-12 col-md-6 col-lg-8">
-            <p><%= booking.date %></p>
-            <p><%= booking.time %></p>
-            <p><i class="fa-solid fa-location-dot"></i> <%= booking.activity.address %><p>
-            <div class="d-flex justify-content-left align-items-center mb-4">
-              <p class="p-0 m-0"><i class="fa-solid fa-check"></i> Confirmed: </p>
 
+        <div class="booking-content">
+          <h5 class="mb-4"><%= booking.activity.title %></h5>
+          <div class="booking-subtext">
+            <div class="row m-0 d-flex justify-content-left gap-3">
+              <div class="col-6 p-0 m-0">
+                <p><i class="fa-solid fa-location-dot me-2"></i><%= booking.activity.area %></p>
+                <p><i class="fa-regular fa-calendar-days me-2"></i><%= booking.date.strftime("%a, %e %b")  %></p>
+              </div>
+              <div class="col-5 p-0 m-0">
+                <p><i class="fa-regular fa-clock me-2"></i><%= booking.time.strftime("%H:%M") %></p>
+                <p><i class="fa-solid fa-check me-2"></i>Booked</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="">
+            <h6 class="p-0 m-0 mb-3 text-secondary">Attending:</h6>
             <% booking.attendances.where(attendance: true).each do |user| %>
               <div>
                 <% if user.user.avatar.attached? %>
@@ -31,19 +40,7 @@
             <% end %>
           </div>
         </div>
-        <div class="col-1 mt-2">
-          <% if booking.attendances.find_by(user: current_user).present? %>
-            <% if booking.attendances.find_by(user: current_user).attendance %>
-              <button type="button" class="btn btn-primary">Attending</button>
-            <% else %>
-              <button type="button" class="btn btn-danger">Not attending</button>
-            <% end %>
-          <% else %>
-              <button type="button" class="btn btn-warning">Pending</button>
-          <% end %>
-        </div>
       </div>
-
-    </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
