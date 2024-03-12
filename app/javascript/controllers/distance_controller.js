@@ -60,7 +60,7 @@ export default class extends Controller {
       let distance = (data["routes"][0]["distance"])
       let duration = (data["routes"][0]["duration"])
       this.convertSeconds(duration)
-      this.kmTarget.innerText = ` ${Math.round(distance/1000, 2)} KM`
+      this.kmTarget.innerText = `${Math.round(distance/1000, 2)}km`
 
 
 // The distance traveled between waypoints, in meters -> We want KM or miles
@@ -75,9 +75,9 @@ export default class extends Controller {
     const minutes = Math.floor((duration % 3600) / 60)
 
     if (hours > 0) {
-      this.timeTarget.innerText = ` ${hours} hours : ${minutes} minutes away`
+      this.timeTarget.innerText = ` ${hours}h ${minutes}m walk`
     } else {
-      this.timeTarget.innerText = ` ${minutes} minutes (Walking Distance)`
+      this.timeTarget.innerText = ` ${minutes}m walk`
     }
   }
 
