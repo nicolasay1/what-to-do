@@ -50,3 +50,26 @@
   color: rgb(136, 136, 136);
   font-size: 16px;
 }
+
+.show-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+  flex: 1;
+  padding: 10px 18px;
+  width: fit-content;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+
+  &.share {
+    border: 1px solid #0500a1;
+    color: #0500a1;
+  }
+
+  &.create {
+    border: 1px solid #ff036c;
+    color: #ff036c;
+  }
+}
