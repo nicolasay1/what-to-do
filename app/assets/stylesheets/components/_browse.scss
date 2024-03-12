@@ -1,6 +1,8 @@
 
 .activities {
+  position: relative;
   height: 90svh;
+  touch-action: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,6 +11,8 @@
     height: 70%;
   }
   .card-footer {
+    position: relative;
+    z-index: 10;
     display: flex;
     align-items: center;
     height: 10%;
@@ -18,10 +22,86 @@
   }
 
   .filters-container {
-    position: relative;
-    z-index: 10;
-    background-color: white;
-    border-radius: 10px;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    .background {
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba($color: #000000, $alpha: 0.2);
+      backdrop-filter: blur(10px);
+      opacity: 0;
+      transition: opacity .3s ease;
+      pointer-events: none;
+    }
+    .fa-filter {
+      color: green;
+    }
+    .fa-xmark {
+      color: red;
+      display: none;
+    }
+
+    &.open {
+      z-index: 10;
+      .menu {
+        opacity: 1;
+        pointer-events: all;
+      }
+      .background {
+        opacity: 1;
+      }
+      .fa-filter {
+        display: none;
+      }
+      .fa-xmark {
+        display: block;
+      }
+    }
+
+    & > button {
+      position: relative;
+      margin-top: 20px;
+      outline: none;
+      border: none;
+      z-index: 2;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: white;
+      box-shadow: 0px 0px 3px 2px rgba(100, 100, 111, 0.2);
+      .count {
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        background: rgb(121, 222, 121);
+        bottom: -5px;
+        right: -5px;
+      }
+    }
+    .menu {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      border-radius: 15px;
+      background: white;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s ease;
+    }
   }
 
   .browse {
@@ -47,7 +127,7 @@
   }
 
   .savebox {
-    position: fixed;
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -55,7 +135,7 @@
     top: 10;
     right: 0;
     width: 20vw;
-    height: 100vh;
+    height: 100%;
     background: #809612;
     i {
       font-size: 30px;
@@ -71,7 +151,7 @@
   }
 
   .discardbox {
-    position: fixed;
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -79,7 +159,7 @@
     top: 10;
     left: 0;
     width: 20vw;
-    height: 100vh;
+    height: 100%;
     background: #a8191c;
     i {
       font-size: 30px;
