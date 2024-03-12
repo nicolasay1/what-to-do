@@ -320,7 +320,7 @@ User.destroy_all
     start_time: '12:00',
     end_time: '01:00',
     address: "1 New Change, London EC4M 9AF",
-    tags: "Racing, Gaming, Sport",
+    tags: "Racing, Gaming, Sports",
     lat: 51.514245,
     lng: -0.095261,
     price: "15.95",
