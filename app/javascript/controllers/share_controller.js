@@ -10,33 +10,27 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log(this.tokenValue);
-    this.cards = [];
   }
 
   select(event) {
     const clickedCard = event.currentTarget
     clickedCard.classList.toggle("selected")
-    const selected = this.toggleSelectTargets.filter(card => card.classList.contains("selected"))
-    this.cards = [];
-    selected.forEach(element => {
-      this.cards.push(element.id)
-    });
+    this.groupCards = this.toggleSelectTargets.filter(card => card.classList.contains("selected"))
   }
 
   send() {
-    console.log("test")
-    this.cards.forEach((cardId) => {
-      fetch("/proposals", {
+    this.groupCards.forEach((card) => {
+      const chatroomId = card.dataset.chatroomId;
+      console.log(chatroomId);
+      fetch(`/chatrooms/${chatroomId}/messages`,{
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
           "X-CSRF-Token": this.tokenValue
         },
-        body: JSON.stringify({group_id: cardId, activity_id: this.activityValue})
-      }).then(resp => console.log(resp))
+        body: JSON.stringify({chatroom_id: chatroomId, message: { content: this.activityValue, activity: true} })
+      })
     })
-
-    window.location = '/profile'
+    window.history.back();
   }
 }
