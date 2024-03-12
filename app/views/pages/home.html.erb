@@ -1,18 +1,56 @@
-<div class="container">
-  <div class="text-center my-4">
-      <h1 class="mb-4">Unlock your city's best kept secrets!</h1>
-      <p class="mb-4">Discover the pulse of your city with just a tap! Our app is your ultimate companion for unearthing hidden gems, buzzing events, and exclusive happenings tailored just for you.</p>
-<div class="d-flex justify-content-center gap-1">
-      <h1 class="text-danger"><%= @activities.count %></h1>
-      <p> </p>
-      <h2>  activities listed.. </h2>
+<div class="home-hero vh-70">
+<div class="home-hero d-flex justify-content-center align-items-center p-0 m-0 vh-50">
+    <div class="text-center">
+      <h1 class="text-white">Shift from Search to Experience</h1>
+      <div class="tagline text-white">
+        <p>Experience the joy of living fully with What To Do.</p>
+        <p>Say goodbye to endless searching and dive into unforgettable adventures, all in one place.</p>
+      </div>
+      <div class="d-flex justify-content-center align-items-center gap-1 text-white">
+        <h1 class="text-danger"><%= @activities.count %></h1>
+        <h2>activities listed</h2>
+      </div>
+      <%= link_to "Browse Activities", activities_path, class:"btn btn-danger text-white mt-3"%>
+    </div>
+  </div>
 </div>
 
-      <div><%= image_tag 'landing-image2.png', alt: 'Landing page image', width: '300' %></div>
-<br>
-            <%= link_to "Browse Activities", activities_path, class:"btn btn-primary"%>
 
-      <%# <button class="btn btn-primary my-5">Join us</button> %>
+
+<div class="container mt-4">
+  <h2 class="text-center">3 Reasons to Use What To Do</h2>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">1. Broswe activities</h5>
+          <p class="card-text">Browse through a myriad of exciting activities tailored just for you. Discover new adventures, events, and experiences with ease and convenience.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">2. Group Feature</h5>
+          <p class="card-text">Easily organize outings and adventures with friends using our Group Feature. Coordinate plans, share ideas, and make memories together effortlessly.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">3. Tailored Recommendations</h5>
+          <p class="card-text">Experience activities perfectly suited to your tastes with personalized suggestions - everything in the app is curated just for you by our advanced algorithm.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
       <%# <div class="card activity-card">
         <div class="card-header">
           <p>Find activities</p>
@@ -22,6 +60,7 @@
         </div>
       </div> %>
 
+</div>
 
 
 <%# <div>
@@ -31,3 +70,6 @@
 <div>
   My dashboard
 </div> %>
+
+ <%# <div><%= image_tag 'landing-image2.png', alt: 'Landing page image', width: '300' %>
+      <%# </div> %>
