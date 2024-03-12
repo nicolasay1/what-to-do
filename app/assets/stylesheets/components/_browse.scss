@@ -1,114 +1,143 @@
-.browse {
-  position: fixed;
-  width: 80vw;
-  max-width: 500px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 10px;
-  border: 3px solid rgba(27, 31, 35, 0.15);
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
-  &.moving {
-    transform: translate(0, 0);
+.activities {
+  .filters-container {
+    position: relative;
+    z-index: 10;
+    background-color: white;
+    border-radius: 10px;
   }
-}
 
-.scroll {
-  max-height: 100px;
-  overflow-y: auto;
-}
+  .browse {
+    position: fixed;
+    width: 80vw;
+    max-width: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    border: 3px solid rgba(27, 31, 35, 0.15);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
-.savebox {
-  position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 20;
-  top: 10;
-  right: 0;
-  width: 20vw;
-  height: 100vh;
-  background: #809612;
-  i {
-    font-size: 30px;
-    color: white;
-    opacity: 0;
-  }
-  &.ready-save {
-    i {
-      opacity: 1;
+    &.moving {
+      transform: translate(0, 0);
     }
   }
-  opacity: 0;
-}
 
-.discardbox {
-  position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 20;
-  top: 10;
-  left: 0;
-  width: 20vw;
-  height: 100vh;
-  background: #a8191c;
-  i {
-    font-size: 30px;
-    color: white;
+  .scroll {
+    max-height: 100px;
+    overflow-y: auto;
+  }
+
+  .savebox {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    top: 10;
+    right: 0;
+    width: 20vw;
+    height: 100vh;
+    background: #809612;
+    i {
+      font-size: 30px;
+      color: white;
+      opacity: 0;
+    }
+    &.ready-save {
+      i {
+        opacity: 1;
+      }
+    }
     opacity: 0;
   }
-  &.ready-discard {
+
+  .discardbox {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    top: 10;
+    left: 0;
+    width: 20vw;
+    height: 100vh;
+    background: #a8191c;
     i {
-      opacity: 1;
+      font-size: 30px;
+      color: white;
+      opacity: 0;
+    }
+    &.ready-discard {
+      i {
+        opacity: 1;
+      }
+    }
+    opacity: 0;
+  }
+
+  .card-footer {
+    background-color: #e3e3e3;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .button-save {
+    border-radius: 5px;
+    background-color: #D2691E;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    &:hover {
+      outline: 1px solid rgb(255, 0, 170);
     }
   }
-  opacity: 0;
-}
 
-.card-footer {
-  background-color: #e3e3e3;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
+  .button-discard {
+    border-radius: 5px;
+    background-color: #DC143C;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
-.button-save {
-  border-radius: 5px;
-  background-color: #D2691E;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-
-  &:hover {
-    outline: 1px solid rgb(255, 0, 170);
+    &:hover {
+      outline: 1px solid rgb(255, 0, 170);
+    }
   }
-}
 
-.button-discard {
-  border-radius: 5px;
-  background-color: #DC143C;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-
-  &:hover {
-    outline: 1px solid rgb(255, 0, 170);
+  .btn-saves {
+    position: fixed;
+    left: 50%;
+    bottom: 40px;
+    transform: translateX(-50%);
+    background-color: #FF7F50;
+    color: white;
+    border-radius: 3px;
+    padding: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
-}
 
-.btn-saves {
-  position: fixed;
-  left: 50%;
-  bottom: 40px;
-  transform: translateX(-50%);
-  background-color: #FF7F50;
-  color: white;
-  border-radius: 3px;
-  padding: 10px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  .empty-notice {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+    padding: 20px;
+    opacity: 0;
+    scale: 0;
+    transition: all .3s ease;
+    &.visible {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+
 }
