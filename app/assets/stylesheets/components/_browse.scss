@@ -1,5 +1,23 @@
 
 .activities {
+  height: 90svh;
+  border: 1px dashed red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .cards {
+    position: relative;
+    height: 70%;
+  }
+  .card-footer {
+    display: flex;
+    align-items: center;
+    height: 10%;
+    & > div {
+      width: 100%;
+    }
+  }
+
   .filters-container {
     position: relative;
     z-index: 10;
@@ -8,14 +26,15 @@
   }
 
   .browse {
-    position: fixed;
-    width: 80vw;
+    position: absolute;
+    width: 85vw;
+    height:fit-content;
     max-width: 500px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 10px;
-    border: 3px solid rgba(27, 31, 35, 0.15);
+    border-radius: 20px;
+    border: 0.5px solid #BABABA;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
     &.moving {
@@ -76,12 +95,6 @@
     opacity: 0;
   }
 
-  .card-footer {
-    background-color: #e3e3e3;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-  }
-
   .button-save {
     border-radius: 5px;
     background-color: #D2691E;
@@ -137,6 +150,48 @@
     &.visible {
       opacity: 1;
       scale: 1;
+    }
+  }
+
+  .activity-img {
+    width: 100%;
+    height: 225px;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+
+  .card-content {
+    padding: 24px;
+  }
+
+  .card-subtext {
+    color: rgb(154, 154, 154);
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .activity-button {
+    height: 70px;
+    width: 70px;
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid #BABABA;
+    font-size: 18px;
+    font-weight: lighter;
+
+    &.dislike {
+      font-size: 24px;
+      color: #FF7F50;
+    }
+
+    &.like {
+      font-size: 20px;
+      color: #ff036c;
+    }
+
+    &.send {
+      color: #0500a1;
     }
   }
 

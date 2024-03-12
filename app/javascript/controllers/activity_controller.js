@@ -83,6 +83,11 @@ export default class extends Controller {
     }
   }
 
+  share() {
+    const activityId = this.activeCards[this.activeCardIndex].dataset.activityId;
+    window.location = `/activities/${activityId}/share`
+  }
+
   save(event) {
     const activityId = this.activeCards[this.activeCardIndex].dataset.activityId;
 
@@ -107,9 +112,7 @@ export default class extends Controller {
   }
 
   discard(event) {
-    const index = parseInt(event.currentTarget.closest(".card").dataset.index)
-    console.log(`Discarded activity at index ${index}`)
-    this.activeCardIndex += 1;
+    this.activeCardIndex += 1
     this.showCard(this.activeCardIndex)
   }
 
