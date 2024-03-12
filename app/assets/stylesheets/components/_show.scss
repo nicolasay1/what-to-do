@@ -29,3 +29,24 @@
 .selected {
   border: 2px solid $primary;
 }
+
+.show-img {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.activity-details {
+  border: 0.5px solid #bababa;
+  height: fit-content;
+  width: 100%;
+  border-radius: 20px;
+  padding: 32px;
+}
+
+.detail-grid {
+  color: rgb(136, 136, 136);
+  font-size: 16px;
+}
