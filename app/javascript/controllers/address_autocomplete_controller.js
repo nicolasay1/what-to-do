@@ -12,14 +12,22 @@ export default class extends Controller {
     console.log("Autocomplete Connected")
     this.geocoder = new MapboxGeocoder({
       accessToken: this.apiKeyValue,
-    mapboxgl: mapboxgl
 
-    //   types: "country,region,place,postcode,locality,neighborhood,address"
+      types: "country,region,place,postcode,locality,neighborhood,address"
     })
-    // this.geocoder.addTo(this.element)
+    this.geocoder.addTo(this.element)
+    const postCode = this.addressTarget.dataset.cookie
+
+    const mapboxInput = document.querySelector(".mapboxgl-ctrl-geocoder--input");
+    document.querySelector(".mapboxgl-ctrl-geocoder--input").value = postCode
+    mapboxInput.addEventListener("change", (event) => {
+      console.log("IM CHANGING")
+      this.addressTarget.value = event.target.value
+    })
   }
 
-  // this.geocoder.onRemove()
   disconnect() {
+    this.geocoder.onRemove()
+
   }
 }

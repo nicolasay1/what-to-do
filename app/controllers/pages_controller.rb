@@ -19,12 +19,15 @@ class PagesController < ApplicationController
     lat = coordinates.latitude
     lng = coordinates.longitude
 
-    puts lat
-    puts lng
 
     # Update cookie
+    puts "***********************************************************"
+    puts "***********************************************************"
+    puts cookies[:user_lat]
     cookies[:user_lat] = "#{lat},#{lng}"
     puts cookies[:user_lat]
+    puts "***********************************************************"
+    puts "***********************************************************"
 
     # Request.referer
 

@@ -13,7 +13,9 @@ class ApplicationController < ActionController::Base
 
   def show_location
     location_cookie = cookies[:user_lat]
-    @location_cookie = Geocoder.search(location_cookie).first.postal_code
+    if location_cookie
+      @location_cookie = Geocoder.search(location_cookie).first.postal_code
+    end
   end
 
 end
