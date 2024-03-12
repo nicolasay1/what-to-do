@@ -13,7 +13,8 @@ export default class extends Controller {
     "discardbox",
     "form",
     "tags",
-    "empty"
+    "empty",
+    "activityDate"
   ]
 
   connect() {
@@ -32,23 +33,43 @@ export default class extends Controller {
     const startDate = this.formTarget.style.display = this.formTarget.style.display === "none" ? "block" : "none";
   }
 
-  applyFilters() {
-    const startDate = this.formTarget.querySelector("#start-date").value;
-    const endDate = this.formTarget.querySelector("#end-date").value;
-    const selectedTags = Array.from(this.tagsTarget.querySelectorAll("input[type='checkbox']:checked")).map(checkbox => checkbox.value);
-    this.activeCards = this.allCards.filter((card) => {
-      const tags = card.dataset.tags.split(', ');
-      for (let i = 0; i < tags.length; i++) {
-        const tagsMatch = selectedTags.length === 0 || selectedTags.includes(tags[i]);
-        const datesMatch = true;
-        if (tagsMatch && datesMatch) {
-          return true;
-        }
-      }
-      return false;
-    });
-    this.showCard(0);
-  }
+  // applyFilters() {
+  //   let startDate = this.formTarget.querySelector("#start-date").value;
+  //   console.log(startDate)
+  //   if (startDate) {
+  //     startDate = Date(startDate)
+  //   }
+  //   console.log(startDate)
+  //   const endDate = Date(this.formTarget.querySelector("#end-date").value);
+  //   const selectedTags = Array.from(this.tagsTarget.querySelectorAll("input[type='checkbox']:checked")).map(checkbox => checkbox.value);
+  //   this.activeCards = this.allCards.filter((card) => {
+  //     const tags = card.dataset.tags.split(', ');
+  //     const eventDate = Date(document.querySelector(".fa-calendar-days").nextSibling.nodeValue);
+  //     // console.log(Date(this.activityDateTarget.nextSibling.nodeValue + "Z"))
+  //     // console.log(eventDate)
+  //     // console.log(startDate)
+  //     let datesMatch = true
+  //     if (startDate && endDate) {
+  //       datesMatch = eventDate >= startDate && eventDate <= endDate;
+  //       console.log("passed startend")
+  //     } else if (startDate) {
+  //       datesMatch = eventDate >= startDate;
+  //       console.log("passed start")
+  //     } else if (endDate) {
+  //       datesMatch = eventDate <= endDate;
+  //       console.log("passed end")
+  //     }
+  //     console.log(datesMatch)
+  //     for (let i = 0; i < tags.length; i++) {
+  //       const tagsMatch = selectedTags.length === 0 || selectedTags.includes(tags[i]);
+  //       if (tagsMatch && datesMatch) {
+  //         return true;
+  //       }
+  //     }
+  //     return false;
+  //   });
+  //   this.showCard(0);
+  // }
 
   showCard(index) {
     this.allCards.forEach(card => {

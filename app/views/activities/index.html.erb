@@ -23,7 +23,7 @@
                   <img src=<%= activity.image_url %> width="250px" height="200px" alt=""/>
                 <% end %>
               </div>
-              <p><i class="fa-regular fa-calendar-days me-3"></i><%= activity.date %></p>
+              <p><i class="fa-regular fa-calendar-days me-3" data-activity-target="activityDate"></i><%= activity.date %></p>
               <p><i class="fa-regular fa-clock me-3"></i><%= activity.start_time.strftime("%H:%M") %></p>
               <p><i class="fa-solid fa-repeat me-3"></i><%= activity.frequency.capitalize %></p>
               <p><i class="fa-solid fa-location-dot me-3"></i><%= activity.address %></p>
