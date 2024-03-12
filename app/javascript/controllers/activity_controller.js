@@ -11,12 +11,10 @@ export default class extends Controller {
     "container",
     "savebox",
     "discardbox",
+    "form",
     "tags",
     "empty",
-    "activityDate",
-    'filterCont',
-    "filterCount",
-    "form"
+    "activityDate"
   ]
 
   connect() {
@@ -34,14 +32,14 @@ export default class extends Controller {
   }
 
   toggleFilterForm() {
-    this.filterContTarget.classList.toggle('open');
+    const startDate = this.formTarget.style.display = this.formTarget.style.display === "none" ? "block" : "none";
   }
 
   loadFilters() {
     const url = window.location.search;
-    const startDateRegex = /startDate=([^&]+)/;
-    const endDateRegex = /endDate=([^&]+)/;
-    const selectedTagsRegex = /selectedTags=([^&]+)/;
+    const startDateRegex = /startDate=([^&]*)/;
+    const endDateRegex = /endDate=([^&]*)/;
+    const selectedTagsRegex = /selectedTags=([^&]*)/;
 
     const startDateMatch = url.match(startDateRegex);
     const startDate = startDateMatch ? startDateMatch[1] : null;
@@ -51,13 +49,6 @@ export default class extends Controller {
 
     const selectedTagsMatch = url.match(selectedTagsRegex);
     const selectedTags = selectedTagsMatch ? selectedTagsMatch[1].split(',') : null;
-
-    let filterCount = selectedTags ? selectedTags.length : 0;
-    if (startDate) filterCount += 1;
-    if (endDate) filterCount += 1;
-
-    this.filterCountTarget.innerText = filterCount;
-    if (filterCount === 0) this.filterCountTarget.style.opacity = '0';
 
     console.log("Start Date: ", startDate);
     console.log("End Date: ", endDate);
@@ -79,7 +70,6 @@ export default class extends Controller {
       checkbox.name = 'selectedTag';
       checkbox.value = tag;
       checkbox.checked = this.isTagSelected(allSelectedTags, tag);
-      checkbox.dataset.action = "change->activity#updateFilterCount"
 
       const label = document.createElement('label');
       label.textContent = tag;
@@ -101,24 +91,33 @@ export default class extends Controller {
     const startDate = this.formTarget.querySelector("#start-date").value;
     const endDate = this.formTarget.querySelector("#end-date").value;
     const selectedTags = Array.from(this.tagsTarget.querySelectorAll("input[type='checkbox']:checked")).map(checkbox => checkbox.value).join(',');
-
+    // this.activeCards = this.allCards.filter((card) => {
+    //   const tags = card.dataset.tags.split(', ');
+    //   const eventDate = Date(document.querySelector(".fa-calendar-days").nextSibling.nodeValue);
+    //   // console.log(Date(this.activityDateTarget.nextSibling.nodeValue + "Z"))
+    //   // console.log(eventDate)
+    //   // console.log(startDate)
+    //   let datesMatch = true
+    //   if (startDate && endDate) {
+    //     datesMatch = eventDate >= startDate && eventDate <= endDate;
+    //     console.log("passed startend")
+    //   } else if (startDate) {
+    //     datesMatch = eventDate >= startDate;
+    //     console.log("passed start")
+    //   } else if (endDate) {
+    //     datesMatch = eventDate <= endDate;
+    //     console.log("passed end")
+    //   }
+    //   console.log(datesMatch)
+    //   for (let i = 0; i < tags.length; i++) {
+    //     const tagsMatch = selectedTags.length === 0 || selectedTags.includes(tags[i]);
+    //     if (tagsMatch && datesMatch) {
+    //       return true;
+    //     }
+    //   }
+    //   return false;
+    // });
     window.location = `/activities?startDate=${startDate}&endDate=${endDate}&selectedTags=${selectedTags}`
-  }
-
-  updateFilterCount() {
-    console.log('test');
-    const startDatePresent = this.formTarget.querySelector("#start-date").value !== "";
-    const endDatePresent = this.formTarget.querySelector("#end-date").value !== "";
-    const selectedTagsLength = Array.from(this.tagsTarget.querySelectorAll("input[type='checkbox']:checked")).length;
-    let filterCount = selectedTagsLength;
-    if (startDatePresent) filterCount += 1;
-    if (endDatePresent) filterCount += 1;
-    this.filterCountTarget.innerText = filterCount;
-    if (filterCount > 0) {
-      this.filterCountTarget.style.opacity = '1';
-    } else {
-      this.filterCountTarget.style.opacity = '0';
-    }
   }
 
   showCard(index) {
@@ -181,7 +180,6 @@ export default class extends Controller {
     this.cardPressY = event.targetTouches[0].clientY - cardY;
     // shift the card to be anchored to that location
     card.style.transform = `translate(-${this.cardPressX}px, -${this.cardPressY}px)`;
-    card.style.position = 'fixed';
     card.style.left = `${event.targetTouches[0].clientX}px`;
     card.style.top = `${event.targetTouches[0].clientY}px`;
     this.discardboxTarget.style.zIndex = 20;
@@ -231,7 +229,6 @@ export default class extends Controller {
     card.style.left = `50%`;
     card.style.top = `50%`;
     card.style.transform = 'translate(-50%, -50%)';
-    card.style.position = 'absolute';
     this.saveboxTarget.style.opacity = 0;
     this.discardboxTarget.style.opacity = 0;
     this.discardboxTarget.style.zIndex = 0;

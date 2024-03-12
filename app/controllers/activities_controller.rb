@@ -3,8 +3,8 @@ class ActivitiesController < ApplicationController
     @activities = Activity.all.filter do |activity|
       current_user.saves.where(activity_id: activity.id).empty?
     end
-    @activities = @activities.filter { |a| a.date >= Date.parse(params[:startDate]) } if params[:startDate].present?
-    @activities = @activities.filter { |a| a.date <= Date.parse(params[:endDate]) } if params[:endDate].present?
+    @activities = @activities.where("date >= ?", Date.new(params[:start_date])) if params[:start_date].present?
+    @activities = @activities.where("date <= ?", Date.new(params[:end_date])) if params[:end_date].present?
 
     if params[:selectedTags].present?
       tags = params[:selectedTags].split(',').map(&:downcase)
