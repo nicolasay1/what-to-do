@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   root to: "pages#home"
+  post 'update_location', to: "pages#update_location"
 
   devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
 
