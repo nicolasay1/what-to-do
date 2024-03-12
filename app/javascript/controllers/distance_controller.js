@@ -12,43 +12,20 @@ export default class extends Controller {
 
 
   connect() {
-    console.log("I'm connected")
-    this.get_user_location()
-    // this.get_distance()
+    if (document.cookie.split("=")[0] == "user_lat") {
+      const coordinates_dirty = document.cookie.replace("%2C", ",")
+      const coordinates = coordinates_dirty.split("=")[1].split(",")
+
+      const user_lat = coordinates[0]
+      const user_lng = coordinates[1]
+
+      const activity_lng = this.data.get("lngValue")
+      const activity_lat = this.data.get("latValue")
+
+      this.get_distance(user_lng, user_lat, activity_lng, activity_lat)
+    }
   }
 
-  get_user_location() {
-    if ("geolocation" in navigator) {
-      // Prompt user for permission to access their location
-      navigator.geolocation.getCurrentPosition(
-        // Success callback function
-        (position) => {
-          // Get the user's latitude and longitude coordinates
-          const user_lat = position.coords.latitude;
-          const user_lng = position.coords.longitude;
-          console.log(`User Coordinates: latitude: ${user_lat}, longitude: ${user_lng}`);
-
-          // Get Activity lat and long
-          const activity_lng = this.data.get("lngValue")
-          const activity_lat = this.data.get("latValue")
-          console.log(`Activity Coordinates: latitude: ${activity_lat}, longitude: ${activity_lng}`);
-
-
-
-          // Call function to get distance
-          this.get_distance(user_lng, user_lat, activity_lng, activity_lat)
-        },
-        // Error callback function
-        (error) => {
-          // Handle errors, e.g. user denied location sharing permissions
-          console.error("Error getting user location:", error);
-        }
-      );
-    } else {
-      // Geolocation is not supported by the browser
-      console.error("Geolocation is not supported by this browser.");
-    }
-   }
 
    get_distance(user_lng, user_lat, activity_lng, activity_lat) {
     const url = "https://api.mapbox.com/directions/v5/mapbox/walking/"

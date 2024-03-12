@@ -1,47 +1,46 @@
 <div class="cards" data-activity-target='container'>
-    <% activities.shuffle.each_with_index do |activity, index| %>
+  <% activities.shuffle.each_with_index do |activity, index| %>
+    <div class="card browse" data-activity-target="card" data-activity-id="<%= activity.id %>" data-tags="<%=activity.tags%>" data-action="touchstart->activity#handleTouchStart touchmove->activity#handleTouchMove touchend->activity#handleTouchEnd">
+      <%= link_to activity_path(activity), class: "card-link" do %>
+        <%# img %>
+        <div class="d-flex justify-content-center">
+          <% if activity.image_url %>
+            <img src=<%= activity.image_url %> class="activity-img"/>
+          <% end %>
+        </div>
 
-      <div class="card browse" data-activity-target="card" data-activity-id="<%= activity.id %>" data-tags="<%=activity.tags%>" data-action="touchstart->activity#handleTouchStart touchmove->activity#handleTouchMove touchend->activity#handleTouchEnd">
-          <%= link_to activity_path(activity), class: "card-link" do %>
-            <%# img %>
-            <div class="d-flex justify-content-center">
-              <% if activity.image_url %>
-                <img src=<%= activity.image_url %> class="activity-img"/>
-              <% end %>
-            </div>
+        <div class="card-content">
+          <%# tags %>
+          <div class="row d-flex gap-2 m-0 mb-3">
+            <% activity.tags.split.each do |tag| %>
+              <div class="tag"><%= tag.gsub(",", "").capitalize %></div>
+            <% end %>
+          </div>
 
-            <div class="card-content">
-              <%# tags %>
-              <div class="row d-flex gap-2 m-0 mb-3">
-                <% activity.tags.split.each do |tag| %>
-                  <div class="tag"><%= tag.gsub(",", "").capitalize %></div>
-                <% end %>
-              </div>
-
-              <%# content %>
-              <h5 class="mb-3"><%= activity.title %></h5>
-              <div class="card-subtext">
-                <div class="row m-0 d-flex justify-content-left">
-                  <div class="col-6 p-0 m-0">
-                    <p><i class="fa-solid fa-location-dot me-2"></i><%= activity.area %></p>
-                    <p><i class="fa-regular fa-calendar-days me-2" data-activity-target="activityDate"></i><%= activity.date.strftime("%a, %e %b")  %></p>
-                    <div data-controller="distance" data-distance-lat-value="<%= activity.lat %>", data-distance-lng-value="<%= activity.lng %> ">
-                      <p><i class="fa-solid fa-person-running me-2"></i><span data-distance-target="km">...</span> - <span data-distance-target="time"></span></p>
-                    </div>
-                  </div>
-                  <div class="col-6 p-0 m-0">
-                    <p><i class="fa-regular fa-clock me-2"></i><%= activity.start_time.strftime("%H:%M") %> - <%= activity.end_time.strftime("%H:%M") %></p>
-                    <p><i class="fa-solid fa-sterling-sign me-2"></i><%= activity.price %> pp</p>
-                    <p><i class="fa-regular fa-user me-2"></i>Good for <%= activity.people %></p>
-                  </div>
+          <%# content %>
+          <h5 class="mb-3"><%= activity.title %></h5>
+          <div class="card-subtext">
+            <div class="row m-0 d-flex justify-content-left">
+              <div class="col-6 p-0 m-0">
+                <p><i class="fa-solid fa-location-dot me-2"></i><%= activity.area %></p>
+                <p><i class="fa-regular fa-calendar-days me-2" data-activity-target="activityDate"></i><%= activity.date.strftime("%a, %e %b")  %></p>
+                <div data-controller="distance" data-distance-lat-value="<%= activity.lat %>", data-distance-lng-value="<%= activity.lng %> ">
+                  <p><i class="fa-solid fa-person-running me-2"></i><span data-distance-target="km">...</span> - <span data-distance-target="time"></span></p>
                 </div>
               </div>
+              <div class="col-6 p-0 m-0">
+                <p><i class="fa-regular fa-clock me-2"></i><%= activity.start_time.strftime("%H:%M") %> - <%= activity.end_time.strftime("%H:%M") %></p>
+                <p><i class="fa-solid fa-sterling-sign me-2"></i><%= activity.price %> pp</p>
+                <p><i class="fa-regular fa-user me-2"></i>Good for <%= activity.people %></p>
+              </div>
             </div>
-          <% end %>
-      </div>
-    <% end %>
-
-    <div class='empty-notice' data-activity-target='empty'>
-      <p>No more suggested activities</p>
+          </div>
+        </div>
+      <% end %>
     </div>
+  <% end %>
+
+  <div class='empty-notice' data-activity-target='empty'>
+    <p>No more suggested activities</p>
   </div>
+</div>
