@@ -182,6 +182,8 @@ export default class extends Controller {
     card.style.transform = `translate(-${this.cardPressX}px, -${this.cardPressY}px)`;
     card.style.left = `${event.targetTouches[0].clientX}px`;
     card.style.top = `${event.targetTouches[0].clientY}px`;
+    this.discardboxTarget.style.zIndex = 20;
+    this.saveboxTarget.style.zIndex = 20;
   }
 
   handleTouchMove(event) {
@@ -229,5 +231,7 @@ export default class extends Controller {
     card.style.transform = 'translate(-50%, -50%)';
     this.saveboxTarget.style.opacity = 0;
     this.discardboxTarget.style.opacity = 0;
+    this.discardboxTarget.style.zIndex = 0;
+    this.saveboxTarget.style.zIndex = 0;
   }
 }
