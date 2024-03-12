@@ -28,19 +28,17 @@
   </div>
 
 
+<%# My upcoming activities. %>
+
 
   <div class="d-flex flex-column mb-2">
     <h2 class="m-0 mb-4">Upcoming activities</h2>
     <div class="d-flex gap-3 mb-3" >
-    <button>Your confirmed events </button>
-    <button>All your groups events </button>
-    <button>Your events </button>
+
+      <%= render 'filter_upcoming_activities' %>
+
     </div>
-    <% if @bookings.empty? %>
-      <div class="card card-body bg-body-secondary border-2 text-center rounded-3">No upcoming events</div>
-    <% else %>
-      <%= render 'shared/events', events: @bookings %>
-    <% end %>
+
   </div>
 
   <div class="d-flex flex-column mb-4">
