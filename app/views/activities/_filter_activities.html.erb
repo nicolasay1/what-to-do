@@ -1,26 +1,31 @@
-<div class="filters-container">
+<div class="filters-container"  data-activity-target='filterCont'>
+  <div class="background"></div>
   <button data-action="click->activity#toggleFilterForm">
     <i class="fa-solid fa-filter"></i>
+    <i class="fa-solid fa-xmark"></i>
+    <div class="count" data-activity-target='filterCount'>3</div>
   </button>
 
-  <form data-activity-target="form" style="" action="/activities">
-    <label for="start-date">Start Date:</label>
-    <input type="date" id="start-date">
-    <label for="end-date">End Date:</label>
-    <input type="date" id="end-date">
+  <div class='menu'>
+    <form action="/activities" data-activity-target="form">
+      <label for="start-date">Start Date:</label>
+      <input type="date" id="start-date" data-action="change->activity#updateFilterCount">
+      <label for="end-date">End Date:</label>
+      <input type="date" id="end-date" data-action="change->activity#updateFilterCount">
 
-    <label>Tags:</label>
-    <div data-activity-target="tags">
-      <label><input type="checkbox" value="sports">Sports</label>
-      <label><input type="checkbox" value="workshops">Workshops</label>
-      <label><input type="checkbox" value="walks">Walks</label>
-      <label><input type="checkbox" value="immersive">Immersive</label>
-      <label><input type="checkbox" value="history">History</label>
-      <label><input type="checkbox" value="museums">Museums</label>
-      <label><input type="checkbox" value="food">Food</label>
-      <label><input type="checkbox" value="concerts">Concerts</label>
-    </div>
+      <label>Tags:</label>
+      <div data-activity-target="tags">
+        <label><input type="checkbox" value="sports" data-action="change->activity#updateFilterCount">Sports</label>
+        <label><input type="checkbox" value="workshops" data-action="change->activity#updateFilterCount">Workshops</label>
+        <label><input type="checkbox" value="walks" data-action="change->activity#updateFilterCount">Walks</label>
+        <label><input type="checkbox" value="immersive" data-action="change->activity#updateFilterCount">Immersive</label>
+        <label><input type="checkbox" value="history" data-action="change->activity#updateFilterCount">History</label>
+        <label><input type="checkbox" value="museums" data-action="change->activity#updateFilterCount">Museums</label>
+        <label><input type="checkbox" value="food" data-action="change->activity#updateFilterCount">Food</label>
+        <label><input type="checkbox" value="concerts" data-action="change->activity#updateFilterCount">Concerts</label>
+      </div>
 
-    <button type="button" data-action='click->activity#applyFilters'>Apply Filters</button>
-  </form>
+      <button type="button" data-action='click->activity#applyFilters'>Apply Filters</button>
+    </form>
+  </div>
 </div>
