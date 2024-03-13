@@ -10,7 +10,7 @@
 
         <div class="navbar-nav xs-2 p-1">
           <div class="d-flex">
-            <span class="input-group-text"><i class="fas fa-location"></i></span>
+            <span data-controller="current-location-on-click" data-action="click->current-location-on-click#request"class="input-group-text"><i class="fas fa-location"></i></span>
             <%= form_tag(update_location_path, method: "post", class: "d-flex flex-row-reverse", role: "search", data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}) do %>
               <div class="input-group">
                 <%= text_field_tag(:location, @location_cookie, id: "locationInput", class: "d-none form-control me-2", "aria-label": "Search", data: { address_autocomplete_target: "address", cookie: @location_cookie }) %>
