@@ -16,9 +16,10 @@ export default class extends Controller {
     })
     this.geocoder.addTo(this.element)
     const postCode = this.addressTarget.dataset.cookie
-
     const mapboxInput = document.querySelector(".mapboxgl-ctrl-geocoder--input");
+
     document.querySelector(".mapboxgl-ctrl-geocoder--input").value = postCode
+
     mapboxInput.addEventListener("change", (event) => {
       this.addressTarget.value = event.target.value
     })

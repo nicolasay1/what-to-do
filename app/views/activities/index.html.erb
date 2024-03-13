@@ -42,4 +42,21 @@
       }
     });
   });
+
+   document.addEventListener("turbo:load", function() {
+    document.body.addEventListener("click", function(event) {
+      const dislikeButton = event.target.closest(".dislike");
+      const originalHTML = dislikeButton.innerHTML
+
+      if (dislikeButton) {
+        // Change the background color to the solid color
+        dislikeButton.innerHTML = "<i class='fa-solid fa-x'></i>";
+        // Wait for 2 seconds (2000 milliseconds)
+        setTimeout(function() {
+          // Revert back to the original background color
+          dislikeButton.innerHTML = originalHTML
+        }, 250);
+      }
+    });
+  });
 </script>

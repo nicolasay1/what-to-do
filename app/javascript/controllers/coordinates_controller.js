@@ -8,6 +8,7 @@ export default class extends Controller {
     } else {
       this.get_user_location()
     }
+
   }
 
   get_user_location() {
