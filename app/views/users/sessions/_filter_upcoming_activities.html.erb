@@ -18,7 +18,7 @@
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-upcoming" role="tabpanel" aria-labelledby="pills-upcoming-tab" tabindex="0">
         <% if @bookings_upcoming.empty? %>
-          <p> You have no upcoming activities 😢 </p>
+          <div class="placeholder-card">You have no upcoming activities</div>
         <% else %>
           <p>You have <strong><%= @bookings_upcoming.count%></strong> upcoming events</p>
           <%= render 'groups/group_confirmed_events', bookings: bookings_upcoming %>
@@ -27,7 +27,7 @@
 
     <div class="tab-pane fade" id="pills-today" role="tabpanel" aria-labelledby="pills-today-tab" tabindex="0">
       <% if @bookings_today.empty? %>
-          <p> You have no activities planned today 😢 </p>
+          <div class="placeholder-card">You have no activities planned for today</div>
         <% else %>
           <p>You have <strong><%= @bookings_today.count%></strong> upcoming events today</p>
         <%= render 'groups/group_confirmed_events', bookings: bookings_today %>
@@ -36,7 +36,7 @@
 
     <div class="tab-pane fade" id="pills-week" role="tabpanel" aria-labelledby="pills-week-tab" tabindex="0">
         <% if @bookings_week.empty? %>
-          <p> You have no activities planned this week 😢 </p>
+          <div class="placeholder-card">You have no activities planned this week</div>
         <% else %>
           <p>You have <strong><%= @bookings_week.count%></strong> upcoming events this week</p>
           <%= render 'groups/group_confirmed_events', bookings: bookings_week %>
@@ -45,7 +45,7 @@
 
     <div class="tab-pane fade" id="pills-past" role="tabpanel" aria-labelledby="pills-past-tab" tabindex="0">
       <% if @bookings_past.empty? %>
-          <p> You did not participate to any event 😢 </p>
+          <div class="placeholder-card">You have no past activities</div>
       <% else %>
         <p>You participated to <strong><%= @bookings_past.count%></strong> events</p>
         <%= render 'groups/group_confirmed_events', bookings: bookings_past %>
