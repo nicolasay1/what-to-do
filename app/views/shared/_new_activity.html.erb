@@ -6,7 +6,7 @@
   </div>
 
   <%# content %>
-  <div class="p-4" data-controller="distance" data-distance-latitude-value="<%= activity.latitude %>", data-distance-longitude-value="<%= activity.longitude %> ">
+  <div class="page-padding" data-controller="distance" data-distance-latitude-value="<%= activity.latitude %>", data-distance-longitude-value="<%= activity.longitude %> ">
 
     <div class="row d-flex gap-2 m-0 mb-4">
       <% activity.tags.split.each do |tag| %>

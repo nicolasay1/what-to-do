@@ -1,25 +1,39 @@
 <div class="row d-flex justify-content-right m-0 gap-4">
   <% events.each do |event| %>
     <%= link_to event_path(event), class: "text-decoration-none text-dark notification-card" do %>
-      <div class="d-flex">
-        <div class="d-flex align-items-center me-3">
-          <% if event.user.avatar.attached? %>
-            <%= cl_image_tag event.user.avatar.key, :transformation=>[
-              {:gravity=>"face", :height=>40, :width=>40, :crop=>"thumb"},
-              {:radius=>"max"},
-              {:fetch_format=>:auto}
-            ] %>
-          <% else %>
-            <%= image_tag('user.png', class: "avatar rounded") %>
-          <% end %>
+      <div class="d-flex justify-content-between">
+        <div class="d-flex">
+          <div class="d-flex align-items-center me-3">
+            <% if event.user.avatar.attached? %>
+              <%= cl_image_tag event.user.avatar.key, :transformation=>[
+                {:gravity=>"face", :height=>40, :width=>40, :crop=>"thumb"},
+                {:radius=>"max"},
+                {:fetch_format=>:auto}
+              ] %>
+            <% else %>
+              <%= image_tag('user.png', class: "avatar rounded") %>
+            <% end %>
+          </div>
+          <div class="d-flex flex-column gap-1">
+            <% if event.user == current_user %>
+              <p class="invite">You created an event for</p>
+            <% else %>
+              <p class="invite"><%= event.user.first_name %> is inviting you to</p>
+            <% end %>
+            <h4 class="p-0 m-0"><%= event.activity.title %></h4>
+          </div>
         </div>
-        <div class="d-flex flex-column gap-1">
-          <% if event.user == current_user %>
-            <p class="invite">You created an event for</p>
+        <div class="d-flex justify-content-right">
+          <% attending = event.attendances.first { |attendance| attendance.user_id == current_user.id } %>
+          <% if attending %>
+            <% if attending.attendance %>
+              <div class="response"><i class="fa-solid fa-thumbs-up neon"></i></div>
+            <% else %>
+              <div class="response"><i class="fa-solid fa-thumbs-down purple"></i></div>
+            <% end %>
           <% else %>
-            <p class="invite"><%= event.user.first_name %> is inviting you to</p>
+            <div class="response"><i class="fa-solid fa-spinner teal"></i></div>
           <% end %>
-          <h4 class="p-0 m-0"><%= event.activity.title %></h4>
         </div>
       </div>
     <% end %>
