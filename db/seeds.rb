@@ -1,13 +1,3 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-
 Chatroom.destroy_all
 Membership.destroy_all
 Save.destroy_all
@@ -60,27 +50,7 @@ User.destroy_all
     link: "https://www.meetup.com/angel-islington-running-group/events/299271105/",
     image_url: "https://secure.meetupstatic.com/photos/event/d/0/2/9/clean_514733289.webp"
   },
-  {
-    title: "Nomadic Coffee - Cowork",
-    description: "Hey nomads!
-    Come join us every Tuesday and Thursday at 4:30pm at our Cowork Space to eat some snacks, drink some coffee and connect!
-    Ps.: The event is exclusive for cowork users.",
-    frequency: "quarterly",
-    date: Date.new(2024, 4, 16),
-    start_time: '16:30',
-    end_time: '18:30',
-    area: 'Shoreditch',
-    address: "CoBalance, 130 Shoreditch High St ",
-    tags: "coffee, social, networking",
-    latitude: 51.5264,
-    longitude: -0.0786,
-    price: "Free",
-    people: "10+",
-    created_at: Time.now,
-    updated_at: Time.now,
-    link: "https://www.meetup.com/selina-secret-garden-community/events/299384962/",
-    image_url: "https://assets-pergikuliner.com/RGjHTQByH5uqYOquMdgMSQrrLW0=/385x290/smart/https://assets-pergikuliner.com/uploads/image/picture/2698411/picture-1667375852.jpg"
-  },
+
   {
     title: "Friday Climb and Cheeky Drink",
     description: "Welcome to the London Rock Climbers Castle meet up! LRC is a social climbing group and this meet up is a great way for new members to meet the group and for everyone to catch up, have a good chat, and climb together without the time pressures of the mid-week climbs.
@@ -124,27 +94,7 @@ User.destroy_all
     link: "https://www.lfm.org.uk/markets/islington/",
     image_url: "https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fa%2Fa9%2FIslington_Farmers%2527_Market_%25283624118865%2529.jpg%2F1200px-Islington_Farmers%2527_Market_%25283624118865%2529.jpg"
   },
-  {
-    title: "Surrealist Book Club",
-    description: "The March 2024 edition of Surrealist Book Club - with Hard-Boiled Wonderland & the End of the World, by Haruki Murakami.
-    A narrative particle accelerator that zooms between Wild Turkey Whiskey and Bob Dylan, unicorn skulls and voracious librarians, John Coltrane and Lord Jim. Science fiction, detective story and post-modern manifesto all rolled into one rip-roaring novel, Hard-boiled Wonderland and the End of the World is the tour de force that expanded Haruki Murakami's international following.
-    Tracking one man's descent into the Kafkaesque underworld of contemporary Tokyo, Murakami unites East and West, tragedy and farce, compassion and detachment, slang and philosophy.",
-    frequency: "weekly",
-    date: Date.new(2024, 3, 14),
-    start_time: '10:00',
-    end_time: '12:00',
-    area: 'Islington',
-    address: "Chapel Market, London N1 9PZ",
-    tags: "reading, book club, literature",
-    latitude: 51.5344,
-    longitude: -0.1063,
-    price: "2",
-    people: "8+",
-    created_at: Time.now,
-    updated_at: Time.now,
-    link: "https://www.meetup.com/surrealist-book-club/events/298890983/",
-    image_url: "https://designagame.eu/wp-content/uploads/2013/12/1_thumb.jpg"
-  },
+
   {
     title: "Parthian Wandsworth Social Climb",
     description: "Come and join us at South London's newest climbing gym every Thursday. Parthian Wandsworth has rope climbing (top rope and lead) and 300+ boulder problems spread across the second floor, which will also feature the 2024 Paris Olympic Boulder wall The Titan! Also, if you show you are signed up to the Meet Up the single price entry is £12, 10% off items in the shop, 10% off hot drinks and food, and the Friday promo will be applied on Thursday for LRC: Pizza and beer £12",
@@ -184,25 +134,7 @@ User.destroy_all
     link: "https://www.meetup.com/outdooraholics/events/297809362/",
     image_url: "https://images.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjE3Mzg3MTUvZThmMWQ0YjZjZWRlZjU4MDJkZWIzNjEwMDczMjhjN2EuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJ3ZWJwIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
   },
-  {
-    title: "Day trip to Isle of Wight",
-    description: "he Isle of Wight is the home to the poets Swinburne and Tennyson and to Queen Victoria, who built her much-loved summer residence and final home Osborne House. Charles Dickens wrote much of David Copperfield whilst staying here. Historically the Island has also attracted many other famous visitors, including Charles Darwin, Lewis Carroll, Guglielmo Marconi, Turner and Alfred Lord Tennyson.",
-    frequency: "monthly",
-    date: Date.new(2024, 3, 10),
-    start_time: '08:00',
-    end_time: '18:00',
-    area: 'Paddington',
-    address: "Paddington Rail Station, Praed St, Paddington, London W2 1EE, UK",
-    tags: "hiking, picnic, day trip",
-    latitude: 51.5191,
-    longitude: -0.1702,
-    price: "30",
-    people: "20+",
-    created_at: Time.now,
-    updated_at: Time.now,
-    link: "https://www.meetup.com/london-outdoors-lover-hiking-and-picnic-meetup-group/events/299289999/",
-    image_url: "https://eu-assets.simpleview-europe.com/isleofwight2015/imageresizer/?image=%2Fdbimgs%2FTours-sightseeing-Needles-rib-ride.png&action=PageHeaderSuper"
-  },
+
   {
     title: "Strengthening Yoga Flow",
     description: "Experience the power of mindful movement and inner resilience. Unleash your potential with Strengthening Yoga Flow, join us and embrace a healthier, more powerful you. Secure your spot now!
@@ -373,9 +305,140 @@ User.destroy_all
     image_url: "https://media.timeout.com/images/106093992/1372/1029/image.webp"
   },
 
+  {
+    title: "Toca Social - Interactive Football",
+    description: "TOCA Social is the world’s first interactive football and dining experience, combining immersive gaming and world class food and drink.",
+    frequency: "daily",
+    date: Date.new(2024, 3, 7),
+    start_time: '12:00',
+    end_time: '23:00',
+    address: "Peninsula Square, London SE10 0DX",
+    tags: "Sport, Experience",
+    price: "12.50",
+    people: "2+",
+    created_at: Time.now,
+    updated_at: Time.now,
+    link: "https://www.toca.social/",
+    image_url: "https://offloadmedia.feverup.com/secretbirmingham.com/wp-content/uploads/2021/11/10051348/TOCA-SOCIAL-3-O2-LONDON-e1636462696175.jpg"
+  },
+
+  {
+    title: "TeamSport Go Karting",
+    description: "TeamSport's unique track on the banks of the Thames offers the ultimate karting experience with first class facilities and brand new karts! Our epic track has recently been reconfigured to include a mezzanine, giving you a Multi-Level track experience over a staggering 800 metres and now with our new fleet of petrol karts karters will get to experience a whole new challenge. It's go karting at its very best, you got to kart it to believe it!    ",
+    frequency: "daily",
+    date: Date.new(2024, 3, 7),
+    start_time: '09:00',
+    end_time: '23:00',
+    address: "TeamSport Go Karting London Docklands, 3, Herringham Road, SE7 8NJ",
+    tags: "Sport",
+    price: "50",
+    people: "1+",
+    created_at: Time.now,
+    updated_at: Time.now,
+    link: "https://www.team-sport.co.uk/go-kart-tracks/docklands",
+    image_url: "https://images.prismic.io/teamsport/e3438131-a9cc-44bd-aca2-3879287f164f_Teamsport+cardiff-69.jpg?auto=compress,format&rect=0,185,2000,960&w=552&h=265"
+  },
+
+  {
+    title: "Sixes Cricket Fulham",
+    description: "Sixes brings people together to experience the thrill, drama and energy of cricket, but not as they know it! Reimagining and challenging almost every stereotype around the age-old game, Sixes delivers world class hospitality alongside an adrenaline fuelled and completely thrilling, multi-player batting challenge that's got even the World's greatest cricketers completely hooked!",
+    frequency: "daily",
+    date: Date.new(2024, 3, 7),
+    start_time: '16:00',
+    end_time: '22:00',
+    address: "18 Farm Lane, Fulham, London, SW6 1PP",
+    tags: "Sport",
+    price: "15.5 pp",
+    people: "1+",
+    created_at: Time.now,
+    updated_at: Time.now,
+    link: "https://sixescricket.com/",
+    image_url: "https://i.ytimg.com/vi/9DlJn564khc/maxresdefault.jpg"
+  },
+
+  {
+    title: "Bunker 51 - Paintball",
+    description: "Bunker 51 is London's only indoor paintball centre!
+    We use the latest equipment, serviced by our in house technicians regularly, in our fast paced close-quarter-battle games, to give you the ultimate paintball experience.
+
+    Includes:
+    - 2 hour paintball session
+    - Tippmann paintball marker
+    - 250 rounds of paint
+    - Special Ops coveralls
+    - Protective face mask
+    - Optional armoured gloves
+    - Optional vest",
+    frequency: "daily",
+    date: Date.new(2024, 3, 7),
+    start_time: '10:00',
+    end_time: '22:00',
+    address: "3 Herringham Road, SE7 8NJ",
+    tags: "Sport",
+    price: "40 pp",
+    people: "4+",
+    created_at: Time.now,
+    updated_at: Time.now,
+    link: "https://www.bunker-51.com/paintball",
+    image_url: "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_1440,w_720,f_auto,q_auto/993816/Laser_Tag_London_lcsdh4.jpg"
+  },
+
+  {
+    title: "Bunker 51 - Zombie Mode",
+    description: "Our Zombie SWAT Training and Zombie Laser Tag experiences have now closed, but we are still home to London's most fearsome escape experience!
+    ARE YOU SMARTER THAN A ZOMBIE? IT'S TIME TO FIND OUT...
 
 
 
+    Get ready to be locked in a room with up to 7 of your friends and one ravenous zombie that is chained to the wall!
+
+
+
+    As the clock ticks down, the zombies chain grows longer and within an hour they can catch you anywhere within the room - so you will need to think of some distraction techniques to keep them at bay.
+
+
+
+    Hidden in the room is a key that will unlock the door to your survival. To find the key you must locate numerous clues, solve riddle and games as a team.
+
+
+
+    Will you work with your team to survive, or sacrifice them as lunch? The choice is yours! Can you work together to save yourselves and humanity, or will you put yourself before the group and civilisation as a whole?
+
+
+
+    You have 60 minutes to the find clues, solve the puzzles, unlock the door and escape the room without getting eaten!",
+    frequency: "daily",
+    date: Date.new(2024, 3, 7),
+    start_time: '10:00',
+    end_time: '22:00',
+    address: "3 Herringham Road, SE7 8NJ",
+    tags: "Sport",
+    price: "40 pp",
+    people: "4+",
+    created_at: Time.now,
+    updated_at: Time.now,
+    link: "https://www.bunker-51.com/paintball",
+    image_url: "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1920,f_auto,q_auto/993816/225850_536130.png"
+  },
+
+{
+    title: "Gravity Wandsworth - E-karting & More",
+    description: "Race our all-electric go-karts to test your skills, reflexes, and nerve. Challenge your friends, family, or colleagues and discover the true meaning of adrenaline – who will you challenge?
+
+    Discover the next level of excitement with our state-of-the-art electric go-karts. Perfect for adrenaline junkies seeking a pro racing challenge or families in search of a thrilling day out, our tracks cater to all skill levels.",
+    frequency: "daily",
+    date: Date.new(2024, 3, 7),
+    start_time: '09:30',
+    end_time: '23:00',
+    address: "Wandsworth High St, London SW18 4TF",
+    tags: "Sport",
+    price: "14 pp",
+    people: "1+",
+    created_at: Time.now,
+    updated_at: Time.now,
+    link: "https://gravity-global.com/max/wandsworth",
+    image_url: "https://static.designmynight.com/uploads/2022/03/DSC_7280-optimised.jpg"
+  },
 
 
   # AZ Seeds
