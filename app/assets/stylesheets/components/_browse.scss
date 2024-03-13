@@ -108,6 +108,83 @@
         border: none;
         color: white;
       }
+
+      datalist {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 200px;
+        margin-top: -5px;
+      }
+
+      .slider-container {
+        padding-top: 20px;
+        opacity: 1;
+        .input-wrapper {
+          position: relative;
+          input {
+            &::-webkit-slider-thumb, &::-moz-range-thumb {
+              appearance: none;
+              -webkit-appearance: none; /* Override default look */
+              width: 3px;
+              height: 15px;
+              border-radius: 0px;
+              background-color: orange;
+              outline: none;
+              border: none;
+
+            }
+            &:focus::-webkit-slider-thumb, &::-moz-range-thumb {
+              outline: none;
+              border: none;
+
+            }
+          }
+        }
+        .marker {
+          opacity: 1;
+          position: absolute;
+          top: 0;
+          transform: translate(-50%, -100%);
+          left: 100%;
+          width: 30px;
+          height: 20px;
+          border-radius: 5px;
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #EE6352;
+          &::after {
+            content: '';
+            position: absolute;
+            z-index: 0;
+            width: 6px;
+            height: 6px;
+            left: 50%;
+            bottom: 0;
+            transform-origin: center;
+            transform: translate(-50%, calc(50% - 2px)) rotate(-45deg);
+            background-color: #EE6352;
+          }
+          p {
+            position: relative;
+            font-size: 10px;
+            z-index: 4;
+            margin: 0;
+          }
+        }
+      }
+
+      option {
+        padding: 0;
+      }
+
+      input[type="range"] {
+        width: 200px;
+        margin: 0;
+      }
+
     }
   }
 
@@ -283,5 +360,4 @@
       color: #0500a1;
     }
   }
-
 }

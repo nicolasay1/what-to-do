@@ -8,12 +8,21 @@
 
   <div class='menu'>
     <form action="/activities" data-activity-target="form">
-      <label for="distance">Distance:</label>
-      <input type="range" class="form-range" id="customRange">
+      <label for="distance">Distance (km):</label>
+      <input type="checkbox" data-activity-target="useDistanceFilter" data-action="change->activity#toggleDistanceFilter">
+      <div class='slider-container'>
+        <div class='input-wrapper'>
+          <input type="range" min="0" max="100" value="100" step="10" class="form-range" id="customRange" list="markers" data-activity-target='slider' data-action='input->activity#processSlider'>
+          <div class="marker" data-activity-target='marker'>
+            <p>10</p>
+          </div>
+        </div>
+      </div>
+
       <label for="start-date">Start Date:</label>
-      <input type="date" id="start-date" data-action="change->activity#updateFilterCount">
+      <input type="date" id="start-date" data-action="change->activity#updateFilterCount" />
       <label for="end-date">End Date:</label>
-      <input type="date" id="end-date" data-action="change->activity#updateFilterCount">
+      <input type="date" id="end-date" data-action="change->activity#updateFilterCount" />
 
       <label>Tags:</label>
       <div data-activity-target="tags">
@@ -27,7 +36,7 @@
         <label><input type="checkbox" value="concerts" data-action="change->activity#updateFilterCount">Concerts</label>
       </div>
 
-      <button class="filter-button" type="button" data-action='click->activity#applyFilters'>Apply Filters</button>
+      <button class="filter-button" type="submit" data-action='click->activity#applyFilters'>Apply Filters</button>
     </form>
   </div>
 </div>

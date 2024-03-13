@@ -6,7 +6,6 @@ class ActivitiesController < ApplicationController
     @activities = Activity.near(cookies[:user_coordinates], params[:distance]) if params[:distance].present?
     @activities = @activities.filter { |activity| activity.date >= Date.parse(params[:startDate]) } if params[:startDate].present?
     @activities = @activities.filter { |activity| activity.date <= Date.parse(params[:endDate]) } if params[:endDate].present?
-
     if params[:selectedTags].present?
       tags = params[:selectedTags].split(',').map(&:downcase)
       @activities = @activities.filter do |a|
@@ -14,7 +13,7 @@ class ActivitiesController < ApplicationController
         tags.each do |tag|
           match += 1 if a.tags.split(', ').map(&:downcase).include?(tag)
         end
-        match > 0 # matching
+        match.positive?
       end
     end
   end
