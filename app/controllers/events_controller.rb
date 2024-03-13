@@ -19,10 +19,36 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @event.user_id = current_user.id
     if @event.save!
       redirect_to group_path(@event.group)
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit
+    @event = Event.find(params[:id])
+    @event.user_id = current_user.id
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    @event.user_id = current_user.id
+    @event.update(event_params)
+    if @event.save
+      redirect_to event_path(@event)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @event = Event.find(params[:id])
+    if @event.destroy
+      redirect_to group_path(@event.group)
+    else
+      render :destroy, status: :unprocessable_entity
     end
   end
 
@@ -37,7 +63,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:activity_id, :group_id, :date, :time, :booked)
+    params.require(:event).permit(:activity_id, :group_id, :date, :time, :booked, :user)
   end
 
 end

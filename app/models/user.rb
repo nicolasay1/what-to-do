@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :attendances
   has_one_attached :avatar
   has_many :chatrooms, through: :groups
+  has_many :events
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
