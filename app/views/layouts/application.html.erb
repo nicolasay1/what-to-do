@@ -13,10 +13,14 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <style>
+      body {
+        overflow-x: hidden;
+      }
+    </style>
   </head>
 
   <body data-controller="coordinates">
-
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
     <%= yield %>
