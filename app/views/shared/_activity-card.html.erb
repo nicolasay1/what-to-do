@@ -24,7 +24,7 @@
               <div class="col-6 p-0 m-0">
                 <p><i class="fa-solid fa-location-dot me-2"></i><%= activity.area %></p>
                 <p><i class="fa-regular fa-calendar-days me-2" data-activity-target="activityDate"></i><%= activity.date.strftime("%a, %e %b")  %></p>
-                <div data-controller="distance" data-distance-lat-value="<%= activity.lat %>", data-distance-lng-value="<%= activity.lng %> ">
+                <div data-controller="distance" data-distance-lat-value="<%= activity.latitude %>", data-distance-lng-value="<%= activity.longitude %> ">
                   <p><i class="fa-solid fa-person-running me-2"></i><span data-distance-target="km">...</span> - <span data-distance-target="time"></span></p>
                 </div>
               </div>
