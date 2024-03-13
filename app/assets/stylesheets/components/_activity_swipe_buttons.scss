@@ -1,0 +1,39 @@
+.activity-button {
+
+  &:hover {
+    color: #333;
+
+    i {
+      transform: scale(1.1);
+      transition: transform 0.2s ease;
+    }
+  }
+
+  &.like {
+
+    &:hover {
+      i {
+        color: #f044b4;
+      }
+    }
+  }
+
+  &.dislike {
+
+    &:hover {
+      i {
+        color: #f0a96a;
+      }
+    }
+  }
+
+  &.share {
+
+    &:hover {
+      i {
+        color: rgb(78, 68, 225);
+      }
+    }
+  }
+
+}
