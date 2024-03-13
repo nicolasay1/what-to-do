@@ -26,20 +26,21 @@
 </style>
 
 <script>
-  document.addEventListener("turbo:load", function() {
-    document.body.addEventListener("click", function(event) {
-      const heartButton = event.target.closest(".like");
-      const originalHTML = heartButton.innerHTML
+document.addEventListener("turbo:load", function() {
+  document.body.addEventListener("click", function(event) {
+    const targetButton = event.target.closest(".activity-button");
+    if (!targetButton) return;
+// LIKE BUTTON
+    const icon = targetButton.querySelector("i.fa-heart");
+    if (!icon) return;
 
-      if (heartButton) {
-        // Change the background color to the solid color
-        heartButton.innerHTML = '<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 2s;"></i>';
-        // Wait for 2 seconds (2000 milliseconds)
-        setTimeout(function() {
-          // Revert back to the original background color
-          heartButton.innerHTML = originalHTML
-        }, 250);
-      }
-    });
+    icon.classList.toggle("fa-regular");
+    icon.classList.toggle("fa-solid");
+    setTimeout(() => {
+        icon.classList.toggle("fa-solid");
+        icon.classList.toggle("fa-regular");
+    }, "500");
   });
+});
+
 </script>
