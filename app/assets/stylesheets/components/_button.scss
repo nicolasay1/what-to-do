@@ -1,0 +1,43 @@
+.button-primary {
+  border: 1px solid $neon;
+  color: $neon;
+  background-color: transparent;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 4px;
+  transition: 0.15s ease-in-out;
+
+  &:hover {
+    background-color: $neon;
+    color: $white;
+  }
+}
+
+.button-secondary {
+  border: 1px solid $error-gray;
+  color: $error-gray;
+  background-color: transparent;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 4px;
+  transition: 0.15s ease-in-out;
+
+  &:hover {
+    background-color: $error-gray;
+    color: $white;
+  }
+}
+
+.white {
+  color: $light-gray;
+}
