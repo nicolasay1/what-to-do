@@ -40,16 +40,16 @@
 }
 
 .activity-details {
-  border: 0.5px solid #bababa;
+  border: 2px solid $purple;
   height: fit-content;
   width: 100%;
   border-radius: 20px;
-  padding: 32px;
+  padding: 24px;
 }
 
 .detail-grid {
-  color: rgb(136, 136, 136);
-  font-size: 16px;
+  color: $error-gray;
+  font-size: 18px;
 }
 
 .show-button {
@@ -65,12 +65,24 @@
   font-weight: 500;
 
   &.share {
-    border: 1px solid #0500a1;
-    color: #0500a1;
+    border: 1px solid $teal;
+    color: $teal;
+    box-shadow: rgba(42, 103, 125, 0.2) 0px 7px 29px 0px;
+
+    &:hover {
+      background-color: $teal;
+      color: $white;
+    }
   }
 
   &.create {
-    border: 1px solid #ff036c;
-    color: #ff036c;
+    border: 1px solid $neon;
+    color: $neon;
+    box-shadow: rgba(159, 54, 54, 0.2) 0px 7px 29px 0px;
+
+    &:hover {
+      background-color: $neon;
+      color: $white;
+    }
   }
 }
