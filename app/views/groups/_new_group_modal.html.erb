@@ -12,7 +12,6 @@
       <div class="modal-body">
         <%= simple_form_for Group.new do |f| %>
         <%= f.input :name, label: "What's the name of your group?", error: 'A name is mandatory, please specify one' %>
-        <%= f.input :description, label: "How would you describe your group?", hint: 'Optional' %>
         <%= f.input :banner, label:"Add a picture to your group", as: :file, hint: 'Optional' %>
         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Dismiss</button>
         <%= f.button :submit, class:"btn btn-primary" %>
