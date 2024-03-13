@@ -9,11 +9,10 @@ export default class extends Controller {
   static targets = ["address"]
 
   connect() {
-    console.log("Autocomplete Connected")
     this.geocoder = new MapboxGeocoder({
       accessToken: this.apiKeyValue,
-
-      types: "country,region,place,postcode,locality,neighborhood,address"
+      types: "country,region,place,postcode,locality,neighborhood,address",
+      countries: "gb"
     })
     this.geocoder.addTo(this.element)
     const postCode = this.addressTarget.dataset.cookie
