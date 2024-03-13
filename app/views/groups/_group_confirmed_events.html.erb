@@ -25,19 +25,21 @@
 
           <div class="">
             <h6 class="p-0 m-0 mb-3 text-secondary">Attending:</h6>
-            <% booking.attendances.where(attendance: true).each do |user| %>
-              <div>
-                <% if user.user.avatar.attached? %>
-                  <%= cl_image_tag user.user.avatar.key, :transformation=>[
-                    {:gravity=>"face", :height=>40, :width=>40, :crop=>"thumb"},
-                    {:radius=>"max"},
-                    {:fetch_format=>:auto}
-                  ], class: "me-2" %>
-                <% else %>
-                  <%= image_tag('user.png', class: "avatar me-2") %>
-                <% end %>
-              </div>
-            <% end %>
+            <div class="d-flex gap-1">
+              <% booking.attendances.where(attendance: true).each do |user| %>
+                <div>
+                  <% if user.user.avatar.attached? %>
+                    <%= cl_image_tag user.user.avatar.key, :transformation=>[
+                      {:gravity=>"face", :height=>40, :width=>40, :crop=>"thumb"},
+                      {:radius=>"max"},
+                      {:fetch_format=>:auto}
+                    ], class: "me-2" %>
+                  <% else %>
+                    <%= image_tag('user.png', class: "avatar me-2") %>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>

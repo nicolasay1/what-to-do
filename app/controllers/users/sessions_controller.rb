@@ -20,16 +20,13 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def show
-
     if current_user
-      @groups = Group.where(user: current_user)
+      @groups = current_user.groups
       @saves = Save.where(user: current_user).last(5)
-      user_groups = current_user.groups
-
-      @bookings_upcoming = user_groups.map { |group| group.events.where(booked:true).where("DATE(date) > ?", Date.today) }.flatten
-      @bookings_today = user_groups.map { |group| group.events.where(booked:true).where("DATE(date) = ?", Date.today ) }.flatten
-      @bookings_week = user_groups.map { |group| group.events.where(booked:true).where("DATE(date) > ?", Date.today + 7) }.flatten
-      @bookings_past = user_groups.map { |group| group.events.where(booked:true).where("DATE(date) < ?", Date.today) }.flatten
+      @bookings_upcoming = @groups.map { |group| group.events.where(booked:true).where("DATE(date) > ?", Date.today) }.flatten
+      @bookings_today = @groups.map { |group| group.events.where(booked:true).where("DATE(date) = ?", Date.today ) }.flatten
+      @bookings_week = @groups.map { |group| group.events.where(booked:true).where("DATE(date) > ?", Date.today + 7) }.flatten
+      @bookings_past = @groups.map { |group| group.events.where(booked:true).where("DATE(date) < ?", Date.today) }.flatten
     else
       redirect_to new_user_session_path
     end

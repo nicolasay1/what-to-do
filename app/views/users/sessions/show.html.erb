@@ -35,9 +35,7 @@
   <div class="d-flex flex-column mb-2">
     <h2 class="m-0 mb-4">Upcoming activities</h2>
     <div class="d-flex gap-3 mb-3" >
-
-      <%= render 'filter_upcoming_activities' %>
-
+      <%= render 'filter_upcoming_activities', bookings_upcoming: @bookings_upcoming, bookings_today: @bookings_today, bookings_week: @bookings_week, bookings_past: @bookings_past %>
     </div>
 
   </div>
