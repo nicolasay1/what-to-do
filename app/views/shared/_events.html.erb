@@ -1,8 +1,26 @@
 <div class="row d-flex justify-content-right m-0 gap-4">
   <% events.each do |event| %>
-    <%= link_to event_path(event), class: "text-decoration-none text-dark save-card" do %>
+    <%= link_to event_path(event), class: "text-decoration-none text-dark notification-card" do %>
       <div class="d-flex">
-        <h4 class="p-0 m-0"><%= event.activity.title %></h4>
+        <div class="d-flex align-items-center me-2">
+          <% if event.user.avatar.attached? %>
+            <%= cl_image_tag event.user.avatar.key, :transformation=>[
+              {:gravity=>"face", :height=>40, :width=>40, :crop=>"thumb"},
+              {:radius=>"max"},
+              {:fetch_format=>:auto}
+            ] %>
+          <% else %>
+            <%= image_tag('user.png', class: "avatar rounded") %>
+          <% end %>
+        </div>
+        <div class="">
+          <% if event.user == current_user %>
+            <p class="invite">You created an event for</p>
+          <% else %>
+            <p class="invite"><%= event.user.first_name %> is inviting you to</p>
+          <% end %>
+          <h4 class="p-0 m-0"><%= event.activity.title %></h4>
+        </div>
       </div>
     <% end %>
   <% end %>
