@@ -21,7 +21,7 @@
           <p> You have no upcoming activities 😢 </p>
         <% else %>
           <p>You have <strong><%= @bookings_upcoming.count%></strong> upcoming events</p>
-          <%= render 'groups/group_confirmed_events', bookings: @bookings %>
+          <%= render 'groups/group_confirmed_events', bookings: bookings_upcoming %>
         <% end %>
     </div>
 
@@ -30,7 +30,7 @@
           <p> You have no activities planned today 😢 </p>
         <% else %>
           <p>You have <strong><%= @bookings_today.count%></strong> upcoming events today</p>
-        <%= render 'groups/group_confirmed_events', bookings: @bookings_pending %>
+        <%= render 'groups/group_confirmed_events', bookings: bookings_today %>
         <% end %>
     </div>
 
@@ -39,7 +39,7 @@
           <p> You have no activities planned this week 😢 </p>
         <% else %>
           <p>You have <strong><%= @bookings_week.count%></strong> upcoming events this week</p>
-          <%= render 'groups/group_confirmed_events', bookings: @bookings_attending %>
+          <%= render 'groups/group_confirmed_events', bookings: bookings_week %>
         <% end %>
     </div>
 
@@ -48,7 +48,7 @@
           <p> You did not participate to any event 😢 </p>
       <% else %>
         <p>You participated to <strong><%= @bookings_past.count%></strong> events</p>
-        <%= render 'groups/group_confirmed_events', bookings: @bookings_past %>
+        <%= render 'groups/group_confirmed_events', bookings: bookings_past %>
       <% end %>
     </div>
   </div>
