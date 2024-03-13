@@ -11,7 +11,7 @@ class ActivitiesController < ApplicationController
       @activities = @activities.filter do |a|
         match = 0
         tags.each do |tag|
-          match += 1 if a.tags.split(', ').map(&:downcase).include?(tag)
+          match += 1 if a.tags.split(', ').map(&:downcase).include?(tag) # matching
         end
         match > 0 # matching
       end
