@@ -15,10 +15,12 @@ export default class extends Controller {
       container: this.element,
       style: "mapbox://styles/mapbox/navigation-night-v1",
       interactive: false,
-      zoom:3,
+      zoom: 19.1,
     })
     this.#addMarkerToMap()
     this.#fitMapToMarker()
+    this.map.addControl(new mapboxgl.NavigationControl());
+
   }
 
   #addMarkerToMap() {
