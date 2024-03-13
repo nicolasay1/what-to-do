@@ -4,8 +4,8 @@
     color: #333;
 
     i {
-      transform: scale(1.2);
-      transition: transform 0.4s ease;
+      transform: scale(1.1);
+      transition: transform 0.2s ease;
     }
   }
 
@@ -13,7 +13,7 @@
 
     &:hover {
       i {
-        color: #c20a4a;
+        color: #f044b4;
       }
     }
   }
@@ -22,7 +22,7 @@
 
     &:hover {
       i {
-        color: #ed8224;
+        color: #f0a96a;
       }
     }
   }
@@ -31,7 +31,7 @@
 
     &:hover {
       i {
-        color: rgb(0, 0, 0);
+        color: rgb(78, 68, 225);
       }
     }
   }
