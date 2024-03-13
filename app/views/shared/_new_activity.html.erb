@@ -17,29 +17,29 @@
     <h1 class="mb-4"><%= activity.title %></h1>
 
     <div class="activity-details mb-4">
-      <h4 class="mb-4">Details</h4>
+      <h4 class="mb-4 purple-underline">Details</h4>
       <div class="detail-grid d-flex flex-column gap-1">
         <div class="d-flex align-items-top mb-2">
-          <i class="fa-solid fa-location-dot me-3 pt-1"></i>
+          <i class="fa-solid fa-location-dot me-3 pt-1 purple"></i>
           <p class="m-0 p-0"><%= activity.address %></p>
         </div>
-        <p><i class="fa-regular fa-calendar-days me-3" data-activity-target="activityDate"></i><%= activity.date.strftime("%a, %e %b")  %> - <%= activity.frequency.capitalize %></p>
+        <p><i class="fa-regular fa-calendar-days me-3 purple" data-activity-target="activityDate"></i><%= activity.date.strftime("%a, %e %b")  %> - <%= activity.frequency.capitalize %></p>
         <div data-controller="distance" data-distance-latitude-value="<%= activity.latitude %>", data-distance-longitude-value="<%= activity.longitude %> ">
-          <p><i class="fa-solid fa-person-running me-3"></i><span data-distance-target="km">...</span> - <span data-distance-target="time"></span></p>
+          <p><i class="fa-solid fa-person-running me-3 purple"></i><span data-distance-target="km">...</span> - <span data-distance-target="time"></span></p>
         </div>
-        <p><i class="fa-regular fa-clock me-3"></i><%= activity.start_time.strftime("%H:%M") %> - <%= activity.end_time.strftime("%H:%M") %></p>
-        <p><i class="fa-solid fa-sterling-sign me-3"></i><%= activity.price %> pp</p>
-        <p class="m-0"><i class="fa-regular fa-user me-3"></i>Good for <%= activity.people %></p>
+        <p><i class="fa-regular fa-clock me-3 purple"></i><%= activity.start_time.strftime("%H:%M") %> - <%= activity.end_time.strftime("%H:%M") %></p>
+        <p><i class="fa-solid fa-sterling-sign me-3 purple"></i><%= activity.price %> pp</p>
+        <p class="m-0"><i class="fa-regular fa-user me-3 purple"></i>Good for <%= activity.people %></p>
       </div>
     </div>
 
     <div class="pt-3">
-      <h4 class="mb-3">About this activity</h4>
+      <h4 class="mb-3 teal-underline">About this activity</h4>
       <p class="description"><%= activity.description %></p>
     </div>
 
     <div class="pt-3">
-      <h4 class="mb-3 p-0">Location</h4>
+      <h4 class="mb-3 p-0 teal-underline">Location</h4>
       <%= render 'shared/map' %>
     </div>
 
