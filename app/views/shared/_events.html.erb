@@ -2,7 +2,7 @@
   <% events.each do |event| %>
     <%= link_to event_path(event), class: "text-decoration-none text-dark notification-card" do %>
       <div class="d-flex">
-        <div class="d-flex align-items-center me-2">
+        <div class="d-flex align-items-center me-3">
           <% if event.user.avatar.attached? %>
             <%= cl_image_tag event.user.avatar.key, :transformation=>[
               {:gravity=>"face", :height=>40, :width=>40, :crop=>"thumb"},
@@ -13,7 +13,7 @@
             <%= image_tag('user.png', class: "avatar rounded") %>
           <% end %>
         </div>
-        <div class="">
+        <div class="d-flex flex-column gap-1">
           <% if event.user == current_user %>
             <p class="invite">You created an event for</p>
           <% else %>
