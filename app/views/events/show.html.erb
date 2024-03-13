@@ -12,6 +12,7 @@
       <div class="mt-3 p-0 border-start border-4">
         <p class="subtext ms-3 mb-3"><i class="fa-regular fa-calendar me-2"></i><%= @event.date.strftime("%A, %e %B %Y") %></p>
         <p class="subtext ms-3 mb-3"><i class="fa-regular fa-clock me-2"></i><%= @event.time.strftime("%l:%M %P") %></p>
+        <p class="subtext ms-3 mb-3"><i class="fa-regular fa-user me-2"></i>Created by <%= @event.user.first_name %></p>
       </div>
     </div>
 

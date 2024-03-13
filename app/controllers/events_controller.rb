@@ -14,12 +14,11 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @activity = Activity.find(params[:activity_id])
-    @groups = Group.where(user: current_user)
+    @groups = current_user.groups
   end
 
   def create
     @event = Event.new(event_params)
-    @event.user_id = current_user.id
     if @event.save!
       redirect_to group_path(@event.group)
     else
@@ -29,7 +28,6 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
-    @event.user_id = current_user.id
   end
 
   def update
@@ -63,7 +61,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:activity_id, :group_id, :date, :time, :booked, :user)
+    params.require(:event).permit(:activity_id, :group_id, :date, :time, :booked, :user_id)
   end
 
 end
