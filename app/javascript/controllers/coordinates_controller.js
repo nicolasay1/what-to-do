@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="coordinates"
 export default class extends Controller {
   connect() {
-    if (document.cookie.split("=")[0] == "user_lat") {
+    if (document.cookie.split("=")[0] == "user_coordinates") {
       document.cookie.split("=")[1]
     } else {
       this.get_user_location()
@@ -17,10 +17,9 @@ export default class extends Controller {
         // Success callback function
         (position) => {
           // Get the user's latitude and longitude coordinates
-          const user_lat = position.coords.latitude;
-          const user_lng = position.coords.longitude;
-          document.cookie = `user_lat=${user_lat},${user_lng}; expires=Thu, 18 Dec 2033 12:00:00 UTC; path=/`;
-
+          const user_latitude = position.coords.latitude;
+          const user_longitude = position.coords.longitude;
+          document.cookie = `user_coordinates=${user_latitude},${user_longitude}; expires=Thu, 18 Dec 2033 12:00:00 UTC; path=/`;
         },
         // Error callback function
         (error) => {

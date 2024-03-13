@@ -6,7 +6,7 @@
   </div>
 
   <%# content %>
-  <div class="p-4" data-controller="distance" data-distance-lat-value="<%= activity.lat %>", data-distance-lng-value="<%= activity.lng %> ">
+  <div class="p-4" data-controller="distance" data-distance-latitude-value="<%= activity.latitude %>", data-distance-longitude-value="<%= activity.longitude %> ">
 
     <div class="row d-flex gap-2 m-0 mb-4">
       <% activity.tags.split.each do |tag| %>
@@ -24,7 +24,7 @@
           <p class="m-0 p-0"><%= activity.address %></p>
         </div>
         <p><i class="fa-regular fa-calendar-days me-3" data-activity-target="activityDate"></i><%= activity.date.strftime("%a, %e %b")  %> - <%= activity.frequency.capitalize %></p>
-        <div data-controller="distance" data-distance-lat-value="<%= activity.lat %>", data-distance-lng-value="<%= activity.lng %> ">
+        <div data-controller="distance" data-distance-latitude-value="<%= activity.latitude %>", data-distance-longitude-value="<%= activity.longitude %> ">
           <p><i class="fa-solid fa-person-running me-3"></i><span data-distance-target="km">...</span> - <span data-distance-target="time"></span></p>
         </div>
         <p><i class="fa-regular fa-clock me-3"></i><%= activity.start_time.strftime("%H:%M") %> - <%= activity.end_time.strftime("%H:%M") %></p>

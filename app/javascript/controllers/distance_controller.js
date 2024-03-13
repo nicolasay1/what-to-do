@@ -5,33 +5,33 @@ export default class extends Controller {
 
   static targets = ["km","time"]
   static values = {
-    lat: Number,
-    lng: Number
+    latitude: Number,
+    longitude: Number
   };
 
 
 
   connect() {
-    if (document.cookie.split("=")[0] == "user_lat") {
+    if (document.cookie.split("=")[0] == "user_coordinates") {
       const coordinates_dirty = document.cookie.replace("%2C", ",")
       const coordinates = coordinates_dirty.split("=")[1].split(",")
 
-      const user_lat = coordinates[0]
-      const user_lng = coordinates[1]
+      const user_latitude = coordinates[0]
+      const user_longitude = coordinates[1]
 
-      const activity_lng = this.data.get("lngValue")
-      const activity_lat = this.data.get("latValue")
+      const activity_longitude = this.data.get("longitudeValue")
+      const activity_latitude = this.data.get("latitudeValue")
 
-      this.get_distance(user_lng, user_lat, activity_lng, activity_lat)
+      this.get_distance(user_longitude, user_latitude, activity_longitude, activity_latitude)
     }
   }
 
 
-   get_distance(user_lng, user_lat, activity_lng, activity_lat) {
+   get_distance(user_longitude, user_latitude, activity_longitude, activity_latitude) {
     const url = "https://api.mapbox.com/directions/v5/mapbox/walking/"
     const apiKey= "pk.eyJ1IjoiamFjZWtiYXN0aW45MyIsImEiOiJjbHNpeG83YzQyOTBtMmpubzk4bGU0Y2I3In0.3LU7cAxgIwWOqfEeFV2nHA"
 
-    fetch(`${url}${user_lng},${user_lat};${activity_lng},${activity_lat}?geometries=geojson&overview=full&access_token=${apiKey}`)
+    fetch(`${url}${user_longitude},${user_latitude};${activity_longitude},${activity_latitude}?geometries=geojson&overview=full&access_token=${apiKey}`)
     .then(resp => resp.json())
     .then(data => {
       let distance = (data["routes"][0]["distance"])
