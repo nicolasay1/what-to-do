@@ -1,5 +1,5 @@
 .activity-button {
-
+  background-color: transparent;
   &:hover {
     color: #333;
 
@@ -13,7 +13,7 @@
 
     &:hover {
       i {
-        color: #f044b4;
+        color: $neon;
       }
     }
   }
@@ -22,7 +22,7 @@
 
     &:hover {
       i {
-        color: #f0a96a;
+        color: $purple;
       }
     }
   }
@@ -31,7 +31,7 @@
 
     &:hover {
       i {
-        color: rgb(78, 68, 225);
+        color: $teal;
       }
     }
   }
