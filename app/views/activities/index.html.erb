@@ -13,7 +13,8 @@
     <div class="d-flex justify-content-center gap-4">
       <button type="button" class="activity-button dislike" data-action="click->activity#discard"><i class="fa-solid fa-xmark"></i></button>
       <button type="button" class="activity-button send" data-action="click->activity#share"><i class="fa-regular fa-paper-plane"></i></button>
-      <button type="button" class="activity-button like" data-action="click->activity#save"><i class="fa-regular fa-heart"></i></button>
+      <button id="heart" type="button" class="activity-button like" data-action="click->activity#save"><i class="fa-regular fa-heart"></i></button>
+
     </div>
   </div>
 </div>
@@ -23,3 +24,22 @@
     overflow: hidden;
   }
 </style>
+
+<script>
+  document.addEventListener("turbo:load", function() {
+    document.body.addEventListener("click", function(event) {
+      const heartButton = event.target.closest(".like");
+      const originalHTML = heartButton.innerHTML
+
+      if (heartButton) {
+        // Change the background color to the solid color
+        heartButton.innerHTML = '<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 2s;"></i>';
+        // Wait for 2 seconds (2000 milliseconds)
+        setTimeout(function() {
+          // Revert back to the original background color
+          heartButton.innerHTML = originalHTML
+        }, 250);
+      }
+    });
+  });
+</script>
