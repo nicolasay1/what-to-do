@@ -22,14 +22,14 @@ export default class extends Controller {
   #addMarkerToMap() {
     this.markersValue.forEach((marker) => {
       new mapboxgl.Marker()
-        .setLngLat([ marker.lng, marker.lat ])
+        .setLngLat([ marker.longitude, marker.latitude ])
         .addTo(this.map)
     })
   }
 
   #fitMapToMarker() {
   const bounds = new mapboxgl.LngLatBounds()
-  this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
+  this.markersValue.forEach(marker => bounds.extend([ marker.longitude, marker.latitude ]))
   this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
 }

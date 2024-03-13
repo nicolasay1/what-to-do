@@ -3,8 +3,9 @@ class ActivitiesController < ApplicationController
     @activities = Activity.all.filter do |activity|
       current_user.saves.where(activity_id: activity.id).empty?
     end
-    @activities = @activities.filter { |a| a.date >= Date.parse(params[:startDate]) } if params[:startDate].present?
-    @activities = @activities.filter { |a| a.date <= Date.parse(params[:endDate]) } if params[:endDate].present?
+    @activities = Activity.near(cookies[:user_coordinates], params[:distance]) if params[:distance].present?
+    @activities = @activities.filter { |activity| activity.date >= Date.parse(params[:startDate]) } if params[:startDate].present?
+    @activities = @activities.filter { |activity| activity.date <= Date.parse(params[:endDate]) } if params[:endDate].present?
 
     if params[:selectedTags].present?
       tags = params[:selectedTags].split(',').map(&:downcase)
@@ -20,7 +21,7 @@ class ActivitiesController < ApplicationController
 
   def show
     @activity = Activity.find(params[:id])
-    @markers = [{ lat: @activity.lat, lng: @activity.lng }]
+    @markers = [{ latitude: @activity.latitude, longitude: @activity.longitude }]
   end
 
   def share

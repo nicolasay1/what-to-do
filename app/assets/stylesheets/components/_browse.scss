@@ -101,6 +101,13 @@
       opacity: 0;
       pointer-events: none;
       transition: opacity .3s ease;
+
+      & .filter-button {
+        background-color: grey;
+        border-radius: 5px;
+        border: none;
+        color: white;
+      }
     }
   }
 
@@ -229,6 +236,9 @@
     &.visible {
       opacity: 1;
       scale: 1;
+    }
+    p {
+      text-align: center;
     }
   }
 

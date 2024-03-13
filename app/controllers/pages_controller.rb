@@ -16,18 +16,13 @@ class PagesController < ApplicationController
 
     # Geocode to long/lat
     coordinates = Geocoder.search(location).first
-    lat = coordinates.latitude
-    lng = coordinates.longitude
+    longitude = coordinates.longitude
+    latitude = coordinates.latitude
 
 
     # Update cookie
-    puts "***********************************************************"
-    puts "***********************************************************"
-    puts cookies[:user_lat]
-    cookies[:user_lat] = "#{lat},#{lng}"
-    puts cookies[:user_lat]
-    puts "***********************************************************"
-    puts "***********************************************************"
+
+    cookies[:user_coordinates] = "#{latitude},#{longitude}"
 
     # Request.referer
 

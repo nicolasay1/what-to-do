@@ -8,6 +8,8 @@
 
   <div class='menu'>
     <form action="/activities" data-activity-target="form">
+      <label for="distance">Distance:</label>
+      <input type="range" class="form-range" id="customRange">
       <label for="start-date">Start Date:</label>
       <input type="date" id="start-date" data-action="change->activity#updateFilterCount">
       <label for="end-date">End Date:</label>
@@ -25,7 +27,7 @@
         <label><input type="checkbox" value="concerts" data-action="change->activity#updateFilterCount">Concerts</label>
       </div>
 
-      <button type="button" data-action='click->activity#applyFilters'>Apply Filters</button>
+      <button class="filter-button" type="button" data-action='click->activity#applyFilters'>Apply Filters</button>
     </form>
   </div>
 </div>
