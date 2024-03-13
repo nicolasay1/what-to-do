@@ -26,10 +26,10 @@ class Users::SessionsController < Devise::SessionsController
       @saves = Save.where(user: current_user).last(5)
       user_groups = current_user.groups
 
-    @bookings = user_groups.map { |group| group.events.where(booked: true) }.flatten
-    @bookings_attending = user_groups.map { |group| group.events.where(booked:true) }.flatten
-    @bookings_pending = user_groups.map { |group| group.events.where(booked:true) }.flatten
-    @bookings_past = user_groups.map { |group| group.events.where(booked:true) }.flatten
+      @bookings_upcoming = user_groups.map { |group| group.events.where(booked:true).where("DATE(date) > ?", Date.today) }.flatten
+      @bookings_today = user_groups.map { |group| group.events.where(booked:true).where("DATE(date) = ?", Date.today ) }.flatten
+      @bookings_week = user_groups.map { |group| group.events.where(booked:true).where("DATE(date) > ?", Date.today + 7) }.flatten
+      @bookings_past = user_groups.map { |group| group.events.where(booked:true).where("DATE(date) < ?", Date.today) }.flatten
     else
       redirect_to new_user_session_path
     end
