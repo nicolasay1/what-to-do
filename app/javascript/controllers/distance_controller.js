@@ -15,7 +15,6 @@ export default class extends Controller {
     if (document.cookie.split("=")[0] == "user_coordinates") {
       const coordinates_dirty = document.cookie.replace("%2C", ",")
       const coordinates = coordinates_dirty.split("=")[1].split(",")
-
       const user_latitude = coordinates[0]
       const user_longitude = coordinates[1]
 
