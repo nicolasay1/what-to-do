@@ -8,7 +8,6 @@ export default class extends Controller {
     } else {
       this.get_user_location()
     }
-
   }
 
   get_user_location() {
@@ -21,8 +20,6 @@ export default class extends Controller {
           const user_lat = position.coords.latitude;
           const user_lng = position.coords.longitude;
           document.cookie = `user_lat=${user_lat},${user_lng}; expires=Thu, 18 Dec 2033 12:00:00 UTC; path=/`;
-
-          console.log(document.cookie)
 
         },
         // Error callback function
