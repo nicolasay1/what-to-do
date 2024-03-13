@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   resources :activities, only: [:index, :show]
 
-  resources :saves, only: [:index, :create, :delete]
+  resources :saves, only: [:index, :create, :destroy]
 
 
   get 'events/:id/booked', to: 'events#booked', as: :booked

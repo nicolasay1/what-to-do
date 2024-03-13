@@ -1,4 +1,11 @@
 <%# <div class="row d-flex justify-content-right m-0 gap-4"> %>
+
+<% if groups.empty? %>
+<p>You are not part of any groups yet! Take the lead and create your own!
+
+ </p>
+
+<%else %>
   <% groups.each do |group| %>
     <%= link_to group_path(group), class: "text-decoration-none text-dark group-card" do %>
       <h3><%= group.name.capitalize %></h3>
@@ -7,4 +14,5 @@
       <% end %>
     <% end %>
   <% end %>
+<% end %>
 <%# </div> %>
