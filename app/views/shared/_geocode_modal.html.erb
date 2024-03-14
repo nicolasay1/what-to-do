@@ -1,11 +1,13 @@
 <div data-controller="current-location-on-click" data-controller="address-autocomplete">
 
-  <div class="d-flex align-items-center justify-content-center">
-    <div class="input-group align-items-center py-2" style="max-width: 60%;">
-       <%= text_field_tag(:location, @location_cookie, disabled: false, id: "locationInput", class: "form-control me-2 text-white bg-dark", "aria-label": "Search", data: { address_autocomplete_target: "address", current_location_on_click_target: "address", cookie: @location_cookie, bs_toggle: "modal", bs_target: "#locationModal"}) %>
-  </div>
-
-  </div>
+ <div class="d-flex align-items-center justify-content-center">
+    <div class="input-group align-items-stretch align-items-center py-2" style="max-width: 80%;">
+        <%= text_field_tag(:location, @location_cookie, disabled: false, id: "locationInput", class: "form-control text-white bg-dark", "aria-label": "Search", data: { address_autocomplete_target: "address", current_location_on_click_target: "address", cookie: @location_cookie, bs_toggle: "modal", bs_target: "#locationModal"}) %>
+          <span class="input-group-text bg-dark text-white" bs_toggle="modal", bs_target="#locationModal">
+          <i class="fa-solid fa-location-dot"></i>
+        </span>
+    </div>
+</div>
 
     <!-- Modal -->
     <div class="modal fade" id="locationModal" tabindex="-1" aria-labelledby="locationModalLabel" aria-hidden="true">
@@ -19,20 +21,15 @@
 
           <div class="modal-body">
 
-            <div class="input-group">
-  <%= text_field_tag(:location, @location_cookie, disabled: true, id: "locationInput", class: "form-control bg-dark text-light me-2", "aria-label": "Search", data: { address_autocomplete_target: "address", current_location_on_click_target: "address", cookie: @location_cookie }) %>
-</div>
-
-
-            <hr>
-
 
             <div>
-              <h2 class="fs-5">Get current location</h2>
+              <span>
+              <h2 class="fs-5">Get current location <i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i></h2>
+             </span>
+
               <div class="d-flex">
               <span data-action="click->current-location-on-click#request">
-                <i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i>
-                <button class="btn btn-primary ml-2">click here to get your current</button>
+                <button class="btn button-primary ml-2">Get Current Location</button>
               </span>
               </div>
             </div>
@@ -45,19 +42,18 @@
                     <div class="input-group">
                       <%= text_field_tag(:location, @location_cookie, id: "locationInput", class: "d-none form-control me-2", "aria-label": "Search", data: { address_autocomplete_target: "address",current_location_on_click_target: "address", cookie: @location_cookie }) %>
                     </div>
-                      <%= button_tag("Confirm", class: "btn btn-primary ml-2", type: "submit") %>
+                      <%= button_tag("Confirm", class: "btn button-primary ml-2", type: "submit") %>
                   <% end %>
               </div>
           </div>
-        </div>
-      </div>
-
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn button-secondary" data-bs-dismiss="modal">Close</button>
               <div class="input-group">
                 <%= text_field_tag(:location, location_cookie, disabled: true, id: "locationInput", class: "d-none form-control me-2", "aria-label": "Search", data: { address_autocomplete_target: "search",current_location_on_click_target: "address", cookie: location_cookie }) %>
               </div>
-          </div>
+                      </div>
 
-</div>
+          </div>
+      </div>
+  </div>
 </div>
