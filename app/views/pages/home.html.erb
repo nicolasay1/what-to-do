@@ -1,7 +1,7 @@
 <div class="home-hero vh-70">
 <div class="home-hero d-flex justify-content-center align-items-center p-0 m-0 vh-50">
     <div class="text-center">
-      <h1 class="text-white">Shift from Search to Experience</h1>
+      <h1 class="text-white">Discover the hidden gems in your local area</h1>
       <div class="tagline text-white">
         <p>Experience the joy of living fully with What To Do.</p>
         <p>Say goodbye to endless searching and dive into unforgettable adventures, all in one place.</p>
@@ -19,11 +19,11 @@
 
 <div class="container mt-4">
   <h2 class="text-center">3 Reasons to Use What To Do</h2>
-  <div class="row">
+  <div class="row text-center pb-5">
     <div class="col-sm-4">
       <div class="card h-100">
         <div class="card-body">
-          <h5 class="card-title">1. Broswe activities</h5>
+          <h5 class="card-title">1. Browse activities</h5>
           <p class="card-text">Browse through a myriad of exciting activities tailored just for you. Discover new adventures, events, and experiences with ease and convenience.</p>
         </div>
       </div>
@@ -47,29 +47,26 @@
   </div>
 </div>
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const counterElement = document.querySelector('.text-danger');
+  const finalCount = parseInt(counterElement.innerText, 10);
+  let currentCount = 0;
 
+  const increment = Math.ceil(finalCount / 100);
 
+  const countUp = () => {
+    currentCount += increment;
+    if (currentCount > finalCount) {
+      currentCount = finalCount;
+    }
+    counterElement.innerText = currentCount;
 
+    if (currentCount < finalCount) {
+      requestAnimationFrame(countUp);
+    }
+  };
 
-      <%# <div class="card activity-card">
-        <div class="card-header">
-          <p>Find activities</p>
-          <h4>Connections are open!</h4>
-          <h6>Meet anyone at Deceptive Patterns by Harry Brignull... Stay in touch by becoming a connection.</h6>
-          <button>Make connections</button>
-        </div>
-      </div> %>
-
-</div>
-
-
-<%# <div>
-  My Group
-</div>
-
-<div>
-  My dashboard
-</div> %>
-
- <%# <div><%= image_tag 'landing-image2.png', alt: 'Landing page image', width: '300' %>
-      <%# </div> %>
+  countUp();
+});
+</script>
