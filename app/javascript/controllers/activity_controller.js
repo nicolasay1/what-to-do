@@ -16,11 +16,15 @@ export default class extends Controller {
     "activityDate",
     'filterCont',
     "filterCount",
-    "form"
+    "form",
+    "marker",
+    "slider",
+    "useDistanceFilter"
   ]
 
   connect() {
     this.loadFilters();
+    this.processSlider();
 
     this.activeCardIndex = 0;
     this.allCards = this.cardTargets;
@@ -42,6 +46,7 @@ export default class extends Controller {
     const startDateRegex = /startDate=([^&]+)/;
     const endDateRegex = /endDate=([^&]+)/;
     const selectedTagsRegex = /selectedTags=([^&]+)/;
+    const distanceRegex = /distance=([^&]+)/;
 
     const startDateMatch = url.match(startDateRegex);
     const startDate = startDateMatch ? startDateMatch[1] : null;
@@ -52,21 +57,24 @@ export default class extends Controller {
     const selectedTagsMatch = url.match(selectedTagsRegex);
     const selectedTags = selectedTagsMatch ? selectedTagsMatch[1].split(',') : null;
 
+    const distanceMatch = url.match(distanceRegex);
+    const distance = distanceMatch ? distanceMatch[1] : null;
+    console.log(document.cookie)
     let filterCount = selectedTags ? selectedTags.length : 0;
+    if (distance) filterCount += 1;
     if (startDate) filterCount += 1;
     if (endDate) filterCount += 1;
-
+    console.log(filterCount);
     this.filterCountTarget.innerText = filterCount;
     if (filterCount === 0) this.filterCountTarget.style.opacity = '0';
 
-    console.log("Start Date: ", startDate);
-    console.log("End Date: ", endDate);
-    console.log("Selected Tags: ", selectedTags);
-
-    this.populateFilterForm(startDate, endDate, selectedTags);
+    this.populateFilterForm(startDate, endDate, selectedTags, distance);
   }
 
-  populateFilterForm(startDate, endDate, selectedTags) {
+  populateFilterForm(startDate, endDate, selectedTags, distanceValue) {
+    this.sliderTarget.value = distanceValue || null;
+    this.markerTarget.innerHTML = `<p>${distanceValue || '20'}</p>`;
+    if(distanceValue) this.useDistanceFilterTarget.checked = true;
     document.getElementById('start-date').value = startDate || '';
     document.getElementById('end-date').value = endDate || '';
     const selectedTagsContainer = this.tagsTarget;
@@ -92,6 +100,34 @@ export default class extends Controller {
     });
   }
 
+  toggleDistanceFilter() {
+    if (this.useDistanceFilterTarget.checked) {
+      this.sliderTarget.removeAttribute('disabled');
+      this.sliderTarget.style.opacity = 1;
+      this.markerTarget.style.opacity = 1;
+    } else {
+      this.sliderTarget.setAttribute('disabled', 'disabled');
+      this.sliderTarget.style.opacity = 0.3;
+      this.markerTarget.style.opacity = 0.3;
+    }
+    this.updateFilterCount()
+  }
+
+  processSlider() {
+    const maxDistance = 20;
+    const slider = this.sliderTarget;
+    const sliderPosition = slider.value * 5; // out of 100
+    const selectedDistance = Math.round(maxDistance * (sliderPosition)) / 100;
+    this.distanceFilter = selectedDistance;
+    this.markerTarget.style.left = `${sliderPosition}%`;
+    if (selectedDistance === 20) {
+      this.markerTarget.innerHTML = `<p>${selectedDistance}+</p>`;
+    } else {
+      this.markerTarget.innerHTML = `<p>${selectedDistance}</p>`;
+    }
+    this.toggleDistanceFilter()
+  }
+
   isTagSelected(allSelectedTags, tag) {
     return allSelectedTags.includes(tag);
   }
@@ -101,16 +137,26 @@ export default class extends Controller {
     const startDate = this.formTarget.querySelector("#start-date").value;
     const endDate = this.formTarget.querySelector("#end-date").value;
     const selectedTags = Array.from(this.tagsTarget.querySelectorAll("input[type='checkbox']:checked")).map(checkbox => checkbox.value).join(',');
+    const useDistanceFilter = this.useDistanceFilterTarget.checked;
+    const distanceValue = this.sliderTarget.value;
 
-    window.location = `/activities?startDate=${startDate}&endDate=${endDate}&selectedTags=${selectedTags}`
+    let filterParams = `?startDate=${startDate}&endDate=${endDate}&selectedTags=${selectedTags}`;
+
+    // Include distance filter parameters if it's checked
+    if (useDistanceFilter) {
+      filterParams += `&distance=${distanceValue}`;
+    }
+
+    window.location = `/activities${filterParams}`;
   }
 
   updateFilterCount() {
-    console.log('test');
+    const distancePresent = this.useDistanceFilterTarget.checked;
     const startDatePresent = this.formTarget.querySelector("#start-date").value !== "";
     const endDatePresent = this.formTarget.querySelector("#end-date").value !== "";
     const selectedTagsLength = Array.from(this.tagsTarget.querySelectorAll("input[type='checkbox']:checked")).length;
     let filterCount = selectedTagsLength;
+    if (distancePresent) filterCount += 1;
     if (startDatePresent) filterCount += 1;
     if (endDatePresent) filterCount += 1;
     this.filterCountTarget.innerText = filterCount;
