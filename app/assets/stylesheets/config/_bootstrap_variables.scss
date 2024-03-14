@@ -24,3 +24,10 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+.form-control {
+  border: 1px solid $error-gray;
+}
+
+.form-select {
+  border: 1px solid $error-gray;
+}

@@ -1,6 +1,6 @@
 <% if params[:query] %>
   <% if @suggested_users.present? %>
-  <h5 class="fw-medium">Suggested users</h5>
+  <h5>Suggested users</h5>
 
   <% @suggested_users.each do |user| %>
 
@@ -8,33 +8,30 @@
     <div class="col-12">
       <div class="card my-2 shadow rounded">
         <ul class="list-group list-group-flush">
-              <li class="list-group-item position-relative">
-                 <% if user.avatar.attached? %>
-        <%= cl_image_tag user.avatar.key, :transformation=>[
-          {:gravity=>"face", :height=>40, :width=>40, :crop=>"thumb"},
-          {:radius=>"max"},
-          {:fetch_format=>:auto}
-        ] %>
-      <% else %>
-        <%= image_tag('user.png', class: "avatar") %>
-      <% end %>
-                <%= user.email%>
+          <li class="list-group-item notification-card">
+            <% if user.avatar.attached? %>
+              <%= cl_image_tag user.avatar.key, :transformation=>[
+                {:gravity=>"face", :height=>40, :width=>40, :crop=>"thumb"},
+                {:radius=>"max"},
+                {:fetch_format=>:auto}
+              ] %>
+            <% else %>
+              <%= image_tag('user.png', class: "avatar") %>
+            <% end %>
+            <%= user.email%>
 
-                <%= link_to group_memberships_path(@group, membership: { user_id: user, group_id: @group, admin: false }), style: "position: absolute; right: 12px; top: calc(50% - 13px)", data: { turbo_method: "post" } do %>
-                  <%# <i class="fa-sharp fa-solid fa-plus" style="font-size: 26px;"></i> %>
-                  <i class="fa-solid fa-circle-plus" style="font-size: 26px;"></i>
-                <% end %>
-
-
-
-              </li>
+            <%= link_to group_memberships_path(@group, membership: { user_id: user, group_id: @group, admin: false }), style: "position: absolute; right: 12px; top: calc(50% - 13px)", data: { turbo_method: "post" } do %>
+              <%# <i class="fa-sharp fa-solid fa-plus" style="font-size: 26px;"></i> %>
+              <i class="fa-solid fa-circle-plus teal" style="font-size: 26px;"></i>
+            <% end %>
+          </li>
         </ul>
       </div>
     </div>
   </div>
+  <% end %>
 
-    <% end %>
   <% else %>
-    <%= "No user found, why not send them the link?"%>
+    <p class="placeholder-card"><%= "No user found, try sending them the link!"%></p>
   <% end %>
 <% end %>

@@ -13,26 +13,26 @@
 
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <% if user_signed_in? %>
-          <li class="nav-item">
+          <li class="nav-item ms-3">
             <%= link_to "Home", root_path, class: "nav-link white" %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item ms-3">
             <%= link_to "Activities", activities_path, class: "nav-link white" %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item ms-3">
             <%= link_to "Groups", groups_path, class: "nav-link white" %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item ms-3">
             <%= link_to "Profile", profile_path, class: "nav-link white" %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item ms-3">
             <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link white"  %>
           </li>
         <% else %>
-          <li class="nav-item">
+          <li class="nav-item ms-3">
             <%= link_to "Login", new_user_session_path, class: "nav-link white" %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item ms-3">
             <%= link_to "Signup", new_user_registration_path, class: "nav-link white" %>
           </li>
         <% end %>
