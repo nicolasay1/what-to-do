@@ -41,3 +41,112 @@
 .white {
   color: $light-gray;
 }
+
+.pill-button {
+  display: block;
+  border: 2px solid $secondary-gray;
+  border-radius: 20px;
+  padding: 6px 12px;
+  margin: 0;
+  margin-right: 12px;
+  font-size: 14px;
+  font-weight: 400;
+  color: $error-gray;
+  background-color: $wtd-dark;
+
+  &.active {
+    border: 2px solid $purple;
+    color: $white;
+    font-weight: 500;
+  }
+}
+
+.delete {
+  padding-top: -16px;
+  background-color: transparent;
+  border: none;
+  font-weight: 700;
+  font-size: 12px;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+.button-secondary-wide {
+  border: 1px solid $teal;
+  width: 100%;
+  color: $teal;
+  background-color: transparent;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 4px;
+  transition: 0.15s ease-in-out;
+
+  &:hover {
+    background-color: $teal;
+    color: $white;
+  }
+
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.7;
+  }
+}
+
+.button-primary-wide {
+  border: 1px solid $neon;
+  width: 100%;
+  color: $neon;
+  background-color: transparent;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 4px;
+  transition: 0.15s ease-in-out;
+
+  &:hover {
+    background-color: $neon;
+    color: $white;
+  }
+
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.7;
+  }
+}
+
+.button-tertiary-wide {
+  border: 1px solid $purple;
+  width: 100%;
+  color: $purple;
+  background-color: transparent;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 4px;
+  transition: 0.15s ease-in-out;
+
+  &:hover {
+    background-color: $purple;
+    color: $white;
+  }
+
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.7;
+  }
+}
