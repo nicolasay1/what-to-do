@@ -85,11 +85,13 @@
         height: 20px;
         width: 20px;
         border-radius: 50%;
-        background: rgb(121, 222, 121);
+        background: #EE6352;
+        color: white;
         bottom: -5px;
         right: -5px;
       }
     }
+
     .menu {
       position: absolute;
       left: 50%;
@@ -109,7 +111,12 @@
       }
 
       .date-input {
+        label {
+          display: block;
+        }
+
         input[type="date"] {
+          display: block;
           width: 100%;
           border: 1px solid #EE6352;
           border-radius: 0.2rem;
@@ -129,7 +136,7 @@
         -webkit-appearance: none; // For older versions of Safari
         width: 1rem; // Customize the checkbox size
         height: 1rem; // Customize the checkbox size
-        border: 2px solid #ccc; // Customize the border color
+        border: 2px solid $light-gray; // Customize the border color
         border-radius: 0.2rem; // Customize the border radius
         transition: all 0.3s ease; // Add transition for smoother change
 
