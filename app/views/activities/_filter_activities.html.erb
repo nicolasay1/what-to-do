@@ -8,17 +8,19 @@
 
   <div class='menu'>
     <form action="/activities" data-activity-target="form">
-      <label for="distance">Distance (km):</label>
-      <input type="checkbox" data-activity-target="useDistanceFilter" data-action="change->activity#toggleDistanceFilter">
-      <div class='slider-container'>
-        <div class='input-wrapper'>
-          <input type="range" min="0" max="100" value="100" step="10" class="form-range" id="customRange" list="markers" data-activity-target='slider' data-action='input->activity#processSlider'>
-          <div class="marker" data-activity-target='marker'>
-            <p>10</p>
+      <div class="<%= 'd-none' unless @location_cookie %>">
+        <label for="useDistanceFilter">Distance (km):</label>
+        <input type="checkbox" data-activity-target="useDistanceFilter" data-action="change->activity#toggleDistanceFilter">
+        <label for="slider"></label>
+        <div class='slider-container'>
+          <div class='input-wrapper'>
+            <input type="range" min="0" max="20" value="20" step="2" class="form-range" id="customRange" list="markers" data-activity-target='slider' data-action='input->activity#processSlider' style="opacity: 0.3" disabled>
+            <div class="marker" data-activity-target='marker' style="opacity: 0.3">
+              <p>20</p>
+            </div>
           </div>
         </div>
       </div>
-
       <label for="start-date">Start Date:</label>
       <input type="date" id="start-date" data-action="change->activity#updateFilterCount" />
       <label for="end-date">End Date:</label>
