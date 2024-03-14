@@ -25,6 +25,6 @@ class ActivitiesController < ApplicationController
 
   def share
     @activity = Activity.find(params[:id])
-    @groups = Group.where(user: current_user)
+    @groups = current_user.groups
   end
 end
