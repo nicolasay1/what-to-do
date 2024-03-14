@@ -28,28 +28,6 @@ User.destroy_all
     link: "https://www.meetup.com/angel-islington-running-group/events/299271105/",
     image_url: "https://tmhmedia.themodernhouse.com/uploads/TMH_H.Goldsmith_MaidaVale-105.jpg"
   },
-  {
-    title: "5km + Drinks",
-    description: "Please join us for our weekly run and social - a great (free!) way to meet new people!
-    We meet at 7pm at the entrance to Highbury Fields outside Harvest N5.
-    We run 5km at an easy pace (about 6 mins per km), often 3 loops around Highbury Fields but we do change up the route from time to time.
-    After the run, we will head to the House of Hammerton pub for some drinks.",
-    frequency: "weekly",
-    date: Date.new(2024, 3, 14),
-    start_time: '19:00',
-    end_time: '21:00',
-    area: 'Highbury',
-    address: "Highbury Fields, Highbury Crescent · London",
-    tags: "sports, outdoors, wellness",
-    latitude: 51.5492,
-    longitude: -0.1030,
-    price: "Free",
-    people: "10+",
-    created_at: Time.now,
-    updated_at: Time.now,
-    link: "https://www.meetup.com/angel-islington-running-group/events/299271105/",
-    image_url: "https://secure.meetupstatic.com/photos/event/d/0/2/9/clean_514733289.webp"
-  },
 
   {
     title: "Friday Climb and Cheeky Drink",
@@ -115,7 +93,7 @@ User.destroy_all
     image_url: "https://tedious-mongoose.transforms.svdcdn.com/production/content-images/press-releases/Article-Image-Size-2023-09-28T150502.624.png?w=1760&h=990&auto=compress%2Cformat&fit=crop&dm=1695915649&s=ca7a3ddd0ffd938ec4ee6f909df5adec"
   },
   {
-    title: "HIKE 21km Marlow",
+    title: "Hike 21km Marlow",
     description: "A great rural hiking escape and a chance to see the River Thames as most Londoners haven't - tranquil and meandering through lush countryside away from London. Home to ducks and swans, settled in a gorgeous woodland, meadow and countrified landscape with picturesque riverside cottages, ancient villages, overhanging Weeping Willow trees, locks and a dramatic 200m footbridge across the river Thames, let us show you the rural Thames.
     This whole area of the Chiltern Hills was designated in 1965 as an official Area of Outstanding Natural Beauty to recognise and protect its picturesque beauty.",
     frequency: "weekly",
@@ -316,6 +294,8 @@ User.destroy_all
     tags: "indoors, sports, immersive",
     price: "12.50",
     people: "2+",
+    latitude: 51.5022,
+    longitude: 0.0022,
     created_at: Time.now,
     updated_at: Time.now,
     link: "https://www.toca.social/",
@@ -333,6 +313,8 @@ User.destroy_all
     tags: "indoors, sports, adventure",
     price: "50",
     people: "1+",
+    latitude: 51.494313,
+    longitude: 0.035377,
     created_at: Time.now,
     updated_at: Time.now,
     link: "https://www.team-sport.co.uk/go-kart-tracks/docklands",
@@ -350,6 +332,8 @@ User.destroy_all
     tags: "outdoors, sports, entertainment",
     price: "15.5 pp",
     people: "1+",
+    latitude:  51.4819,
+    longitude: -0.1963,
     created_at: Time.now,
     updated_at: Time.now,
     link: "https://sixescricket.com/",
@@ -373,6 +357,8 @@ User.destroy_all
     date: Date.new(2024, 3, 7),
     start_time: '10:00',
     end_time: '22:00',
+    latitude:  51.4943,
+    longitude: 0.0354,
     address: "3 Herringham Road, SE7 8NJ",
     tags: "indoors, sports, adventure",
     price: "40 pp",
@@ -400,6 +386,8 @@ User.destroy_all
     tags: "indoors, adventure, immersive",
     price: "40 pp",
     people: "4+",
+    latitude:  51.4943,
+    longitude: 0.0354,
     created_at: Time.now,
     updated_at: Time.now,
     link: "https://www.bunker-51.com/paintball",
@@ -419,6 +407,8 @@ User.destroy_all
     tags: "indoors, sports, adventure",
     price: "14 pp",
     people: "1+",
+    latitude:  51.4543,
+    longitude: -0.1935,
     created_at: Time.now,
     updated_at: Time.now,
     link: "https://gravity-global.com/max/wandsworth",
@@ -736,6 +726,7 @@ puts "generated activities"
 User.create(first_name: "Akash", last_name: "Zaveri", email: "akazaveri@gmail.com", password: "password")
 User.create(first_name: "Jacek", last_name: "Bastin", email: "jacek@gmail.com", password: "password")
 User.create(first_name: "Nicolas", last_name: "Ayoub", email: "nicolas@gmail.com", password: "password")
+User.create(first_name: "Ife", last_name: "Ife", email: "ife@gmail.com", password: "password")
 
 user1 = User.create(first_name: "Akash", last_name: "Zaveri", email: "akazaveri@gmail.com", password: "password")
 user2 = User.create(first_name: "Andy", last_name: "Tutton", email: "andytutton2@gmail.com", password: "password")
