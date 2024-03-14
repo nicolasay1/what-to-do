@@ -25,13 +25,13 @@
                 <p><i class="fa-solid fa-location-dot me-2"></i><%= activity.area %></p>
                 <p><i class="fa-regular fa-calendar-days me-2" data-activity-target="activityDate"></i><%= activity.date.strftime("%a, %e %b")  %></p>
                 <div data-controller="distance" data-distance-latitude-value="<%= activity.latitude %>", data-distance-longitude-value="<%= activity.longitude %> ">
-                  <p><i class="fa-solid fa-person-running me-2"></i><span data-distance-target="km">...</span> - <span data-distance-target="time"></span></p>
+                  <p class="m-0"><i class="fa-solid fa-person-running me-2"></i><span data-distance-target="km">...</span> - <span data-distance-target="time"></span></p>
                 </div>
               </div>
               <div class="col-6 p-0 m-0">
                 <p><i class="fa-regular fa-clock me-2"></i><%= activity.start_time.strftime("%H:%M") %> - <%= activity.end_time.strftime("%H:%M") %></p>
                 <p><i class="fa-solid fa-sterling-sign me-2"></i><%= activity.price %> pp</p>
-                <p><i class="fa-regular fa-user me-2"></i>Good for <%= activity.people %></p>
+                <p class="m-0"><i class="fa-regular fa-user me-2"></i>Good for <%= activity.people %></p>
               </div>
             </div>
           </div>
