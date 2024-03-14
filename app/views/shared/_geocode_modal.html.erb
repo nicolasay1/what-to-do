@@ -1,14 +1,9 @@
-<div data-controller="current-location-on-click" data-controller="address-autocomplete">
+<div class="controllers" data-controller="current-location-on-click" data-controller="address-autocomplete">
 
   <div class="d-flex align-items-center">
-    <div class="input-group m-0 align-items-center" style="max-width: 80%;">
-      <i class="fa-solid fa-location-crosshairs px-2" aria-hidden="true"></i>
-        <%= text_field_tag(:location, @location_cookie, disabled: true, id: "locationInput", class: "form-control me-2", "aria-label": "Search", data: { address_autocomplete_target: "address",current_location_on_click_target: "address", cookie: @location_cookie }) %>
+    <div class="input-group align-items-center py-2" style="max-width: 70%;">
+      <%= text_field_tag(:location, @location_cookie, disabled: false, id: "locationInput", class: "me-2 text-white bg-secondary", "aria-label": "Search", data: { address_autocomplete_target: "address",current_location_on_click_target: "address", cookie: @location_cookie, bs_toggle: "modal", bs_target: "#locationModal"}) %>
     </div>
-
-    <button type="btn btn-primary m-0" data-bs-toggle="modal" data-bs-target="#locationModal" type:submit>
-        <i class="fa-regular fa-pen-to-square"></i>
-    </button>
   </div>
 
     <!-- Modal -->
@@ -42,7 +37,6 @@
 
             <hr>
 
-            <div>
               <h2 class="fs-5">Specify location</h2>
               <div class="location-search mx-auto">
                   <%= form_tag(update_location_path, method: "post", class: "d-flex flex-row-reverse", role: "search", data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}) do %>
@@ -51,12 +45,10 @@
                     </div>
                       <%= button_tag("Confirm", class: "btn btn-primary ml-2", type: "submit") %>
                   <% end %>
-
-                </div>
               </div>
-            </div>
-
           </div>
+        </div>
+      </div>
 
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -65,10 +57,5 @@
               </div>
           </div>
 
-
-
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
 </div>
