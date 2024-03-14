@@ -80,7 +80,7 @@ export default class extends Controller {
     const selectedTagsContainer = this.tagsTarget;
     selectedTagsContainer.innerHTML = '';
     const allSelectedTags = selectedTags || [];
-    const allTags = ["Sports", "Walk", "Immersive", "History", "Food", "Weekend"]
+    const allTags = ["Sports", "Hiking", "Immersive", "Culture", "Food", "Outdoors", "Indoors", "Wellness", "Entertainment", "Exploration", "Workshop", "Learning", "Adventure", "Gaming"]
     allTags.forEach(tag => {
       const checkbox = document.createElement('input');
       checkbox.type = 'checkbox';
