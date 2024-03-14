@@ -45,10 +45,10 @@
       pointer-events: none;
     }
     .fa-filter {
-      color: green;
+      color: #EE6352;;
     }
     .fa-xmark {
-      color: red;
+      color: #EE6352;;
       display: none;
     }
 
@@ -73,12 +73,12 @@
       position: relative;
       margin-top: 20px;
       outline: none;
-      border: none;
+      border: 1px solid #EE6352;;
       z-index: 2;
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      background: white;
+      background: $wtd-dark;
       box-shadow: 0px 0px 3px 2px rgba(100, 100, 111, 0.2);
       .count {
         position: absolute;
@@ -97,16 +97,50 @@
       transform: translate(-50%, -50%);
       padding: 20px;
       border-radius: 15px;
-      background: white;
       opacity: 0;
       pointer-events: none;
       transition: opacity .3s ease;
 
       & .filter-button {
-        background-color: grey;
+        background-color: #EE6352;
         border-radius: 5px;
         border: none;
         color: white;
+      }
+
+      .date-input {
+        input[type="date"] {
+          width: 100%;
+          border: 1px solid #EE6352;
+          border-radius: 0.2rem;
+          font-size: 1rem;
+          box-sizing: border-box;
+          transition: border-color 0.3s ease;
+          background: $wtd-dark;
+          color: white;
+        }
+      }
+
+      input[type="checkbox"] {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 0.5rem;
+        appearance: none; // Remove default styles
+        -webkit-appearance: none; // For older versions of Safari
+        width: 1rem; // Customize the checkbox size
+        height: 1rem; // Customize the checkbox size
+        border: 2px solid #ccc; // Customize the border color
+        border-radius: 0.2rem; // Customize the border radius
+        transition: all 0.3s ease; // Add transition for smoother change
+
+        &:checked {
+          background-color: #EE6352; // Customize the background color when checked
+          border-color: #EE6352; // Customize the border color when checked
+        }
+
+        &:focus {
+          outline: none; // Remove default focus outline
+        }
       }
 
       datalist {
@@ -137,7 +171,6 @@
             &:focus::-webkit-slider-thumb, &::-moz-range-thumb {
               outline: none;
               border: none;
-
             }
           }
         }
