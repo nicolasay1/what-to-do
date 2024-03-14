@@ -1,9 +1,10 @@
-<div class="controllers" data-controller="current-location-on-click" data-controller="address-autocomplete">
+<div data-controller="current-location-on-click" data-controller="address-autocomplete">
 
-  <div class="d-flex align-items-center">
-    <div class="input-group align-items-center py-2" style="max-width: 70%;">
-      <%= text_field_tag(:location, @location_cookie, disabled: false, id: "locationInput", class: "me-2 text-white bg-secondary", "aria-label": "Search", data: { address_autocomplete_target: "address",current_location_on_click_target: "address", cookie: @location_cookie, bs_toggle: "modal", bs_target: "#locationModal"}) %>
-    </div>
+  <div class="d-flex align-items-center justify-content-center">
+    <div class="input-group align-items-center py-2" style="max-width: 60%;">
+       <%= text_field_tag(:location, @location_cookie, disabled: false, id: "locationInput", class: "form-control me-2 text-white bg-dark", "aria-label": "Search", data: { address_autocomplete_target: "address", current_location_on_click_target: "address", cookie: @location_cookie, bs_toggle: "modal", bs_target: "#locationModal"}) %>
+  </div>
+
   </div>
 
     <!-- Modal -->
@@ -19,8 +20,9 @@
           <div class="modal-body">
 
             <div class="input-group">
-            <%= text_field_tag(:location, @location_cookie, disabled: true, id: "locationInput", class: "form-control me-2", "aria-label": "Search", data: { address_autocomplete_target: "address",current_location_on_click_target: "address", cookie: @location_cookie }) %>
-            </div>
+  <%= text_field_tag(:location, @location_cookie, disabled: true, id: "locationInput", class: "form-control bg-dark text-light me-2", "aria-label": "Search", data: { address_autocomplete_target: "address", current_location_on_click_target: "address", cookie: @location_cookie }) %>
+</div>
+
 
             <hr>
 
