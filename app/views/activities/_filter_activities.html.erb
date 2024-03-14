@@ -21,13 +21,14 @@
           </div>
         </div>
       </div>
-      <label for="start-date">Start Date:</label>
-      <input type="date" id="start-date" data-action="change->activity#updateFilterCount" />
-      <label for="end-date">End Date:</label>
-      <input type="date" id="end-date" data-action="change->activity#updateFilterCount" />
-
+      <div class="date-input">
+        <label for="start-date">Start Date:</label>
+        <input type="date" id="start-date" data-action="change->activity#updateFilterCount" />
+        <label for="end-date">End Date:</label>
+        <input type="date" id="end-date" data-action="change->activity#updateFilterCount" />
+      </div>
       <label>Tags:</label>
-      <div data-activity-target="tags">
+      <div data-activity-target="tags" class="check">
         <label><input type="checkbox" value="indoors" data-action="change->activity#updateFilterCount">Indoors</label>
         <label><input type="checkbox" value="outdoors" data-action="change->activity#updateFilterCount">Outdoors</label>
         <label><input type="checkbox" value="sports" data-action="change->activity#updateFilterCount">Sports</label>
