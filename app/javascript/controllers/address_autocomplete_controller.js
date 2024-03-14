@@ -12,14 +12,14 @@ export default class extends Controller {
     this.geocoder = new MapboxGeocoder({
       accessToken: this.apiKeyValue,
       types: "country,region,place,postcode,locality,neighborhood,address",
-      countries: "gb",
-      style: "background-color: red"
+      countries: "gb"
     })
 
 
 
     this.geocoder.addTo(this.element)
     const postCode = this.addressTarget.dataset.cookie
+    console.log(postCode)
     const mapboxInput = document.querySelector(".mapboxgl-ctrl-geocoder--input");
 
     document.querySelector(".mapboxgl-ctrl-geocoder--input").value = postCode
