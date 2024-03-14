@@ -16,16 +16,13 @@
       align-items: center; /* Center vertically */
     }
 
-    .rails-default-error-page div.dialog {
+    .rails-default-error-page .error-container {
       width: 95%;
       max-width: 33em;
       background-color: black;
-      border: none; /* Remove border */
-    }
-
-    .rails-default-error-page div.dialog > div {
-      background-color: black;
-      padding: 7px 12% 0;
+      border: 2px solid purple; /* Add 2px solid purple border */
+      border-radius: 10px; /* Add border radius for rounded corners */
+      padding: 20px; /* Add padding */
       box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
     }
 
@@ -51,7 +48,7 @@
 </head>
 
 <body class="rails-default-error-page">
-  <div class="dialog">
+  <div class="error-container">
     <div class="top-message">
       <h1>404 error!</h1>
     </div>
