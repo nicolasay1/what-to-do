@@ -1,7 +1,10 @@
 <div class="container p-0">
   <%= render 'shared/new_activity', activity: @activity %>
   <div class="pin">
-    <h4 class="p-2">Like this activity?</h4>
+    <div class="d-flex justify-content-between align-items-center">
+      <h4 class="p-2">Like this activity?</h4>
+      <%= link_to "Back", activities_path, class: "button-secondary me-2" %>
+    </div>
     <div class="d-flex justify-content-center my-2">
       <%= link_to "Send to group", share_path(@activity), class: "show-button share"  %>
       <%= link_to "+ Create event", new_event_path(:activity_id => @activity), class: "show-button create"  %>

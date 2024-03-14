@@ -1,20 +1,19 @@
-<button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-sm btn-outline-secondary" >
-  Create +
+<button type="button" class="button-tertiary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-sm btn-outline-secondary" >
+  New group
 </button>
 
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Create a new group! </h1>
+    <div class="modal-content page-padding">
+      <div class="">
+        <h1 class="modal-title fs-5 teal-underline" id="staticBackdropLabel">Create a new group</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="">
         <%= simple_form_for Group.new do |f| %>
         <%= f.input :name, label: "What's the name of your group?", error: 'A name is mandatory, please specify one' %>
-        <%= f.input :banner, label:"Add a picture to your group", as: :file, hint: 'Optional' %>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Dismiss</button>
-        <%= f.button :submit, class:"btn btn-primary" %>
+        <%# <%= f.input :banner, label:"Add a picture to your group", as: :file, hint: 'Optional' %>
+        <%= f.button :submit, class:"button-secondary-wide" %>
         <% end %>
       </div>
 

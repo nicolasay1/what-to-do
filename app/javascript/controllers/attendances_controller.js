@@ -29,12 +29,6 @@ export default class extends Controller {
         "X-CSRF-Token": this.tokenValue
       },
       body: JSON.stringify({event_id: this.eventValue, attendance: attending})
-    }).then(resp => console.log(resp))
-
-    this.responseTargets.forEach(button => {
-      button.classList.toggle("disabled")
-    });
-
-    window.location.reload()
+    }).then(window.location.reload(true))
   }
 }

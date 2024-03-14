@@ -54,7 +54,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.booked = true
     if @event.save
-      redirect_to event_path(@event)
+      redirect_to group_path(@event.group)
     end
   end
 
