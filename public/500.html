@@ -4,58 +4,62 @@
   <title>The page you were looking for doesn't exist (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-    /* Your existing styles */
-    .rails-default-error-page {
-      background-color: black;
-      text-align: center;
-      font-family: arial, sans-serif;
-      margin: 0;
-      height: 100vh; /* Set the height of the page to 100% of viewport height */
-      display: flex; /* Use flexbox for centering */
-      justify-content: center; /* Center horizontally */
-      align-items: center; /* Center vertically */
-    }
 
-    .rails-default-error-page .error-container {
-      width: 95%;
-      max-width: 33em;
-      background-color: black;
-      border: 2px solid purple; /* Add 2px solid purple border */
-      border-radius: 10px; /* Add border radius for rounded corners */
-      padding: 20px; /* Add padding */
-      box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-    }
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #222222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    .rails-default-error-page h1 {
-      font-size: 100%;
-      color: white;
-      line-height: 1.5em;
-    }
+.error-container {
+  text-align: center;
+  color: white;
+}
 
-    .rails-default-error-page p {
-      color: #9b9b9b;
-    }
+.error-image img {
+  width: 150px; /* Adjust as necessary */
+}
 
-    .top-message {
-      font-size: 40px;
-    }
+.error-text h1 {
+  font-size: 5em;
+}
 
-    .green-underline {
-      text-decoration: underline;
-      text-decoration-color: #1EDD88; /* Set the color of the underline */
-    }
-  </style>
+.error-text p {
+  font-size: 1.5em;
+}
+
+.home-button {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 7px;
+  background-color: #7e52a0;
+  transition: background-color 0.1s ease;
+}
+
+/* .home-button:hover {
+  background-color: #1EDD88;
+} */
+</style>
 </head>
-
-<body class="rails-default-error-page">
+<body>
   <div class="error-container">
-    <div class="top-message">
-      <h1>500 error!</h1>
+    <div class="error-image">
+      <img src="logo.png" alt="What to do">
     </div>
-    <div>
-      <h1><span class="green-underline">We're sorry, but something went wrong.</span></h1>
-      <p>If you are the application owner check the logs for more information.</p>
+    <div class="error-text">
+      <h1>500 error</h1>
+      <h4>The page you are looking for doesn't exist or an other error occurred.</h4>
+      <a href="/" class="home-button">Go back to the site..</a>
     </div>
   </div>
 </body>
+
 </html>
