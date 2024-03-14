@@ -6,41 +6,41 @@
   <div class="pin p-4 sticky-bottom">
     <div class="row m-0">
       <div class="d-flex justify-content-between align-items-center my-2 ps-0">
-        <h4 class="p-0 m-0">Event schedule</h4>
+        <h4 class="p-0 m-0 neon-underline">Event schedule</h4>
         <%= link_to "", edit_event_path(@event), class: "fa-regular fa-pen-to-square btn btn-sm" %>
       </div>
-      <div class="mt-3 p-0 border-start border-4">
-        <p class="subtext ms-3 mb-3"><i class="fa-regular fa-calendar me-2"></i><%= @event.date.strftime("%A, %e %B %Y") %></p>
-        <p class="subtext ms-3 mb-3"><i class="fa-regular fa-clock me-2"></i><%= @event.time.strftime("%l:%M %P") %></p>
-        <p class="subtext ms-3 mb-3"><i class="fa-regular fa-user me-2"></i>Created by <%= @event.user.first_name %></p>
+      <div class="mt-3 p-0">
+        <p class="subtext mb-3"><i class="fa-regular fa-calendar me-2"></i><%= @event.date.strftime("%A, %e %B %Y") %></p>
+        <p class="subtext mb-3"><i class="fa-regular fa-clock me-2"></i><%= @event.time.strftime("%l:%M %P") %></p>
+        <p class="subtext mb-3"><i class="fa-regular fa-user me-2"></i>Created by <%= @event.user.first_name %></p>
       </div>
     </div>
 
     <div class="d-flex gap-3 justify-content-center mt-3">
-      <div class="d-flex gap-1 align-items-center"><i class="fa-solid fa-arrow-up text-success"></i><%= @attending.count %> attending</div>
-      <div class="d-flex gap-1 align-items-center"><i class="fa-solid fa-arrow-down text-danger"></i><%= @notAttending.count %> not attending</div>
+      <div class="d-flex gap-1 align-items-center"><i class="fa-solid fa-arrow-up neon"></i><%= @attending.count %> attending</div>
+      <div class="d-flex gap-1 align-items-center"><i class="fa-solid fa-arrow-down purple"></i><%= @notAttending.count %> not attending</div>
     </div>
 
     <div class="mt-4 d-flex gap-3 me-0">
       <% if @attendance != nil %>
         <% if @attendance.attendance %>
           <div class="d-flex flex-column flex-fill gap-3">
-            <div class="card card-body bg-body-secondary border-2 text-center rounded-3">You are attending</div>
+            <div class="placeholder-card">You are attending</div>
             <% if @event.booked %>
-              <div class="card card-body bg-body-secondary border-2 text-center rounded-3">Event has been booked</div>
+              <div class="placeholder-card">Event has been booked</div>
             <% else %>
               <div class="d-flex gap-3 m-0 flex-fill">
-                <%= link_to "Book", booked_path(@event), data: { turbo_method: :get, turbo_confirm: "Are you sure?" }, class: "btn btn-outline-secondary flex-fill" %>
+                <%= link_to "Book", booked_path(@event), data: { turbo_method: :get, turbo_confirm: "Are you sure?" }, class: "button-primary-wide" %>
               </div>
             <% end %>
           </div>
         <% else %>
-          <div class="card card-body bg-body-secondary border-2 text-center rounded-3">You are not attending</div>
+          <div class="placeholder-card">You are not attending</div>
         <% end %>
       <% else %>
         <div class="d-flex gap-4 m-0 flex-fill">
-          <%= link_to "Attending", event_attendances_path(@event), class: "btn btn-outline-success flex-fill", data: { action: "click->attendances#in", target: 'attendances.response' }  %>
-          <%= link_to "Not attending", event_attendances_path(@event), class: "btn btn-outline-danger flex-fill", data: { action: "click->attendances#in", target: 'attendances.response' }  %>
+          <%= link_to "Attending", event_attendances_path(@event), class: "button-primary-wide flex-fill", data: { action: "click->attendances#in", target: 'attendances.response' }  %>
+          <%= link_to "Not attending", event_attendances_path(@event), class: "button-tertiary-wide flex-fill", data: { action: "click->attendances#in", target: 'attendances.response' }  %>
         </div>
       <% end %>
     </div>

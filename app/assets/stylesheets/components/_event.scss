@@ -2,8 +2,8 @@
   width: 100%;
   height: fit-content;
   border-radius: 20px;
-  border: 0.5px solid #BABABA;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border: 0.5px solid $error-gray;
+  box-shadow: rgba(85, 85, 85, 0.2) 0px 7px 29px 0px;
 }
 
 .card-img {
@@ -20,6 +20,6 @@
 
 .booking-subtext {
   color: rgb(154, 154, 154);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
 }

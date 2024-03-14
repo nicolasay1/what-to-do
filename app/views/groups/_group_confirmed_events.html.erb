@@ -11,14 +11,14 @@
         <div class="booking-content">
           <h5 class="mb-4"><%= booking.activity.title %></h5>
           <div class="booking-subtext">
-            <div class="row m-0 d-flex justify-content-left gap-3">
+            <div class="row m-0 d-flex justify-content-between">
               <div class="col-6 p-0 m-0">
                 <p><i class="fa-solid fa-location-dot me-2"></i><%= booking.activity.area %></p>
-                <p><i class="fa-regular fa-calendar-days me-2"></i><%= booking.date.strftime("%a, %e %b")  %></p>
-              </div>
-              <div class="col-5 p-0 m-0">
                 <p><i class="fa-regular fa-clock me-2"></i><%= booking.time.strftime("%H:%M") %></p>
-                <p><i class="fa-solid fa-check me-2"></i>Booked</p>
+              </div>
+              <div class="col-6 p-0 m-0">
+                <p><i class="fa-regular fa-calendar-days me-2"></i><%= booking.date.strftime("%a, %e %b")  %></p>
+                <p><i class="fa-regular fa-user me-2"></i><%= booking.user.first_name %></p>
               </div>
             </div>
           </div>

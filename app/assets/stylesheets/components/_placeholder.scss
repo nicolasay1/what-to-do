@@ -1,16 +1,21 @@
 .placeholder-card {
   border-radius: 12px;
-  padding: 14px 14px;
+  padding: 16px 24px;
   background-color: $secondary-gray;
   display: flex;
   justify-content: center;
   align-items: center;
   color: $error-gray;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .divider-bottom {
   padding-bottom: 24px;
   margin-bottom: 48px;
   border-bottom: 4px solid $secondary-gray;
+}
+
+.guidance {
+  font-size: 16px;
+  color: $light-gray;
 }

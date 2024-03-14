@@ -38,7 +38,7 @@
 
   <div class="d-flex flex-column divider-bottom">
     <h2 class="m-0 mb-4 neon-underline">Upcoming activities</h2>
-    <div class="d-flex gap-3 mb-3" >
+    <div class="d-flex gap-3 m-0 mb-4" >
       <%= render 'filter_upcoming_activities', bookings_upcoming: @bookings_upcoming, bookings_today: @bookings_today, bookings_week: @bookings_week, bookings_past: @bookings_past %>
     </div>
   </div>
@@ -46,8 +46,8 @@
 
   <div class="d-flex flex-column divider-bottom">
     <div class="d-flex justify-content-between align-items-center mb-4">
-      <h2 class="m-0">My saves</h2>
-      <%= link_to "See all", saves_path, class: "btn btn-sm btn-outline-secondary"  %>
+      <h2 class="m-0 neon-underline">Saves</h2>
+      <%= link_to "See all", saves_path, class: "button-primary"  %>
     </div>
     <%= render 'shared/saves', saves: @saves %>
   </div>

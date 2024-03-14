@@ -1,16 +1,23 @@
 .save-card {
-  border: 2px solid rgb(203, 203, 203);
-  border-radius: 6px;
-  padding: 10px 14px;
-  background-color: rgb(237, 237, 237);
+  border-radius: 12px;
+  padding: 16px 16px;
+  background-color: $secondary-gray;
+  box-shadow: rgba(79, 79, 79, 0.2) 2px 2px 20px;
+  transition: 0.15s ease-in-out;
+
+  &:hover {
+    border: 0.5px solid $teal;
+  }
 }
 
 .save-card h4 {
   font-size: 16px;
   font-weight: 500;
+  color: $white;
 }
 
 .details {
-  color: rgb(136, 136, 136);
-  font-size: 12px;
+  color: $error-gray;
+  font-size: 14px;
+  font-weight: 500;
 }

@@ -35,5 +35,6 @@ export default class extends Controller {
       button.classList.toggle("disabled")
     });
 
+    window.location.reload()
   }
 }
