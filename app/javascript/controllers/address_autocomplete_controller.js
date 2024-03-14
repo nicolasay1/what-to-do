@@ -15,14 +15,11 @@ export default class extends Controller {
       countries: "gb"
     })
 
-
-
+    console.log(this.addressTargets)
     this.geocoder.addTo(this.element)
     const postCode = this.addressTarget.dataset.cookie
     console.log(postCode)
     const mapboxInput = document.querySelector(".mapboxgl-ctrl-geocoder--input");
-
-    document.querySelector(".mapboxgl-ctrl-geocoder--input").value = postCode
 
     mapboxInput.addEventListener("change", (event) => {
       this.addressTarget.value = event.target.value
