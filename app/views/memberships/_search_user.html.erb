@@ -1,13 +1,13 @@
 
-<h5 class="fw-medium">Find a friend on the app</h5>
+<h5 class="teal-underline">Find a friend on the app</h5>
 <div class="row">
   <div class="col-sm-8 my-3">
     <%= form_with url: new_group_membership_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
             params[:query],
-            class: "form-control",
+            class: "form-input-search",
             placeholder: "Search by email or by name" %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <%= submit_tag "Search", name: "", class: "form-input-search-button" %>
     <% end %>
   </div>
 </div>

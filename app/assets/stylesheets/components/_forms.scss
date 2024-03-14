@@ -1,0 +1,93 @@
+.input-form {
+  display: block;
+  padding: 4px 12px;
+  width: 100%;
+  font-size: 14px;
+  background-color: $wtd-dark;
+  border: 1px solid $error-gray;
+  transition: 0.15s ease-in-out;
+  color: $white;
+  border-radius: 4px;
+
+  &:focus-visible {
+    box-shadow: rgba(42, 103, 125, 0.2) 0px 7px 29px 0px;
+    outline: none;
+  }
+}
+
+.form-input-search {
+  display: block;
+  padding: 4px 12px;
+  width: 100%;
+  height: 40px;
+  font-size: 14px;
+  background-color: $wtd-dark;
+  border: 1px solid $error-gray;
+  border-right: 0;
+  transition: 0.15s ease-in-out;
+  color: $white;
+  border-radius: 4px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+
+
+  &:focus-visible {
+    box-shadow: rgba(42, 103, 125, 0.2) 0px 7px 29px 0px;
+    outline: 1px solid $teal;
+  }
+}
+
+.form-input-search-button {
+  border: 1px solid $teal;
+  color: $teal;
+  background-color: transparent;
+  margin: 0;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 10px;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+  transition: 0.15s ease-in-out;
+
+  &:hover {
+    background-color: $teal;
+    color: $white;
+  }
+}
+
+.form-select {
+  border: 1px solid $error-gray;
+  background-color: $wtd-dark;
+
+  &:focus-visible {
+    box-shadow: rgba(42, 103, 125, 0.2) 0px 7px 29px 0px;
+    outline: 1px solid $teal;
+  }
+
+  &.file {
+    background-color: $wtd-dark;
+  }
+}
+
+.form-control {
+  border: 1px solid $error-gray;
+
+  &:focus {
+    box-shadow: rgba(42, 103, 125, 0.2) 0px 7px 29px 0px;
+    outline: 1px solid $neon;
+    border: none;
+  }
+
+  &:focus-visible {
+    box-shadow: rgba(42, 103, 125, 0.2) 0px 7px 29px 0px;
+    outline: 1px solid $neon;
+  }
+}
+
+.form-label {
+  color: $light-gray;
+}

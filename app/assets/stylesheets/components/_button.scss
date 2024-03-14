@@ -38,6 +38,26 @@
   }
 }
 
+.button-tertiary {
+  border: 1px solid $teal;
+  color: $teal;
+  background-color: transparent;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 4px;
+  transition: 0.15s ease-in-out;
+
+  &:hover {
+    background-color: $teal;
+    color: $white;
+  }
+}
+
 .white {
   color: $light-gray;
 }
