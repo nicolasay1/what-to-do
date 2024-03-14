@@ -8,9 +8,7 @@ class PagesController < ApplicationController
 
 
   def update_location
-    # EC1V input / autocomplete
-
-    # Grab Inpput / POST - Page controller
+    # Grab Input / POST - Page controller
     location_params = params.permit(:location)
     location = location_params[:location]
 

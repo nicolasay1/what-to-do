@@ -4,40 +4,39 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse ps-2" id="navbarNavAltMarkup">
 
-      <% if user_signed_in? %>
+    <%= render 'shared/geocode_modal', location_cookie: @location_cookie %>
 
-        <div class="navbar-nav xs-2 p-1">
-          <div class="d-flex" data-controller="current-location-on-click">
-            <span data-action="click->current-location-on-click#request"class="input-group-text"><i class="fas fa-location"></i></span>
-            <%= form_tag(update_location_path, method: "post", class: "d-flex flex-row-reverse", role: "search", data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}) do %>
-              <div class="input-group">
-                <%= text_field_tag(:location, @location_cookie, id: "locationInput", class: "d-none form-control me-2", "aria-label": "Search", data: { address_autocomplete_target: "address",current_location_on_click_target: "address", cookie: @location_cookie }) %>
-                <%= button_tag("Change", class: "btn btn-primary", type: "submit") %>
-              </div>
-            <% end %>
-          </div>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "Home", root_path, class: "nav-link white" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Activities", activities_path, class: "nav-link white" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Groups", groups_path, class: "nav-link white" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Profile", profile_path, class: "nav-link white" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link white"  %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link white" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Signup", new_user_registration_path, class: "nav-link white" %>
+          </li>
+        <% end %>
+      </ul>
 
 
-          <%= link_to "Home", root_path, class: "nav-link white" %>
-          <%= link_to "Activities", activities_path, class: "nav-link white" %>
-          <%= link_to "Groups", groups_path, class: "nav-link white" %>
-          <%= link_to "Profile", profile_path, class: "nav-link white" %>
-          <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link white"  %>
-
-
-
-        </div>
-
-      <% else %>
-
-        <div class="navbar-nav ms-2">
-          <%= link_to "Login", new_user_session_path, class: "nav-link white" %>
-          <%= link_to "Signup", new_user_registration_path, class: "nav-link white" %>
-        </div>
-
-      <% end %>
 
     </div>
   </div>
