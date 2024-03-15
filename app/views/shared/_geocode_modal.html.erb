@@ -1,7 +1,7 @@
 <div data-controller="current-location-on-click" data-controller="address-autocomplete">
 
  <div class="d-flex align-items-center justify-content-center">
-    <div class="input-group align-items-stretch align-items-center py-2" style="max-width: 80%;">
+    <div class="input-group align-items-stretch align-items-center py-1" style="max-width: 50%;">
         <%= text_field_tag(:location, @location_cookie, disabled: false, id: "locationInput", class: "form-control text-white bg-dark", "aria-label": "Search", data: { address_autocomplete_target: "address", current_location_on_click_target: "address", cookie: @location_cookie, bs_toggle: "modal", bs_target: "#locationModal"}) %>
           <span class="input-group-text bg-dark text-white" bs_toggle="modal", bs_target="#locationModal">
           <i class="fa-solid fa-location-dot"></i>
